@@ -15,9 +15,10 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/greyIcons"
+        android:isScrollContainer="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/greyIcons">
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -31,16 +32,18 @@
                 android:layout_weight="1"
                 android:src="@drawable/ic_camera"
                 android:padding="50dp"
+                android:layout_margin="2dp"
                 android:background="@color/white"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter" />
             <ImageButton
-                android:id="@+id/airqualityButton"
+                android:id="@+id/libraryButton"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_air_quality"
+                android:src="@drawable/ic_library"
                 android:background="@color/white"
                 android:padding="50dp"
+                android:layout_margin="2dp"
                 android:scaleType="fitCenter" />
         </LinearLayout>
 
@@ -50,22 +53,26 @@
             android:layout_height="0dip"
             android:layout_weight="1">
             <ImageButton
-                android:id="@+id/cameraButton3"
+                android:id="@+id/airqualityButton"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_air_quality"
+                android:background="@color/white"
+                android:padding="50dp"
+                android:layout_margin="2dp"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/windowButton"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_window"
                 android:background="@color/white"
                 android:padding="50dp"
+                android:layout_margin="2dp"
                 android:scaleType="fitCenter"/>
-
-            <ImageButton
-                android:id="@+id/cameraButton4"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_camera"
-                android:background="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,19 +81,25 @@
             android:layout_height="0dip"
             android:layout_weight="1">
             <ImageButton
-                android:id="@+id/cameraButton5"
+                android:id="@+id/wifiButton"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_camera"
-                android:background="@color/white" />
+                android:src="@drawable/ic_wifi"
+                android:background="@color/white"
+                android:padding="50dp"
+                android:layout_margin="2dp"
+                android:scaleType="fitCenter"/>
             <ImageButton
-                android:id="@+id/cameraButton6"
+                android:id="@+id/settingsButton"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_camera"
-                android:background="@color/white" />
+                android:src="@drawable/ic_settings"
+                android:background="@color/white"
+                android:padding="50dp"
+                android:layout_margin="2dp"
+                android:scaleType="fitCenter"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
