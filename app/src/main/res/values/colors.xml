@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="greyIcons">#565051</color>
     <color name="white">#FFFFFF</color>
+    <color name="drk_button">#FFFFFF</color>
+    <color name="lgt_button">#FFFFFF</color>
 </resources>

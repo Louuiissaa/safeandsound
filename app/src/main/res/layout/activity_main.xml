@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -25,26 +26,60 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-            <ImageButton
-                android:id="@+id/cameraButton"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_margin="2dp">
+
+                <ImageButton
+                    android:id="@+id/cameraButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="2.5"
+                    android:src="@drawable/ic_camera"
+                    android:paddingTop="30dp"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:id="@+id/livestreamText"
+                    android:background="@color/white"
+                    android:textSize="16dip"
+                    android:gravity="top|center_horizontal"
+                    android:text="Livestream"
+                    android:textAlignment="gravity" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_camera"
-                android:padding="50dp"
-                android:layout_margin="2dp"
-                android:background="@color/white"
-                android:scaleType="fitCenter" />
-            <ImageButton
-                android:id="@+id/libraryButton"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_library"
-                android:background="@color/white"
-                android:padding="50dp"
-                android:layout_margin="2dp"
-                android:scaleType="fitCenter" />
+                android:orientation="vertical"
+                android:layout_margin="2dp">
+                <ImageButton
+                    android:id="@+id/libraryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="2.5"
+                    android:src="@drawable/ic_library"
+                    android:background="@color/white"
+                    android:paddingTop="30dp"
+                    android:scaleType="fitCenter" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:id="@+id/libraryText"
+                    android:background="@color/white"
+                    android:textSize="16dip"
+                    android:gravity="top|center_horizontal"
+                    android:text="Library"
+                    android:textAlignment="gravity" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -52,27 +87,58 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1">
-            <ImageButton
-                android:id="@+id/airqualityButton"
+            <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_air_quality"
-                android:background="@color/white"
-                android:padding="50dp"
-                android:layout_margin="2dp"
-                android:scaleType="fitCenter" />
-
-            <ImageButton
-                android:id="@+id/windowButton"
+                android:orientation="vertical"
+                android:layout_margin="2dp">
+                <ImageButton
+                    android:id="@+id/airqualityButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="2.5"
+                    android:src="@drawable/ic_air_quality"
+                    android:background="@color/white"
+                    android:paddingTop="30dp"
+                    android:scaleType="fitCenter" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:id="@+id/airqualityText"
+                    android:background="@color/white"
+                    android:textSize="16dip"
+                    android:gravity="top|center_horizontal"
+                    android:text="Air Quality"
+                    android:textAlignment="gravity" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_window"
-                android:background="@color/white"
-                android:padding="50dp"
-                android:layout_margin="2dp"
-                android:scaleType="fitCenter"/>
+                android:orientation="vertical"
+                android:layout_margin="2dp">
+                <ImageButton
+                    android:id="@+id/windowButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="2.5"
+                    android:src="@drawable/ic_window"
+                    android:background="@color/white"
+                    android:paddingTop="30dp"
+                    android:scaleType="fitCenter"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:id="@+id/windowText"
+                    android:background="@color/white"
+                    android:textSize="16dip"
+                    android:gravity="top|center_horizontal"
+                    android:text="Windows"
+                    android:textAlignment="gravity" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -80,26 +146,58 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1">
-            <ImageButton
-                android:id="@+id/wifiButton"
+            <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_wifi"
-                android:background="@color/white"
-                android:padding="50dp"
-                android:layout_margin="2dp"
-                android:scaleType="fitCenter"/>
-            <ImageButton
-                android:id="@+id/settingsButton"
+                android:orientation="vertical"
+                android:layout_margin="2dp">
+                <ImageButton
+                    android:id="@+id/wifiButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="2.5"
+                    android:src="@drawable/ic_wifi"
+                    android:background="@color/white"
+                    android:paddingTop="30dp"
+                    android:scaleType="fitCenter"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:id="@+id/wifiText"
+                    android:background="@color/white"
+                    android:textSize="16dip"
+                    android:gravity="top|center_horizontal"
+                    android:text="Residents"
+                    android:textAlignment="gravity" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_settings"
-                android:background="@color/white"
-                android:padding="50dp"
-                android:layout_margin="2dp"
-                android:scaleType="fitCenter"/>
+                android:orientation="vertical"
+                android:layout_margin="2dp">
+                <ImageButton
+                    android:id="@+id/settingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="2.5"
+                    android:src="@drawable/ic_settings"
+                    android:background="@color/white"
+                    android:paddingTop="30dp"
+                    android:scaleType="fitCenter"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:id="@+id/settingsText"
+                    android:background="@color/white"
+                    android:textSize="16dip"
+                    android:gravity="top|center_horizontal"
+                    android:text="Settings"
+                    android:textAlignment="gravity" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
