@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">SafeAndSound</string>
-    <string name="luftfeutigkeit">Luftfeuchtigkeit</string>
-    <string name="temperatur">Temperatur</string>
-    <string name="kohlenstoffdioxid">CO2</string>
-    <string name="sauerstoff">O2</string>
-    <string name="kohlenstoffmonoxid">CO</string>
-    <string name="luftqualitaet">Luftqualität</string>
+    <string name="luftfeutigkeit">Humidity</string>
+    <string name="temperatur">Temperature</string>
+    <string name="kohlenstoffdioxid">Carbondioxid</string>
+    <string name="sauerstoff">Oxygen</string>
+    <string name="kohlenstoffmonoxid">Carbonmonoxid</string>
+    <string name="luftqualitaet">Air Quality</string>
 </resources>

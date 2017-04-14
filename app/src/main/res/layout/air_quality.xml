@@ -39,7 +39,7 @@
                     android:layout_weight="1"
                     android:id="@+id/livestreamText"
                     android:background="@color/white"
-                    android:textSize="16dip"
+                    android:textSize="24sp"
                     android:gravity="center_vertical|left"
                     android:paddingLeft="10dip"
                     android:text="@string/luftqualitaet"
@@ -56,59 +56,26 @@
             </LinearLayout>
         </LinearLayout>
 
+
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1">
+
             <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_margin="2dp">
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:id="@+id/humidityText"
-                    android:background="@color/white"
-                    android:textSize="16dip"
-                    android:gravity="center_vertical|left"
-                    android:paddingLeft="10dip"
-                    android:text="@string/luftfeutigkeit"
-                    android:textAlignment="gravity" />
-                <TextView
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:id="@+id/humidityOutputText"
-                    android:background="@color/white"
-                    android:textSize="16dip"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="Windows"
-                    android:textAlignment="gravity" />
                 <ImageView
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@drawable/ic_next_page"
-                    android:background="@color/white"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_margin="2dp">
+                    android:background="@color/white"
+                    android:src="@drawable/ic_temperature"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -141,6 +108,52 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_margin="2dp">
+                <ImageView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_water"/>
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:id="@+id/humidityText"
+                    android:background="@color/white"
+                    android:textSize="16dip"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="10dip"
+                    android:text="@string/luftfeutigkeit"
+                    android:textAlignment="gravity"/>
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:id="@+id/humidityOutputText"
+                    android:background="@color/white"
+                    android:textSize="16dip"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Windows"
+                    android:textAlignment="gravity" />
+                <ImageView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_next_page"
+                    android:background="@color/white"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
             <LinearLayout
@@ -149,6 +162,12 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_margin="2dp">
+                <ImageView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_oxygen"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -190,6 +209,12 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_margin="2dp">
+                <ImageView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_carbondioxid"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -231,6 +256,12 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_margin="2dp">
+                <ImageView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_carbonmonoxid"/>
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -240,7 +271,7 @@
                     android:textSize="16dip"
                     android:gravity="center_vertical|left"
                     android:paddingLeft="10dip"
-                    android:text="Library"
+                    android:text="@string/kohlenstoffmonoxid"
                     android:textAlignment="gravity" />
                 <TextView
                     android:layout_width="0dip"
