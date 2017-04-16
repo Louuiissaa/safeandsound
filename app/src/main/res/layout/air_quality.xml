@@ -84,7 +84,6 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="center_vertical|left"
-                    android:paddingLeft="10dip"
                     android:text="@string/temperatur"
                     android:textAlignment="gravity"/>
                 <TextView
@@ -94,8 +93,7 @@
                     android:id="@+id/temperatureOutputText"
                     android:background="@color/white"
                     android:textSize="16dip"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="Settings"
+                    android:gravity="center_vertical|right"
                     android:textAlignment="gravity" />
                 <ImageView
                     android:layout_width="0dip"
@@ -130,7 +128,6 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="center_vertical|left"
-                    android:paddingLeft="10dip"
                     android:text="@string/luftfeutigkeit"
                     android:textAlignment="gravity"/>
                 <TextView
@@ -140,8 +137,7 @@
                     android:id="@+id/humidityOutputText"
                     android:background="@color/white"
                     android:textSize="16dip"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="Windows"
+                    android:gravity="center_vertical|right"
                     android:textAlignment="gravity" />
                 <ImageView
                     android:layout_width="0dip"
@@ -176,7 +172,6 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="center_vertical|left"
-                    android:paddingLeft="10dip"
                     android:text="@string/sauerstoff"
                     android:textAlignment="gravity" />
                 <TextView
@@ -186,7 +181,7 @@
                     android:id="@+id/oxygenOutputText"
                     android:background="@color/white"
                     android:textSize="16dip"
-                    android:gravity="center_vertical|center_horizontal"
+                    android:gravity="center_vertical|right"
                     android:text="Library"
                     android:textAlignment="gravity" />
                 <ImageView
@@ -223,7 +218,6 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="center_vertical|left"
-                    android:paddingLeft="10dip"
                     android:text="@string/kohlenstoffdioxid"
                     android:textAlignment="gravity" />
                 <TextView
@@ -233,7 +227,7 @@
                     android:id="@+id/carbondioxidOutputText"
                     android:background="@color/white"
                     android:textSize="16dip"
-                    android:gravity="center_vertical|center_horizontal"
+                    android:gravity="center_vertical|right"
                     android:text="Library"
                     android:textAlignment="gravity" />
                 <ImageView
@@ -270,7 +264,6 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="center_vertical|left"
-                    android:paddingLeft="10dip"
                     android:text="@string/kohlenstoffmonoxid"
                     android:textAlignment="gravity" />
                 <TextView
@@ -280,7 +273,7 @@
                     android:id="@+id/carbonmonoxidOutputText"
                     android:background="@color/white"
                     android:textSize="16dip"
-                    android:gravity="center_vertical|center_horizontal"
+                    android:gravity="center_vertical|right"
                     android:text="Library"
                     android:textAlignment="gravity" />
                 <ImageView

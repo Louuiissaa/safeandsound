@@ -101,7 +101,8 @@
                     android:src="@drawable/ic_air_quality"
                     android:background="@color/white"
                     android:paddingTop="30dp"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:onClick="openAirQuality"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
@@ -111,7 +112,8 @@
                     android:textSize="16dip"
                     android:gravity="top|center_horizontal"
                     android:text="Air Quality"
-                    android:textAlignment="gravity" />
+                    android:textAlignment="gravity"
+                    android:onClick="openAirQuality"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dip"
