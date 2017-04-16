@@ -13,8 +13,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void openAirQuality(View view) {
+    public void openAirQualityActivity(View view) {
         Intent i = new Intent(MainActivity.this, AirQuality.class);
+        startActivity(i);
+    }
+
+    public void openWindowActivity(View view) {
+        Intent i = new Intent(MainActivity.this, Window.class);
         startActivity(i);
     }
 }

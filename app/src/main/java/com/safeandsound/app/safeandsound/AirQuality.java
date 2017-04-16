@@ -1,31 +1,21 @@
 package com.safeandsound.app.safeandsound;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.ParseException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.security.AccessControlContext;
 import java.util.concurrent.ExecutionException;
 
-import static java.security.AccessController.getContext;
-
 /**
- * Created by louisapabst on 13.04.17.
+ * Created by louisapabst on 16.04.17.
  */
 
 public class AirQuality extends FragmentActivity {

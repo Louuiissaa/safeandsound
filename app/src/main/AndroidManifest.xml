@@ -20,7 +20,10 @@
         <activity
         android:name=".AirQuality"
         android:label="@string/title_airquality">
-    </activity>
+        </activity>
+        <activity
+            android:name=".Window"
+            android:label="@string/windows"></activity>
     </application>
 
 </manifest>
