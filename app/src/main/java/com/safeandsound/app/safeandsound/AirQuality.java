@@ -30,7 +30,7 @@ public class AirQuality extends FragmentActivity {
 
             //http post
             try {
-                String url = "http://192.168.10.53:1880/temp";
+                String url = "http://192.168.0.102:1880/temp";
                 URL urlObj = new URL(url);
                 result = new ConnectionFeed().execute(urlObj.toString()).get();
             }catch (MalformedURLException e){
@@ -47,8 +47,6 @@ public class AirQuality extends FragmentActivity {
             String fd_humidity = "";
             try{
                 result = result.replace('"','\'');
-                //result = "{\"temp\":\"22.90\",\"humidity\":\"36.70\",\"sensorid\":\"dht22\",\"date\":149}";
-                //JSONArray jArray = new JSONArray(result);
                 JSONObject json_data= new JSONObject(result);
                 fd_humidity = json_data.getString("humidity");
                 fd_temp = json_data.getString("temp");

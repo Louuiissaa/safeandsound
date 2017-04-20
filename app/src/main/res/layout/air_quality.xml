@@ -42,7 +42,7 @@
                     android:textSize="24sp"
                     android:gravity="center_vertical|left"
                     android:paddingLeft="10dip"
-                    android:text="@string/luftqualitaet"
+                    android:text="@string/airquality"
                     android:textAlignment="gravity" />
                 <ImageButton
                     android:id="@+id/cameraButton"

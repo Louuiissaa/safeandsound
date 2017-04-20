@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#728C00</color>
     <color name="colorPrimaryDark">#565051</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#728C00</color>
     <color name="greyIcons">#565051</color>
     <color name="white">#FFFFFF</color>
     <color name="drk_button">#FFFFFF</color>

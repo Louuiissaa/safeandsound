@@ -22,4 +22,14 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, Window.class);
         startActivity(i);
     }
+
+    public void openSettingsActivity(View view) {
+        Intent i = new Intent(MainActivity.this, Settings.class);
+        startActivity(i);
+    }
+
+    public void openLogInActivity(View view) {
+        Intent i = new Intent(MainActivity.this, LogIn.class);
+        startActivity(i);
+    }
 }

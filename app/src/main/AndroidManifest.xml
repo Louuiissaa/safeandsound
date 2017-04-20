@@ -19,11 +19,24 @@
         </activity>
         <activity
         android:name=".AirQuality"
-        android:label="@string/title_airquality">
+        android:label="@string/airquality">
         </activity>
         <activity
             android:name=".Window"
-            android:label="@string/windows"></activity>
+            android:label="@string/windows">
+        </activity>
+        <activity
+            android:name=".Room"
+            android:label="@string/rooms">
+        </activity>
+        <activity
+            android:name=".Settings"
+            android:label="@string/settings">
+        </activity>
+        <activity
+            android:name=".LogIn"
+            android:label="@string/login">
+        </activity>
     </application>
 
 </manifest>
