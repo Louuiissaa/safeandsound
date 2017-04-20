@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SafeAndSound</string>
+    <string name="luftfeutigkeit">Humidity</string>
+    <string name="temperatur">Temperature</string>
+    <string name="kohlenstoffdioxid">Carbondioxid</string>
+    <string name="sauerstoff">Oxygen</string>
+    <string name="kohlenstoffmonoxid">Carbonmonoxid</string>
+    <string name="luftqualitaet">Air Quality</string>
+    <string name="title_airquality">Air Quality</string>
+    <string name="logout">Log out</string>
+    <string name="windows">Windows</string>
+</resources>
