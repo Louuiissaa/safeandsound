@@ -32,7 +32,6 @@ public class Settings extends FragmentActivity {
 
         // Setzt das Feld fürs Input
         final EditText input = new EditText(this);
-        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 

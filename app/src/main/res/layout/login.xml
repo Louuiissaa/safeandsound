@@ -111,6 +111,7 @@
             android:layout_height="20dip"
             android:text="@string/signup"
             android:textAlignment="center"
-            android:layout_marginTop="5dip"/>
+            android:layout_marginTop="5dip"
+            android:onClick="signup"/>
     </LinearLayout>
 </RelativeLayout>
