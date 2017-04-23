@@ -7,10 +7,19 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    SessionManager session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // session manager
+        session = new SessionManager(getApplicationContext());
+
+        if (!session.isLoggedIn()) {
+            logout();
+        }
     }
 
     public void openAirQualityActivity(View view) {

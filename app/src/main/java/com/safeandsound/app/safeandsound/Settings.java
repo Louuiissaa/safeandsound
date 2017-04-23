@@ -2,10 +2,12 @@ package com.safeandsound.app.safeandsound;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.InputType;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 public class Settings extends FragmentActivity {
     private String ipAddressRP = "";
+    SessionManager session;
     /**
      * Called when the activity is first created.
      */
@@ -24,6 +27,13 @@ public class Settings extends FragmentActivity {
         setContentView(R.layout.settings);
         TextView ipAddressRP_Text = (TextView)findViewById(R.id.ipAddressOutput);
         ipAddressRP_Text.setText(ipAddressRP);
+
+        // session manager
+        session = new SessionManager(getApplicationContext());
+
+        if (!session.isLoggedIn()) {
+            logout();
+        }
     }
 
     public void changeIPRP(View view) {
@@ -52,5 +62,23 @@ public class Settings extends FragmentActivity {
         });
 
         builder.show();
+
+        // Logout Button
+        Button btn_logout = (Button) findViewById(R.id.btn_logout);
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
+    }
+
+    private void logout() {
+        session.setLogin(false);
+        // Zur LogIn Activity zurück zeigen
+        Intent intent = new Intent(Settings.this, LogIn.class);
+        startActivity(intent);
+        finish();
     }
 }

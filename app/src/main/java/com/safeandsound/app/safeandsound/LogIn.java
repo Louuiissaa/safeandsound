@@ -1,26 +1,30 @@
 package com.safeandsound.app.safeandsound;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Typeface;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -29,105 +33,152 @@ import java.util.concurrent.ExecutionException;
 
 public class LogIn extends FragmentActivity{
 
-    private String username;
-    private String password;
-    private String email;
-    private String ipAddressRP;
-    /**
-     * Called when the activity is first created.
-     */
+    private static final String TAG = SignUp.class.getSimpleName();
+    private EditText inputEmail;
+    private EditText inputPassword;
+    private ProgressDialog pDialog;
+    private SessionManager session;
+    //private SQLiteHandler db;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        EditText password = (EditText) findViewById(R.id.password);
-        password.setTypeface(Typeface.DEFAULT);
+        inputEmail = (EditText) findViewById(R.id.email);
+        inputPassword = (EditText) findViewById(R.id.password);
 
-    }
+        // Progress dialog
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
 
-    public void postData(String username, String password, String email, String ipAddressRP) {
-        HttpURLConnection connection;
-        OutputStreamWriter request = null;
+        // SQLite database handler
+        //db = new SQLiteHandler(getApplicationContext());
 
+        // Session manager
+        session = new SessionManager(getApplicationContext());
 
-        Boolean result = null;
-        InputStream is = null;
-        StringBuilder sb=null;
-
-        //http post
-        try {
-            String urlString = "http://192.168.10.53/db_register.php";
-            PostParams params = new PostParams(username, password, email, ipAddressRP, urlString);
-            result = new ConnectionPOST().execute(params).get();
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }catch (ExecutionException e){
-            e.printStackTrace();
+        // Check if user is already logged in or not
+        if (session.isLoggedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(LogIn.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 
-    public void signup(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Sign Up");
+    public void login(View view){
+        String email = inputEmail.getText().toString().trim();
+        String password = inputPassword.getText().toString().trim();
 
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        // Kontrolle ob Email und Passwort eingegeben wurden
+        if (!email.isEmpty() && !password.isEmpty()) {
+            // login user
+            checkLogin(email, password);
+        } else {
+            // Prompt user to enter credentials
+            Toast.makeText(getApplicationContext(),
+                    "Please enter the credentials!", Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
 
-        TableLayout.LayoutParams input_params = new TableLayout.LayoutParams();
-        input_params.setMargins(75, 20, 75, 5);
-        TableLayout.LayoutParams username_params = new TableLayout.LayoutParams();
-        username_params.setMargins(75, 80, 75, 5);
+    public void openSignUpActivity(View view){
+        Intent i = new Intent(LogIn.this, SignUp.class);
+        startActivity(i);
+        finish();
+    }
 
+    /**
+     * function to verify login details in mysql db
+     * */
+    private void checkLogin(final String email, final String password) {
+        // Tag used to cancel the request
+        String tag_string_req = "req_login";
 
-        // Setzt das Feld für Username Input
-        final EditText username_input = new EditText(this);
-        username_input.setInputType(InputType.TYPE_CLASS_TEXT);
-        username_input.setHint("Username");
-        username_input.setLayoutParams(username_params);
-        linearLayout.addView(username_input);
+        pDialog.setMessage("Logging in ...");
+        showDialog();
 
-        // Setzt das Feld für Email Input
-        final EditText email_input = new EditText(this);
-        email_input.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        email_input.setHint("Email");
-        email_input.setLayoutParams(input_params);
-        linearLayout.addView(email_input);
+        //Anfrage an den ApacheServer mit POST Method und Antwort mit onResponse-Methode entgegennehmen
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.URL_LOGIN, new Response.Listener<String>() {
 
-        // Setzt das Feld für Password Input
-        final EditText password_input = new EditText(this);
-        password_input.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        password_input.setHint("Password");
-        password_input.setLayoutParams(input_params);
-        linearLayout.addView(password_input);
-
-        // Setzt das Feld für RaspberryPi IP Address Input
-        final EditText iPRP_input = new EditText(this);
-        iPRP_input.setInputType(InputType.TYPE_CLASS_TEXT);
-        iPRP_input.setHint("IP Address of Raspberry Pi");
-        iPRP_input.setLayoutParams(input_params);
-        linearLayout.addView(iPRP_input);
-
-        builder.setView(linearLayout);
-
-        // Setzt den Button für positive und negative Eingabe
-        builder.setPositiveButton("Sign Up", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                username = username_input.getText().toString();
-                password = password_input.getText().toString();
-                email = email_input.getText().toString();
-                ipAddressRP = iPRP_input.getText().toString();
-                postData(username, password, email, ipAddressRP);
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+            public void onResponse(String response) {
+                Log.d(TAG, "Login Response: " + response.toString());
+                hideDialog();
 
-        builder.show();
+                try {
+                    response = response.replace('"','\'');
+                    JSONObject jObj = new JSONObject(response);
+                    boolean error = jObj.getBoolean("error");
+
+                    // Check for error node in json
+                    if (!error) {
+                        // user successfully logged in
+                        // Create login session
+                        session.setLogin(true);
+
+                        // Now store the user in SQLite
+                        String uid = jObj.getString("uid");
+
+                        JSONObject user = jObj.getJSONObject("user");
+                        String name = user.getString("name");
+                        String email = user.getString("email");
+
+                        //Add User Information to PreferenceStuff
+
+                        // Launch main activity
+                        Intent intent = new Intent(LogIn.this,
+                                MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        // Error in login. Get the error message
+                        String errorMsg = jObj.getString("error_msg");
+                        Toast.makeText(getApplicationContext(),
+                                errorMsg, Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Login Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("email", email);
+                params.put("password", password);
+
+                return params;
+            }
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

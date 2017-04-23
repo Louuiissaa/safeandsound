@@ -2,7 +2,6 @@ package com.safeandsound.app.safeandsound;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

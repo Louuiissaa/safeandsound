@@ -24,16 +24,16 @@
         <com.safeandsound.app.safeandsound.UbuntuTextView
             android:layout_width="match_parent"
             android:layout_height="100dip"
-            android:text="@string/welcomeText"
+            android:text="@string/bigSignupText"
             android:textAlignment="center"
-            android:textSize="45dp"
+            android:textSize="35dp"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="60dip"
-            android:id="@+id/email"
-            android:hint = "Enter Email"
+            android:id="@+id/username_input"
+            android:hint = "Enter Name"
             android:focusable = "true"
             android:textColorHighlight = "#ff7eff15"
             android:textColorHint = "@color/colorAccent"
@@ -45,10 +45,38 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dip"
-            android:layout_below="@+id/username"
+            android:layout_below="@+id/username_input"
+            android:id="@+id/email_input"
+            android:hint = "Enter Email"
+            android:focusable = "true"
+            android:textColorHighlight = "#ff7eff15"
+            android:textColorHint = "@color/colorAccent"
+            android:layout_marginTop = "30dp"
+            android:layout_alignParentLeft = "true"
+            android:layout_alignParentStart = "true"
+            android:layout_alignParentRight = "true"
+            android:layout_alignParentEnd = "true"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_below="@+id/email_input"
             android:inputType="textPassword"
-            android:id="@+id/password"
+            android:id="@+id/password_input"
             android:hint = "Enter Password"
+            android:focusable = "true"
+            android:textColorHighlight = "#ff7eff15"
+            android:textColorHint = "@color/colorAccent"
+            android:layout_marginTop = "30dp"
+            android:layout_alignParentLeft = "true"
+            android:layout_alignParentStart = "true"
+            android:layout_alignParentRight = "true"
+            android:layout_alignParentEnd = "true"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_below="@+id/password_input"
+            android:id="@+id/ipAddress_input"
+            android:hint = "Enter RaspberryPi IP-Address"
             android:focusable = "true"
             android:textColorHighlight = "#ff7eff15"
             android:textColorHint = "@color/colorAccent"
@@ -59,11 +87,11 @@
             android:layout_alignParentRight = "true"
             android:layout_alignParentEnd = "true"/>
         <Button
-            android:id = "@+id/btn_login"
+            android:id = "@+id/button1"
             android:layout_width = "match_parent"
             android:layout_height = "60dip"
-            android:onClick = "login"
-            android:text = "@string/login"
+            android:onClick = "signup"
+            android:text = "@string/signup"
             android:layout_gravity="center"
             android:textColor="@color/greyIcons"
             android:background="@color/colorAccent"
@@ -71,48 +99,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dip"
-            android:text="@string/forgotPassword"
+            android:text="@string/alreadyRegistered"
             android:textAlignment="center"
             android:layout_marginTop="30dip"
             android:layout_marginBottom="5dip"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true">
-            <TextView
-                android:id="@+id/orText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="@string/or"
-                android:textColor="@color/greyIcons"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:layout_toLeftOf="@id/orText"
-                android:background="@color/greyIcons"
-                />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="16dp"
-                android:layout_toRightOf="@id/orText"
-                android:background="@color/greyIcons"
-                />
-
-        </RelativeLayout>
-        <TextView
-            android:id="@+id/tv_signup"
-            android:layout_width="match_parent"
-            android:layout_height="20dip"
-            android:text="@string/signup"
-            android:textAlignment="center"
-            android:layout_marginTop="5dip"
-            android:onClick="openSignUpActivity"/>
     </LinearLayout>
 </RelativeLayout>
