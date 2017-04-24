@@ -1,12 +1,46 @@
 <resources>
-    <string name="app_name">SafeAndSound</string>
+    <string name="app_name">Safe &amp; Sound</string>
+
+    <!-- Menu -->
+    <string name="airquality">Air Quality</string>
+    <string name="windows">Windows</string>
+    <string name="rooms">Rooms</string>
+    <string name="settings">Settings</string>
+    <string name="livestream">Livestream</string>
+    <string name="library">Library</string>
+
+    <!-- Air Quality -->
     <string name="luftfeutigkeit">Humidity</string>
     <string name="temperatur">Temperature</string>
     <string name="kohlenstoffdioxid">Carbondioxid</string>
     <string name="sauerstoff">Oxygen</string>
     <string name="kohlenstoffmonoxid">Carbonmonoxid</string>
-    <string name="luftqualitaet">Air Quality</string>
-    <string name="title_airquality">Air Quality</string>
+
+    <!-- Rooms -->
+
+
+    <!-- Settings -->
     <string name="logout">Log out</string>
-    <string name="windows">Windows</string>
+    <string name="user">User</string>
+    <string name="raspberrypi">Raspberry Pi</string>
+    <string name="changeip">Change IP-Address</string>
+    <string name="notSet">Not set yet</string>
+    <string name="sensoren">Sensoren</string>
+    <string name="configureSensor">Configure sensors</string>
+
+    <!-- SensorOverview -->
+    <string name="intervall">Intervall</string>
+    <string name="range">Range</string>
+
+    <!-- LogIn -->
+    <string name="login">LogIn</string>
+    <string name="welcomeText">Welcome to\nSafe &amp; Sound</string>
+    <string name="submit">Submit</string>
+    <string name="forgotPassword">Forgot Password?</string>
+    <string name="signup"><u>Sign Up</u></string>
+    <string name="or">or</string>
+
+    <!-- Signup -->
+    <string name="bigSignupText">SignUp for\nSafe &amp; Sound</string>
+    <string name="alreadyRegistered">Already registered?</string>
 </resources>

@@ -51,7 +51,7 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="top|center_horizontal"
-                    android:text="Livestream"
+                    android:text="@string/livestream"
                     android:textAlignment="gravity" />
             </LinearLayout>
             <LinearLayout
@@ -77,7 +77,7 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="top|center_horizontal"
-                    android:text="Library"
+                    android:text="@string/library"
                     android:textAlignment="gravity" />
             </LinearLayout>
         </LinearLayout>
@@ -111,7 +111,7 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="top|center_horizontal"
-                    android:text="Air Quality"
+                    android:text="@string/airquality"
                     android:textAlignment="gravity"
                     android:onClick="openAirQualityActivity"/>
             </LinearLayout>
@@ -139,7 +139,7 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="top|center_horizontal"
-                    android:text="Windows"
+                    android:text="@string/windows"
                     android:textAlignment="gravity"
                     android:onClick="openWindowActivity"/>
             </LinearLayout>
@@ -161,10 +161,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
                     android:layout_weight="2.5"
-                    android:src="@drawable/ic_wifi"
+                    android:src="@drawable/ic_house"
                     android:background="@color/white"
                     android:paddingTop="30dp"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="fitCenter"
+                    android:onClick="openRoomActivity"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
@@ -173,8 +174,9 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="top|center_horizontal"
-                    android:text="Residents"
-                    android:textAlignment="gravity" />
+                    android:text="@string/rooms"
+                    android:textAlignment="gravity"
+                    android:onClick="openRoomActivity"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dip"
@@ -190,7 +192,8 @@
                     android:src="@drawable/ic_settings"
                     android:background="@color/white"
                     android:paddingTop="30dp"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="fitCenter"
+                    android:onClick="openSettingsActivity"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
@@ -199,8 +202,9 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="top|center_horizontal"
-                    android:text="Settings"
-                    android:textAlignment="gravity" />
+                    android:text="@string/settings"
+                    android:textAlignment="gravity"
+                    android:onClick="openSettingsActivity"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
