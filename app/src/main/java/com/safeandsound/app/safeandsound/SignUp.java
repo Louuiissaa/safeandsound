@@ -86,7 +86,7 @@ public class SignUp extends FragmentActivity {
                 LogIn.class);
         startActivity(intent);
         finish();
-        }
+    }
 
     public void showMessage(Boolean b){
         String text = "Thank you for Signing Up!";

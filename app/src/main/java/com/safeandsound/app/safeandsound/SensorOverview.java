@@ -103,14 +103,14 @@ public class SensorOverview extends Activity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                range = (TextView) findViewById(R.id.rangeTempOutput);
+                /*range = (TextView) findViewById(R.id.rangeTempOutput);
                 if((fromDatePicker.getMonth() == tillDatePicker.getMonth() && (fromDatePicker.getYear() == tillDatePicker.getYear()))) {
                     range.setText(fromDatePicker.getDayOfMonth() +". - " +tillDatePicker.getDayOfMonth() + "." + tillDatePicker.getMonth() + "." + tillDatePicker.getYear());
                 }else if(fromDatePicker.getYear() == tillDatePicker.getYear()) {
                     range.setText(fromDatePicker.getDayOfMonth() +"." +fromDatePicker.getMonth()+". - " +tillDatePicker.getDayOfMonth() + "." + tillDatePicker.getMonth() + "." + tillDatePicker.getYear());
                 }else{
                     range.setText(fromDatePicker.getDayOfMonth() +"." +fromDatePicker.getMonth()+ "." + fromDatePicker.getYear() + " - " +tillDatePicker.getDayOfMonth() + "." + tillDatePicker.getMonth() + "." + tillDatePicker.getYear());
-                }
+                }*/
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
