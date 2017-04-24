@@ -31,4 +31,13 @@ public class AppConfig {
 
         // Server user temperature url
         public static String URL_TEMP = "http://192.168.0.102/temp";
+
+        // Server user window url
+        public static String URL_WINDOW = "http://192.168.0.102/window";
+
+        // Server user livestream url
+        public static String URL_LIVESTREAM = "http://192.168.0.102:8081";
+
+        // Server user motion url
+        public static String URL_MOTION = "http://192.168.0.102/motion";
 }

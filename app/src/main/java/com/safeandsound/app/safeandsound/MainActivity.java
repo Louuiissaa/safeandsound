@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void openRoomActivity(View view) {
+        Intent i = new Intent(MainActivity.this, Room.class);
+        startActivity(i);
+    }
+
     private void logout() {
         session.setLogin(false);
         // Zur LogIn Activity zurück zeigen

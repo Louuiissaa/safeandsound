@@ -13,6 +13,6 @@ public class Room extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.air_quality);
+        setContentView(R.layout.room);
     }
 }

@@ -16,6 +16,9 @@
     <string name="sauerstoff">Oxygen</string>
     <string name="kohlenstoffmonoxid">Carbonmonoxid</string>
 
+    <!-- Rooms -->
+
+
     <!-- Settings -->
     <string name="logout">Log out</string>
     <string name="user">User</string>

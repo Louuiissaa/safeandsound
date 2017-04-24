@@ -60,7 +60,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/orText"
                 android:background="@color/greyIcons"
                 />
             <LinearLayout
@@ -105,7 +104,8 @@
                 android:orientation="horizontal"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
-                android:layout_marginBottom="2dp">
+                android:layout_marginBottom="2dp"
+                >
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -138,13 +138,13 @@
 
 
         <LinearLayout
+            android:layout_height="0dip"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="0dip"
             android:layout_weight="1">
             <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="0dip"
+                android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_marginLeft="2dp"
@@ -171,7 +171,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/orText"
                 android:background="@color/greyIcons"
                 />
             <LinearLayout
@@ -280,7 +279,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/orText"
                 android:background="@color/greyIcons"
                 />
             <LinearLayout
@@ -390,7 +388,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/orText"
                 android:background="@color/greyIcons"
                 />
             <LinearLayout
@@ -500,7 +497,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/orText"
                 android:background="@color/greyIcons"
                 />
             <LinearLayout
