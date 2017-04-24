@@ -41,4 +41,12 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, LogIn.class);
         startActivity(i);
     }
+
+    private void logout() {
+        session.setLogin(false);
+        // Zur LogIn Activity zurück zeigen
+        Intent intent = new Intent(MainActivity.this, LogIn.class);
+        startActivity(intent);
+        finish();
+    }
 }
