@@ -28,7 +28,10 @@ public class SensorOverview extends Activity {
         setContentView(R.layout.sensoroverview);
     }
 
-    public void setIntervall(String sensorTyp, View view){
+    public void setIntervall(View view){
+        String sensorTyp = view.getTag().toString();
+
+        final String textViewName = sensorTyp + "IntervallOutput";
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select the intervall:");
 
@@ -60,7 +63,7 @@ public class SensorOverview extends Activity {
                 temperatureIntervall_Time = timeNumberPicker.getValue();
                 String str = stringArray[temperatureIntervall_Time-1];
                 temperatureIntervall_Value = valueNumberPicker.getValue();
-                intervall = (TextView) findViewById(R.id.intervallTempOutput);
+                intervall = (TextView)findViewById(getResources().getIdentifier(textViewName, "id", getPackageName()));
                 if (temperatureIntervall_Value == 1) {
                     intervall.setText(temperatureIntervall_Value + " " + str.substring(0, str.length()-1));
                 } else {

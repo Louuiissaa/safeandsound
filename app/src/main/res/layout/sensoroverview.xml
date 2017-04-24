@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/background_grey"
-    tools:context="com.safeandsound.app.safeandsound.AirQuality">
+    tools:context="com.safeandsound.app.safeandsound.SensorOverview">
 
     <LinearLayout
         android:orientation="vertical"
@@ -56,6 +56,13 @@
                         android:text="@string/temperatur"
                         android:textAlignment="gravity"/>
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/orText"
+                    android:background="@color/greyIcons"
+                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
@@ -70,15 +77,17 @@
                         android:background="@color/white"
                         android:text="@string/intervall"
                         android:gravity="center_vertical|left"
-                        android:onClick="setIntervall('temperature')"
+                        android:onClick="setIntervall"
+                        android:tag="temperature"
                         android:paddingLeft="5dip"/>
                     <TextView
-                        android:id="@+id/intervallTempOutput"
+                        android:id="@+id/temperatureIntervallOutput"
                         android:layout_width="0dip"
                         android:layout_height="match_parent"
                         android:layout_weight="3.5"
                         android:background="@color/white"
-                        android:onClick="setIntervall('temperature')"
+                        android:onClick="setIntervall"
+                        android:tag="temperature"
                         android:gravity="center_vertical|left"/>
                     <ImageView
                         android:layout_width="0dip"
@@ -86,7 +95,8 @@
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:src="@drawable/ic_next_page"
-                        android:onClick="setIntervall('temperature')"/>
+                        android:onClick="setIntervall"
+                        android:tag="temperature"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -104,14 +114,16 @@
                         android:text="@string/range"
                         android:gravity="center_vertical|left"
                         android:onClick="setRange"
+                        android:tag="temperature"
                         android:paddingLeft="5dip"/>
                     <TextView
-                        android:id="@+id/rangeTempOutput"
+                        android:id="@+id/temperatureRangeOutput"
                         android:layout_width="0dip"
                         android:layout_height="match_parent"
                         android:layout_weight="3.5"
                         android:background="@color/white"
                         android:onClick="setRange"
+                        android:tag="temperature"
                         android:gravity="center_vertical|left"/>
                     <ImageView
                         android:layout_width="0dip"
@@ -119,7 +131,8 @@
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:src="@drawable/ic_next_page"
-                        android:onClick="setRange"/>
+                        android:onClick="setRange"
+                        android:tag="temperature"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -154,6 +167,48 @@
                     android:text="@string/luftfeutigkeit"
                     android:textAlignment="gravity"/>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/orText"
+                android:background="@color/greyIcons"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3.5"
+                    android:background="@color/white"
+                    android:text="@string/intervall"
+                    android:gravity="center_vertical|left"
+                    android:onClick="setIntervall"
+                    android:tag="humidity"
+                    android:paddingLeft="5dip"/>
+                <TextView
+                    android:id="@+id/humidityIntervallOutput"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3.5"
+                    android:background="@color/white"
+                    android:onClick="setIntervall"
+                    android:tag="humidity"
+                    android:gravity="center_vertical|left"/>
+                <ImageView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_next_page"
+                    android:onClick="setIntervall"
+                    android:tag="humidity"/>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
@@ -167,17 +222,19 @@
                     android:layout_height="match_parent"
                     android:layout_weight="3.5"
                     android:background="@color/white"
-                    android:text="@string/intervall"
+                    android:text="@string/range"
                     android:gravity="center_vertical|left"
-                    android:onClick="setIntervall"
+                    android:onClick="setRange"
+                    android:tag="humidity"
                     android:paddingLeft="5dip"/>
                 <TextView
-                    android:id="@+id/intervallHumidityOutput"
+                    android:id="@+id/humidityRangeOutput"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="3.5"
                     android:background="@color/white"
-                    android:onClick="setIntervall"
+                    android:onClick="setRange"
+                    android:tag="humidity"
                     android:gravity="center_vertical|left"/>
                 <ImageView
                     android:layout_width="0dip"
@@ -185,7 +242,8 @@
                     android:layout_weight="1"
                     android:background="@color/white"
                     android:src="@drawable/ic_next_page"
-                    android:onClick="setIntervall"/>
+                    android:onClick="setRange"
+                    android:tag="humidity"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -218,6 +276,48 @@
                     android:text="@string/sauerstoff"
                     android:textAlignment="gravity" />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/orText"
+                android:background="@color/greyIcons"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3.5"
+                    android:background="@color/white"
+                    android:text="@string/intervall"
+                    android:gravity="center_vertical|left"
+                    android:onClick="setIntervall"
+                    android:tag="oxygen"
+                    android:paddingLeft="5dip"/>
+                <TextView
+                    android:id="@+id/oxygenIntervallOutput"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3.5"
+                    android:background="@color/white"
+                    android:onClick="setIntervall"
+                    android:tag="oxygen"
+                    android:gravity="center_vertical|left"/>
+                <ImageView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_next_page"
+                    android:onClick="setIntervall"
+                    android:tag="oxygen"/>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
@@ -231,17 +331,19 @@
                     android:layout_height="match_parent"
                     android:layout_weight="3.5"
                     android:background="@color/white"
-                    android:text="@string/intervall"
+                    android:text="@string/range"
                     android:gravity="center_vertical|left"
-                    android:onClick="setIntervall"
+                    android:onClick="setRange"
+                    android:tag="oxygen"
                     android:paddingLeft="5dip"/>
                 <TextView
-                    android:id="@+id/intervallOOutput"
+                    android:id="@+id/oxygenRangeOutput"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="3.5"
                     android:background="@color/white"
-                    android:onClick="setIntervall"
+                    android:onClick="setRange"
+                    android:tag="oxygen"
                     android:gravity="center_vertical|left"/>
                 <ImageView
                     android:layout_width="0dip"
@@ -249,7 +351,8 @@
                     android:layout_weight="1"
                     android:background="@color/white"
                     android:src="@drawable/ic_next_page"
-                    android:onClick="setIntervall"/>
+                    android:onClick="setRange"
+                    android:tag="oxygen"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -283,6 +386,48 @@
                     android:text="@string/kohlenstoffdioxid"
                     android:textAlignment="gravity" />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/orText"
+                android:background="@color/greyIcons"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3.5"
+                    android:background="@color/white"
+                    android:text="@string/intervall"
+                    android:gravity="center_vertical|left"
+                    android:onClick="setIntervall"
+                    android:tag="carbondioxid"
+                    android:paddingLeft="5dip"/>
+                <TextView
+                    android:id="@+id/carbondioxidIntervallOutput"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3.5"
+                    android:background="@color/white"
+                    android:onClick="setIntervall"
+                    android:tag="carbondioxid"
+                    android:gravity="center_vertical|left"/>
+                <ImageView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_next_page"
+                    android:onClick="setIntervall"
+                    android:tag="carbondioxid"/>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
@@ -296,17 +441,19 @@
                     android:layout_height="match_parent"
                     android:layout_weight="3.5"
                     android:background="@color/white"
-                    android:text="@string/intervall"
+                    android:text="@string/range"
                     android:gravity="center_vertical|left"
-                    android:onClick="setIntervall"
+                    android:onClick="setRange"
+                    android:tag="carbondioxid"
                     android:paddingLeft="5dip"/>
                 <TextView
-                    android:id="@+id/intervallCO2Output"
+                    android:id="@+id/carbondioxidRangeOutput"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="3.5"
                     android:background="@color/white"
-                    android:onClick="setIntervall"
+                    android:onClick="setRange"
+                    android:tag="carbondioxid"
                     android:gravity="center_vertical|left"/>
                 <ImageView
                     android:layout_width="0dip"
@@ -314,7 +461,8 @@
                     android:layout_weight="1"
                     android:background="@color/white"
                     android:src="@drawable/ic_next_page"
-                    android:onClick="setIntervall"/>
+                    android:onClick="setRange"
+                    android:tag="carbondioxid"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -347,7 +495,48 @@
                     android:gravity="center_vertical|left"
                     android:text="@string/kohlenstoffmonoxid"
                     android:textAlignment="gravity" />
-
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/orText"
+                android:background="@color/greyIcons"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp">
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3.5"
+                    android:background="@color/white"
+                    android:text="@string/intervall"
+                    android:gravity="center_vertical|left"
+                    android:onClick="setIntervall"
+                    android:tag="carbonmonoxid"
+                    android:paddingLeft="5dip"/>
+                <TextView
+                    android:id="@+id/carbonmonoxidIntervallOutput"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3.5"
+                    android:background="@color/white"
+                    android:onClick="setIntervall"
+                    android:tag="carbonmonoxid"
+                    android:gravity="center_vertical|left"/>
+                <ImageView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_next_page"
+                    android:onClick="setIntervall"
+                    android:tag="carbonmonoxid"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -362,17 +551,19 @@
                     android:layout_height="match_parent"
                     android:layout_weight="3.5"
                     android:background="@color/white"
-                    android:text="@string/intervall"
+                    android:text="@string/range"
                     android:gravity="center_vertical|left"
-                    android:onClick="setIntervall"
+                    android:onClick="setRange"
+                    android:tag="carbonmonoxid"
                     android:paddingLeft="5dip"/>
                 <TextView
-                    android:id="@+id/intervallCOOutput"
+                    android:id="@+id/carbonmonoxidRangeOutput"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="3.5"
                     android:background="@color/white"
-                    android:onClick="setIntervall"
+                    android:onClick="setRange"
+                    android:tag="carbonmonoxid"
                     android:gravity="center_vertical|left"/>
                 <ImageView
                     android:layout_width="0dip"
@@ -380,7 +571,8 @@
                     android:layout_weight="1"
                     android:background="@color/white"
                     android:src="@drawable/ic_next_page"
-                    android:onClick="setIntervall"/>
+                    android:onClick="setRange"
+                    android:tag="carbonmonoxid"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
