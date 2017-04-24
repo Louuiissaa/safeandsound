@@ -30,8 +30,7 @@ public class AirQuality extends FragmentActivity {
 
             //http post
             try {
-                String url = "http://192.168.10.53:1880/temp";
-                URL urlObj = new URL(url);
+                URL urlObj = new URL(AppConfig.URL_TEMP);
                 result = new ConnectionFeed().execute(urlObj.toString()).get();
             }catch (MalformedURLException e){
                 e.printStackTrace();

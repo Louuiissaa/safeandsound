@@ -34,6 +34,16 @@ public class Settings extends FragmentActivity {
         if (!session.isLoggedIn()) {
             logout();
         }
+
+        // Logout Button
+        Button btn_logout = (Button) findViewById(R.id.btn_logout);
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
     }
 
     public void changeIPRP(View view) {
@@ -62,23 +72,18 @@ public class Settings extends FragmentActivity {
         });
 
         builder.show();
-
-        // Logout Button
-        Button btn_logout = (Button) findViewById(R.id.btn_logout);
-        btn_logout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                logout();
-            }
-        });
     }
 
+    //Meldet den aktuellen Nutzer ab
     private void logout() {
         session.setLogin(false);
-        // Zur LogIn Activity zurück zeigen
+        // Zur LogIn Activity zurück springen
         Intent intent = new Intent(Settings.this, LogIn.class);
         startActivity(intent);
-        finish();
+    }
+
+    public void openSensorOverviewActivity(View view) {
+        Intent i = new Intent(Settings.this, SensorOverview.class);
+        startActivity(i);
     }
 }

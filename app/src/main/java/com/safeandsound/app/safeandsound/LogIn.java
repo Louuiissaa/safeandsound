@@ -7,11 +7,8 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -20,12 +17,8 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by louisapabst on 20.04.17.
@@ -52,13 +45,10 @@ public class LogIn extends FragmentActivity{
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
-        // SQLite database handler
-        //db = new SQLiteHandler(getApplicationContext());
-
         // Session manager
         session = new SessionManager(getApplicationContext());
 
-        // Check if user is already logged in or not
+        // Überprüfung ob User eingeloggt ist
         if (session.isLoggedIn()) {
             // User is already logged in. Take him to main activity
             Intent intent = new Intent(LogIn.this, MainActivity.class);
@@ -73,10 +63,10 @@ public class LogIn extends FragmentActivity{
 
         // Kontrolle ob Email und Passwort eingegeben wurden
         if (!email.isEmpty() && !password.isEmpty()) {
-            // login user
+            //User wird eingeloggt
             checkLogin(email, password);
         } else {
-            // Prompt user to enter credentials
+            // Fordert den User auf Email UND Passwort einzugeben
             Toast.makeText(getApplicationContext(),
                     "Please enter the credentials!", Toast.LENGTH_LONG)
                     .show();
@@ -90,10 +80,9 @@ public class LogIn extends FragmentActivity{
     }
 
     /**
-     * function to verify login details in mysql db
+     * Überprüfung der LogIn User Eingabe mit den Datensätzen der Datenbank
      * */
     private void checkLogin(final String email, final String password) {
-        // Tag used to cancel the request
         String tag_string_req = "req_login";
 
         pDialog.setMessage("Logging in ...");
@@ -113,34 +102,31 @@ public class LogIn extends FragmentActivity{
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
 
-                    // Check for error node in json
+                    // Überprüfung ob bei der PHP Ausführung ein Fehler passiert ist
                     if (!error) {
-                        // user successfully logged in
-                        // Create login session
+                        // Session des Users wird wahr
                         session.setLogin(true);
 
-                        // Now store the user in SQLite
                         String uid = jObj.getString("uid");
-
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
 
                         //Add User Information to PreferenceStuff
 
-                        // Launch main activity
+                        // User wird zum Hauptmenü weitergeleitet
                         Intent intent = new Intent(LogIn.this,
                                 MainActivity.class);
                         startActivity(intent);
                         finish();
-                    } else {
-                        // Error in login. Get the error message
+                    } else{
+                        // Ausgabe des Errors der während des LogIns aufgetreten ist
                         String errorMsg = jObj.getString("error_msg");
                         Toast.makeText(getApplicationContext(),
                                 errorMsg, Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
-                    // JSON error
+                    // Ausgabe des Errors der von dem PHP weitergegeben wurde
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
@@ -150,16 +136,23 @@ public class LogIn extends FragmentActivity{
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Login Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_LONG).show();
-                hideDialog();
+                String err_Msg = error.getMessage();
+                if(err_Msg != null ) {
+                    Log.e(TAG, "Login Error: " + err_Msg);
+                    Toast.makeText(getApplicationContext(),
+                            err_Msg, Toast.LENGTH_LONG).show();
+                    hideDialog();
+                }else{
+                    err_Msg = "Pleas sign up first to log in!";
+                    Toast.makeText(getApplicationContext(), err_Msg, Toast.LENGTH_LONG).show();
+                    hideDialog();
+                }
             }
         }) {
 
             @Override
             protected Map<String, String> getParams() {
-                // Posting parameters to login url
+                // Setzt die POST Parameter für den LogIn
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("email", email);
                 params.put("password", password);
@@ -168,7 +161,7 @@ public class LogIn extends FragmentActivity{
             }
         };
 
-        // Adding request to request queue
+        // Hinzufügen des Requests zu der Request Queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 

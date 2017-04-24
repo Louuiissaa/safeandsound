@@ -1,11 +1,12 @@
 package com.safeandsound.app.safeandsound;
 
-import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
@@ -24,6 +25,9 @@ public class SignUp extends FragmentActivity {
     private String ipAddressRP;
 
 
+    private ProgressDialog pDialog;
+
+
 
     /**
      * Called when the activity is first created.
@@ -32,6 +36,9 @@ public class SignUp extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
 
     }
 
@@ -46,8 +53,7 @@ public class SignUp extends FragmentActivity {
 
         //http post
         try {
-            String urlString = "http://192.168.10.53/db_register.php";
-            PostParams params = new PostParams(username, password, email, ipAddressRP, urlString);
+            PostParams params = new PostParams(username, password, email, ipAddressRP, AppConfig.URL_SIGNUP);
             result = new ConnectionPOST().execute(params).get();
         }catch (InterruptedException e){
             e.printStackTrace();
@@ -69,19 +75,33 @@ public class SignUp extends FragmentActivity {
         ipAddressRP = ipAddressRP_ET.getText().toString();
         Boolean result = addUserToDB(username, password, email, ipAddressRP);
 
+        pDialog.setMessage("Sign up " + username);
+        showDialog();
+
         showMessage(result);
+
+        //Nutzer auf LogIn Bildschirm führen
+        Intent intent = new Intent(
+                SignUp.this,
+                LogIn.class);
+        startActivity(intent);
+        finish();
         }
 
     public void showMessage(Boolean b){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Thank you for Signing Up!");
-        TextView text = new TextView(this);
-        if(b){
-            text.setText("You're now signed up");
+        String text = "Thank you for Signing Up!";
+        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+        hideDialog();
 
-        } else{
-            text.setText("Unfortunately something went wrong");
-        }
-        builder.show();
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

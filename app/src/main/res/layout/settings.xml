@@ -31,7 +31,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dip"
                         android:layout_weight="1"
-                        android:id="@+id/livestreamText"
+                        android:id="@+id/raspberrypiText"
                         android:background="@color/background_grey"
                         android:textSize="16sp"
                         android:gravity="center_vertical|left"
@@ -55,7 +55,7 @@
                     <TextView
                         android:layout_width="0dip"
                         android:layout_height="match_parent"
-                        android:layout_weight="2.5"
+                        android:layout_weight="5"
                         android:id="@+id/ipAddressOutput"
                         android:background="@color/white"
                         android:textSize="16dip"
@@ -63,17 +63,62 @@
                         android:text="@string/notSet"
                         android:textAlignment="gravity"
                         android:onClick="changeIPRP"/>
+                    <ImageView
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_next_page"
+                        android:background="@color/white"
+                        android:onClick="changeIPRP"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:id="@+id/sensorenText"
+                    android:background="@color/background_grey"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="10dip"
+                    android:text="@string/sensoren"
+                    android:textAlignment="gravity" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_margin="2dp">
+                    <ImageView
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:src="@drawable/ic_sensor"
+                        android:padding="10dp"
+                        android:onClick="openSensorOverviewActivity"/>
                     <TextView
                         android:layout_width="0dip"
                         android:layout_height="match_parent"
-                        android:layout_weight="2.5"
-                        android:id="@+id/changeIPText"
+                        android:layout_weight="5"
+                        android:id="@+id/configureSensor"
                         android:background="@color/white"
                         android:textSize="16dip"
-                        android:gravity="center_vertical|right"
-                        android:text="@string/changeip"
+                        android:gravity="center_vertical|left"
+                        android:text="@string/configureSensor"
                         android:textAlignment="gravity"
-                        android:onClick="changeIPRP"/>
+                        android:onClick="openSensorOverviewActivity"/>
                     <ImageView
                         android:layout_width="0dip"
                         android:layout_height="match_parent"
@@ -83,191 +128,6 @@
                         android:onClick="changeIPRP"/>
                 </LinearLayout>
 
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:layout_margin="2dp">
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_temperature"/>
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2.5"
-                        android:id="@+id/temperatureText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|left"
-                        android:text="@string/temperatur"
-                        android:textAlignment="gravity"/>
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2.5"
-                        android:id="@+id/temperatureOutputText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|right"
-                        android:text="Settings"
-                        android:textAlignment="gravity" />
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_next_page"
-                        android:background="@color/white"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="1">
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:layout_margin="2dp">
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_water"/>
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:id="@+id/humidityText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|left"
-                        android:text="@string/luftfeutigkeit"
-                        android:textAlignment="gravity"/>
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:id="@+id/humidityOutputText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|right"
-                        android:text="Windows"
-                        android:textAlignment="gravity" />
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_next_page"
-                        android:background="@color/white"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:layout_margin="2dp">
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_oxygen"/>
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:id="@+id/oxygenText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|left"
-                        android:text="@string/sauerstoff"
-                        android:textAlignment="gravity" />
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:id="@+id/oxygenOutputText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|right"
-                        android:text="Library"
-                        android:textAlignment="gravity" />
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_next_page"
-                        android:background="@color/white"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:layout_margin="2dp">
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_carbondioxid"/>
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:id="@+id/carbondioxidText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|left"
-                        android:text="@string/kohlenstoffdioxid"
-                        android:textAlignment="gravity" />
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:id="@+id/carbondioxidOutputText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|right"
-                        android:text="Library"
-                        android:textAlignment="gravity" />
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_next_page"
-                        android:background="@color/white"/>
-                </LinearLayout>
             </LinearLayout>
             <Button
                 android:id="@+id/btn_logout"

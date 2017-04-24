@@ -19,9 +19,15 @@
     <!-- Settings -->
     <string name="logout">Log out</string>
     <string name="user">User</string>
-    <string name="raspberrypi">Raspberry PI</string>
+    <string name="raspberrypi">Raspberry Pi</string>
     <string name="changeip">Change IP-Address</string>
     <string name="notSet">Not set yet</string>
+    <string name="sensoren">Sensoren</string>
+    <string name="configureSensor">Configure sensors</string>
+
+    <!-- SensorOverview -->
+    <string name="intervall">Intervall</string>
+    <string name="range">Range</string>
 
     <!-- LogIn -->
     <string name="login">LogIn</string>
