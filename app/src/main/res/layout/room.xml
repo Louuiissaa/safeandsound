@@ -176,7 +176,7 @@
                     android:background="@color/white"
                     android:src="@drawable/ic_plus"
                     android:scaleType="fitEnd"
-                    android:onClick="addWindow"/>
+                    android:onClick="addRoom"/>
                 <Button
                     android:layout_width="0dip"
                     android:layout_height="match_parent"

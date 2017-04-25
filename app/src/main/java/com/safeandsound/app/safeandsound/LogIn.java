@@ -31,7 +31,7 @@ public class LogIn extends FragmentActivity{
     private EditText inputPassword;
     private ProgressDialog pDialog;
     private SessionManager session;
-    //private SQLiteHandler db;
+    private SQLiteHandler db;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,9 @@ public class LogIn extends FragmentActivity{
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
+
+        // Android interne SQLite Datenbank wird instanziiert
+        db = new SQLiteHandler(getApplicationContext());
 
         // Session manager
         session = new SessionManager(getApplicationContext());
@@ -107,12 +110,14 @@ public class LogIn extends FragmentActivity{
                         // Session des Users wird wahr
                         session.setLogin(true);
 
-                        String uid = jObj.getString("uid");
+                        int uid = Integer.parseInt(jObj.getString("uid"));
                         JSONObject user = jObj.getJSONObject("user");
                         String name = user.getString("name");
                         String email = user.getString("email");
+                        String ipAddressRP = user.getString("ipaddressrp");
 
-                        //Add User Information to PreferenceStuff
+                        // User wird in interne Android DB gespeichert
+                        db.addUser(uid, name, null, email, ipAddressRP);
 
                         // User wird zum Hauptmenü weitergeleitet
                         Intent intent = new Intent(LogIn.this,
