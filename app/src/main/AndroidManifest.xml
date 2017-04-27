@@ -49,6 +49,10 @@
             android:name=".SensorOverview"
             android:label="@string/app_name">
         </activity>
+        <activity
+            android:name=".LiveStream"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>
