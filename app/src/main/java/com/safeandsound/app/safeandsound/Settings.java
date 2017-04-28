@@ -17,7 +17,8 @@ import android.widget.TextView;
 
 public class Settings extends FragmentActivity {
     private String ipAddressRP = "";
-    SessionManager session;
+    private SessionManager session;
+    private SQLiteHandler db;
     /**
      * Called when the activity is first created.
      */
@@ -30,6 +31,9 @@ public class Settings extends FragmentActivity {
 
         // session manager
         session = new SessionManager(getApplicationContext());
+
+        //Android interne Datenbank
+        db = new SQLiteHandler(getApplicationContext());
 
         if (!session.isLoggedIn()) {
             logout();
@@ -77,6 +81,7 @@ public class Settings extends FragmentActivity {
     //Meldet den aktuellen Nutzer ab
     private void logout() {
         session.setLogin(false);
+        db.deleteUsers();
         // Zur LogIn Activity zurück springen
         Intent intent = new Intent(Settings.this, LogIn.class);
         startActivity(intent);

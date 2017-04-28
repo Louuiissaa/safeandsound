@@ -24,6 +24,7 @@ public class SignUp extends FragmentActivity {
     private String email;
     private String ipAddressRP;
 
+    private SQLiteHandler db;
 
     private ProgressDialog pDialog;
 
@@ -40,16 +41,13 @@ public class SignUp extends FragmentActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
+        // Android interne SQLite Datenbank wird erstellt
+        db = new SQLiteHandler(getApplicationContext());
+
     }
 
     public Boolean addUserToDB(String username, String password, String email, String ipAddressRP) {
-        HttpURLConnection connection;
-        OutputStreamWriter request = null;
-
-
         Boolean result = null;
-        InputStream is = null;
-        StringBuilder sb=null;
 
         //http post
         try {
@@ -73,19 +71,31 @@ public class SignUp extends FragmentActivity {
         password = password_ET.getText().toString();
         email = email_ET.getText().toString();
         ipAddressRP = ipAddressRP_ET.getText().toString();
-        Boolean result = addUserToDB(username, password, email, ipAddressRP);
 
-        pDialog.setMessage("Sign up " + username);
-        showDialog();
+        if (!username.isEmpty() && !password.isEmpty() && !email.isEmpty() && !ipAddressRP.isEmpty()) {
 
-        showMessage(result);
+            Boolean result = addUserToDB(username, password, email, ipAddressRP);
 
-        //Nutzer auf LogIn Bildschirm führen
-        Intent intent = new Intent(
-                SignUp.this,
-                LogIn.class);
-        startActivity(intent);
-        finish();
+            pDialog.setMessage("Sign up " + username);
+            showDialog();
+
+            showMessage(result);
+
+            // User wird in interne Android DB gespeichert
+            //db.addUser(null, username, password, email, ipAddressRP);
+
+            //Nutzer auf LogIn Bildschirm führen
+            Intent intent = new Intent(
+                    SignUp.this,
+                    LogIn.class);
+            startActivity(intent);
+            finish();
+        } else {
+            // Fordert den User alle Felder auszufüllen
+            Toast.makeText(getApplicationContext(),
+                    "Please enter the credentials!", Toast.LENGTH_LONG)
+                    .show();
+        }
     }
 
     public void showMessage(Boolean b){

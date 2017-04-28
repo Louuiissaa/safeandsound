@@ -24,20 +24,23 @@ public class AppConfig {
         }*/
 
         // Server user login url
-        public static String URL_LOGIN = "http://192.168.0.102/db_login.php";
+        public static String URL_LOGIN = "http://192.168.2.103/db_login.php";
 
         // Server user register url
-        public static String URL_SIGNUP = "http://192.168.0.102/db_register.php";
+        public static String URL_SIGNUP = "http://192.168.2.103/db_register.php";
+
+        //Server add room url
+        public static String URL_ADD_ROOM = "http://192.168.2.103/db_add_room.php";
 
         // Server user temperature url
-        public static String URL_TEMP = "http://192.168.0.102/temp";
+        public static String URL_TEMP = "http://192.168.2.103/temp";
 
         // Server user window url
-        public static String URL_WINDOW = "http://192.168.0.102/window";
+        public static String URL_WINDOW = "http://192.168.2.103/window";
 
         // Server user livestream url
-        public static String URL_LIVESTREAM = "http://192.168.0.102:8081";
+        public static String URL_LIVESTREAM = "http://192.168.2.103:8081";
 
         // Server user motion url
-        public static String URL_MOTION = "http://192.168.0.102/motion";
+        public static String URL_MOTION = "http://192.168.2.103/motion";
 }

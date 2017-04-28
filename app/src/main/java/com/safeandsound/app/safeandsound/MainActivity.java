@@ -47,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void openLiveStreamActivity(View view) {
+        Intent i = new Intent(MainActivity.this, LiveStream.class);
+        startActivity(i);
+    }
+
     private void logout() {
         session.setLogin(false);
         // Zur LogIn Activity zurück zeigen
