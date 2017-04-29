@@ -53,7 +53,11 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, Room.class);
         startActivity(i);
     }
-
+    
+    public void openLiveStreamActivity(View view) {
+        Intent i = new Intent(MainActivity.this, LiveStream.class);
+        startActivity(i);
+    }
     //Meldet den aktuellen Nutzer ab
     private void logout() {
         session.setLogin(false);
