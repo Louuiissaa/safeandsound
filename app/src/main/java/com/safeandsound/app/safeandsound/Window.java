@@ -1,5 +1,6 @@
 package com.safeandsound.app.safeandsound;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,11 +28,25 @@ import static java.security.AccessController.getContext;
  */
 
 public class Window extends FragmentActivity {
+
+    private SQLiteHandler db;
+    private SessionManager session;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.window);
+
+        // session manager
+        session = new SessionManager(getApplicationContext());
+
+        //Android interne Datenbank
+        db = new SQLiteHandler(getApplicationContext());
+
+        if (!session.isLoggedIn()) {
+            logout();
+        }
 
     }
 
@@ -119,6 +135,16 @@ public class Window extends FragmentActivity {
         prefs.edit().putStringSet("saved_imageViews", imageViewSet).commit();
         prefs.edit().putStringSet("saved_textViews", textViewSet).commit();
         prefs.edit().putStringSet("saved_layouts", layoutSet).commit();
+    }
+
+    //Meldet den aktuellen Nutzer ab
+    private void logout() {
+        session.setLogin(false);
+        HashMap<String, String> user = db.getUserDetails();
+        db.logOutUser(user.get("user_id"));
+        // Zur LogIn Activity zurück springen
+        Intent intent = new Intent(Window.this, LogIn.class);
+        startActivity(intent);
     }
 
 }

@@ -67,92 +67,6 @@
                 android:layout_height="0dip"
                 android:layout_weight="5"
                 android:id="@+id/windowButtonLayout">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="70dip"
-                    android:orientation="horizontal"
-                    android:layout_margin="2dp">
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_house"/>
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:id="@+id/oxygenText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|left"
-                        android:text="Elternschlafzimmer"
-                        android:textAlignment="gravity" />
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_next_page"
-                        android:background="@color/white"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="70dip"
-                    android:orientation="horizontal"
-                    android:layout_margin="2dp">
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_house"/>
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:id="@+id/humidityText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|left"
-                        android:text="Kinderzimmer"
-                        android:textAlignment="gravity"/>
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_next_page"
-                        android:background="@color/white"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="70dip"
-                    android:orientation="horizontal"
-                    android:layout_margin="2dp">
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_house"/>
-                    <TextView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:id="@+id/temperatureText"
-                        android:background="@color/white"
-                        android:textSize="16dip"
-                        android:gravity="center_vertical|left"
-                        android:text="Küche"
-                        android:textAlignment="gravity"/>
-                    <ImageView
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_next_page"
-                        android:background="@color/white"/>
-                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 
@@ -172,7 +86,10 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:padding="15dip"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:padding="10dp"
                     android:background="@color/white"
                     android:src="@drawable/ic_plus"
                     android:scaleType="fitEnd"
@@ -188,6 +105,9 @@
                     android:text="Add Room"
                     android:textColor="@color/greyIcons"
                     android:textAlignment="gravity"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
                     android:onClick="addRoom"/>
 
             </LinearLayout>

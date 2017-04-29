@@ -1,6 +1,8 @@
 package com.safeandsound.app.safeandsound;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -29,9 +31,11 @@ public class LogIn extends FragmentActivity{
     private static final String TAG = SignUp.class.getSimpleName();
     private EditText inputEmail;
     private EditText inputPassword;
+    private String ipAddressRP;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
+    private User user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,11 +67,15 @@ public class LogIn extends FragmentActivity{
     public void login(View view){
         String email = inputEmail.getText().toString().trim();
         String password = inputPassword.getText().toString().trim();
+        //String ipAddressRP;
 
         // Kontrolle ob Email und Passwort eingegeben wurden
         if (!email.isEmpty() && !password.isEmpty()) {
-            //User wird eingeloggt
-            checkLogin(email, password);
+            ipAddressRP = db.getUsersIPAddressRP(email);
+                if(ipAddressRP == null){
+                    getUsersIP(email);
+                }
+                checkLogin(email, password);
         } else {
             // Fordert den User auf Email UND Passwort einzugeben
             Toast.makeText(getApplicationContext(),
@@ -75,6 +83,32 @@ public class LogIn extends FragmentActivity{
                     .show();
         }
     }
+
+    public void getUsersIP(String email){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Please fill in the IP Address of your Raspberry Pi:");
+        builder.setMessage("Message");
+
+// Set an EditText view to get user input
+        final EditText input = new EditText(this);
+        builder.setView(input);
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                ipAddressRP = input.getText().toString();
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Canceled.
+            }
+        });
+
+        builder.show();
+    }
+
 
     public void openSignUpActivity(View view){
         Intent i = new Intent(LogIn.this, SignUp.class);
@@ -92,9 +126,9 @@ public class LogIn extends FragmentActivity{
         showDialog();
 
         //Anfrage an den ApacheServer mit POST Method und Antwort mit onResponse-Methode entgegennehmen
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_LOGIN, new Response.Listener<String>() {
-
+        //StringRequest strReq = new StringRequest(Request.Method.POST,
+        //        "http://" + ipAddressRP + "/db_login.php", new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, AppConfig.URL_LOGIN, new Response.Listener<String >(){
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + response.toString());
@@ -111,14 +145,18 @@ public class LogIn extends FragmentActivity{
                         session.setLogin(true);
 
                         int uid = Integer.parseInt(jObj.getString("uid"));
-                        JSONObject user = jObj.getJSONObject("user");
-                        String name = user.getString("name");
-                        String email = user.getString("email");
-                        String ipAddressRP = user.getString("ipaddressrp");
+                        JSONObject userJSON = jObj.getJSONObject("user");
+                        String name = userJSON.getString("name");
+                        String email = userJSON.getString("email");
+                        String ipAddressRP = userJSON.getString("ipaddressrp");
+
+                        User.init(uid, name, null, email, ipAddressRP, getApplicationContext());
 
                         // User wird in interne Android DB gespeichert
-                        db.addUser(uid, name, null, email, ipAddressRP);
-
+                        if(!db.checkUserExists(email)) {
+                            db.addUser(uid, name, null, email, ipAddressRP, 1);
+                        }
+                        db.logInUser(jObj.getString("uid"));
                         // User wird zum Hauptmenü weitergeleitet
                         Intent intent = new Intent(LogIn.this,
                                 MainActivity.class);
@@ -131,6 +169,10 @@ public class LogIn extends FragmentActivity{
                                 errorMsg, Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
+                    // Ausgabe des Errors der von dem PHP weitergegeben wurde
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }catch (Exception e) {
                     // Ausgabe des Errors der von dem PHP weitergegeben wurde
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();

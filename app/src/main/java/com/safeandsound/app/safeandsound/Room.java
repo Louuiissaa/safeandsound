@@ -4,11 +4,16 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +26,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by louisapabst on 16.04.17.
@@ -32,13 +37,14 @@ public class Room extends FragmentActivity {
 
     private String areaname;
     private String userid;
+    //private HashMap<String, String> rooms;
 
     private SQLiteHandler db;
     private SessionManager session;
     private ProgressDialog pDialog;
     private static final String TAG = SignUp.class.getSimpleName();
 
-    /** Called when the activity is first created. */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +65,7 @@ public class Room extends FragmentActivity {
 
         HashMap<String, String> user = db.getUserDetails();
         userid = user.get("user_id");
+        getUserRooms(userid);
     }
 
     public void addRoom(View view){
@@ -114,8 +121,12 @@ public class Room extends FragmentActivity {
 
                         // Überprüfung ob bei der PHP Ausführung ein Fehler passiert ist
                         if (!error) {
-
-
+                            String roomID = jObj.getString("roomid");
+                            HashMap<String, String> rooms = User.getInstance().getRooms();
+                            rooms.put(roomID, areaname);
+                            User.getInstance().setRooms(rooms);
+                            finish();
+                            startActivity(getIntent());
                         } else {
                             // Ausgabe des Errors der während des LogIns aufgetreten ist
                             String errorMsg = jObj.getString("error_msg");
@@ -126,6 +137,9 @@ public class Room extends FragmentActivity {
                     // Ausgabe des Errors der von dem PHP weitergegeben wurde
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                } catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Exception: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -161,6 +175,71 @@ public class Room extends FragmentActivity {
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 
+
+    private void getUserRooms(String userid){
+        //Boolean b = getRoomsFromDB();
+        try {
+            HashMap<String, String> rooms = User.getInstance().getRooms();
+            Iterator it = rooms.entrySet().iterator();
+
+
+        //Umrechnung von gewünschten dip zu pixels des Handys
+        int dip70 = 70;
+        int dip2 = 2;
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        final float scale = metrics.density;
+        int pixels70 = (int) (dip70 * scale + 0.5f);
+        int pixels2 = (int) (dip2 * scale + 0.5f);
+
+            while (it.hasNext()) {
+                Map.Entry r = (Map.Entry)it.next();
+            //Initialisierung des LinearLayouts des neuen Windows
+            LinearLayout linearLayout = new LinearLayout(this);
+            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+            linearLayout.setBackgroundColor(Color.RED);
+            LinearLayout.LayoutParams LLParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, pixels70);
+            LLParams.setMargins(pixels2, pixels2, pixels2, pixels2);
+            linearLayout.setLayoutParams(LLParams);
+
+            //Initialisierung des ImageView mit Window-Icon des neuen Windows
+            ImageView imageView = new ImageView(this);
+            imageView.setBackgroundColor(Color.WHITE);
+            imageView.setImageResource(R.drawable.ic_house);
+            LinearLayout.LayoutParams IVParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1f);
+            imageView.setLayoutParams(IVParams);
+
+            //Initialisierung des TextView mit Area/Sensor Name des neuen Windows
+            TextView textView_WindowName = new TextView(this);
+            textView_WindowName.setBackgroundColor(Color.WHITE);
+            textView_WindowName.setTextSize(16);
+            textView_WindowName.setText(r.getValue().toString());
+            textView_WindowName.setGravity(Gravity.CENTER | Gravity.LEFT);
+            LinearLayout.LayoutParams TVParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 6f);
+            textView_WindowName.setLayoutParams(TVParams);
+
+            //Initialisierung des ImageView mit NextPage-Icon des neuen Windows
+            ImageView imageView_Arrow = new ImageView(this);
+            imageView_Arrow.setBackgroundColor(Color.WHITE);
+            imageView_Arrow.setImageResource(R.drawable.ic_next_page);
+            imageView_Arrow.setLayoutParams(IVParams);
+
+            //Hinzufügen des LinearLayouts, den zwei TextViews und den zwei ImageViews zu dem default
+            // erstellten LinearLayouts windowButtonLayout
+            LinearLayout ll = (LinearLayout) findViewById(R.id.windowButtonLayout);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            ll.addView(linearLayout);
+            linearLayout.addView(imageView);
+            linearLayout.addView(textView_WindowName);
+            linearLayout.addView(imageView_Arrow);
+        }
+        }catch (Exception e){
+            // Ausgabe des Errors der von dem PHP weitergegeben wurde
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Exception: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
     private void showDialog() {
         if (!pDialog.isShowing())
             pDialog.show();
@@ -174,7 +253,8 @@ public class Room extends FragmentActivity {
     //Meldet den aktuellen Nutzer ab
     private void logout() {
         session.setLogin(false);
-        db.deleteUsers();
+        HashMap<String, String> user = db.getUserDetails();
+        db.logOutUser(user.get("user_id"));
         // Zur LogIn Activity zurück springen
         Intent intent = new Intent(Room.this, LogIn.class);
         startActivity(intent);

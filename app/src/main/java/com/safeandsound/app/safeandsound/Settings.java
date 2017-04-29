@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 /**
  * Created by louisapabst on 14.04.17.
  */
@@ -27,13 +29,15 @@ public class Settings extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
         TextView ipAddressRP_Text = (TextView)findViewById(R.id.ipAddressOutput);
-        ipAddressRP_Text.setText(ipAddressRP);
 
         // session manager
         session = new SessionManager(getApplicationContext());
 
         //Android interne Datenbank
         db = new SQLiteHandler(getApplicationContext());
+
+        ipAddressRP = db.getloggedInUser();
+        ipAddressRP_Text.setText(ipAddressRP);
 
         if (!session.isLoggedIn()) {
             logout();
@@ -66,6 +70,7 @@ public class Settings extends FragmentActivity {
                 ipAddressRP = input.getText().toString();
                 TextView ipAddressRP_Text = (TextView)findViewById(R.id.ipAddressOutput);
                 ipAddressRP_Text.setText(ipAddressRP);
+                //AppConfig.setIpAddressRP(ipAddressRP);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -81,7 +86,9 @@ public class Settings extends FragmentActivity {
     //Meldet den aktuellen Nutzer ab
     private void logout() {
         session.setLogin(false);
-        db.deleteUsers();
+        User.reset();
+        HashMap<String, String> user = db.getUserDetails();
+        db.logOutUser(user.get("user_id"));
         // Zur LogIn Activity zurück springen
         Intent intent = new Intent(Settings.this, LogIn.class);
         startActivity(intent);
