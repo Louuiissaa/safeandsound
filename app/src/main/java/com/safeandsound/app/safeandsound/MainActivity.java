@@ -4,15 +4,22 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
     SessionManager session;
+    private SQLiteHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Android interne Datenbank
+        db = new SQLiteHandler(getApplicationContext());
 
         // session manager
         session = new SessionManager(getApplicationContext());
@@ -46,17 +53,18 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, Room.class);
         startActivity(i);
     }
-
+    
     public void openLiveStreamActivity(View view) {
         Intent i = new Intent(MainActivity.this, LiveStream.class);
         startActivity(i);
     }
-
+    //Meldet den aktuellen Nutzer ab
     private void logout() {
         session.setLogin(false);
-        // Zur LogIn Activity zurück zeigen
+        HashMap<String, String> user = db.getUserDetails();
+        db.logOutUser(user.get("user_id"));
+        // Zur LogIn Activity zurück springen
         Intent intent = new Intent(MainActivity.this, LogIn.class);
         startActivity(intent);
-        finish();
     }
 }

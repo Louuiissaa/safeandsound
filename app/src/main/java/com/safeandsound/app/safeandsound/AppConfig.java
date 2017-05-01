@@ -12,15 +12,27 @@ public class AppConfig {
         // Server user register url
         public static String URL_SIGNUP = "http://" + ipAddressRP + "/db_register.php";
 
+        //Server add room url
+        public static String URL_ADD_ROOM = "http://" + ipAddressRP + "/db_add_room.php";
+
         // Server user temperature url
         public static String URL_TEMP = "http://" + ipAddressRP + "/temp";
+
+        // Server user window url
+        public static String URL_WINDOW = "http://" + ipAddressRP + "/window";
+
+        // Server user livestream url
+        public static String URL_LIVESTREAM = "http://" + ipAddressRP + ":8081";
+
+        // Server user motion url
+        public static String URL_MOTION = "http://" + ipAddressRP + "/motion";
 
         public String getIpAddressRP() {
                 return ipAddressRP;
         }
 
         public void setIpAddressRP(String ipAddressRP) {
-                this.ipAddressRP = ipAddressRP;
+                ipAddressRP = ipAddressRP;
         }*/
 
         // Server user login url

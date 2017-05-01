@@ -54,8 +54,6 @@ public class ConnectionPOST extends AsyncTask<PostParams, Void, Boolean> {
             }
             // Response from server after login process will be stored in response variable.
             response = sbt.toString();
-            // You can perform UI operations here
-            //Toast.makeText(this,"Message from Server: \n"+ response, Toast.LENGTH_SHORT).show();
             isr.close();
             reader.close();
         }catch(Exception e){

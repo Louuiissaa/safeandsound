@@ -34,8 +34,13 @@
         jumboMode="false"
         optimize="true"
         revision="23.0.2"
+<<<<<<< HEAD
+        sha1="a7dc08d91f562cc45c7098e3870c90a9345f5ba1">
+        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ec83dd377678a2a8c135055ddc4ad5ef35af567b/classes.dex" />
+=======
         sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
         <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_007d4f88dc74336ecf8f06b795bba617e51175cf.jar" />
+>>>>>>> 78ab65e34973eb9605ed24bb750916b0a3beed6f
     </item>
     <item
         is-multidex="false"
@@ -52,8 +57,13 @@
         jumboMode="false"
         optimize="true"
         revision="23.0.2"
+<<<<<<< HEAD
+        sha1="9180234beaae362473aca73d8aafa73d89553ecb">
+        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f8521ace45ac66fb4413bc5894d29c8fc5ea45ed/classes.dex" />
+=======
         sha1="867dad63c33388ff8c7644b236579355036d075f">
         <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_550c938b61ff9448d6a40219c80a4f911754a810.jar" />
+>>>>>>> 78ab65e34973eb9605ed24bb750916b0a3beed6f
     </item>
     <item
         is-multidex="false"

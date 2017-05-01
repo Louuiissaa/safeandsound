@@ -1,5 +1,6 @@
 package com.safeandsound.app.safeandsound;
 
+import android.content.Intent;
 import android.net.ParseException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -12,6 +13,7 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -19,11 +21,26 @@ import java.util.concurrent.ExecutionException;
  */
 
 public class AirQuality extends FragmentActivity {
+
+    private SQLiteHandler db;
+    private SessionManager session;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.air_quality);
+
+        // session manager
+        session = new SessionManager(getApplicationContext());
+
+        //Android interne Datenbank
+        db = new SQLiteHandler(getApplicationContext());
+
+        if (!session.isLoggedIn()) {
+            logout();
+        }
+
         String result = null;
         InputStream is = null;
         StringBuilder sb=null;
@@ -62,6 +79,16 @@ public class AirQuality extends FragmentActivity {
         //print Humidity
         TextView text_humidity = (TextView)findViewById(R.id.humidityOutputText);
         text_humidity.setText(fd_humidity);
+    }
+
+    //Meldet den aktuellen Nutzer ab
+    private void logout() {
+        session.setLogin(false);
+        HashMap<String, String> user = db.getUserDetails();
+        db.logOutUser(user.get("user_id"));
+        // Zur LogIn Activity zurück springen
+        Intent intent = new Intent(AirQuality.this, LogIn.class);
+        startActivity(intent);
     }
 
 }

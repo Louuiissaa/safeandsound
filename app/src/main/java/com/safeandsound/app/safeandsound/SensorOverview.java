@@ -3,6 +3,7 @@ package com.safeandsound.app.safeandsound;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -10,11 +11,16 @@ import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 /**
  * Created by louisapabst on 24.04.17.
  */
 
 public class SensorOverview extends Activity {
+
+    private SQLiteHandler db;
+    private SessionManager session;
 
     TextView intervall;
     int intervall_Value;
@@ -28,6 +34,16 @@ public class SensorOverview extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sensoroverview);
+
+        // session manager
+        session = new SessionManager(getApplicationContext());
+
+        //Android interne Datenbank
+        db = new SQLiteHandler(getApplicationContext());
+
+        if (!session.isLoggedIn()) {
+            logout();
+        }
     }
 
     public void setIntervall(View view){
@@ -165,5 +181,15 @@ public class SensorOverview extends Activity {
         });
 
         builder.show();
+    }
+
+    //Meldet den aktuellen Nutzer ab
+    private void logout() {
+        session.setLogin(false);
+        HashMap<String, String> user = db.getUserDetails();
+        db.logOutUser(user.get("user_id"));
+        // Zur LogIn Activity zurück springen
+        Intent intent = new Intent(SensorOverview.this, LogIn.class);
+        startActivity(intent);
     }
 }
