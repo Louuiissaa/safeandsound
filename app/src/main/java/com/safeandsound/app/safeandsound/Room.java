@@ -21,6 +21,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
+import com.safeandsound.app.safeandsound.model.User;
+import com.safeandsound.app.safeandsound.view.LogInActivity;
+import com.safeandsound.app.safeandsound.view.SignUpActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,7 +46,7 @@ public class Room extends FragmentActivity {
     private SQLiteHandler db;
     private SessionManager session;
     private ProgressDialog pDialog;
-    private static final String TAG = SignUp.class.getSimpleName();
+    private static final String TAG = SignUpActivity.class.getSimpleName();
 
 
     @Override
@@ -162,7 +166,7 @@ public class Room extends FragmentActivity {
 
             @Override
             protected Map<String, String> getParams() {
-                // Setzt die POST Parameter für den LogIn
+                // Setzt die POST Parameter für den LogInActivity
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("areaname", areaname);
                 params.put("user_id", userid);
@@ -202,7 +206,7 @@ public class Room extends FragmentActivity {
             LLParams.setMargins(pixels2, pixels2, pixels2, pixels2);
             linearLayout.setLayoutParams(LLParams);
 
-            //Initialisierung des ImageView mit Window-Icon des neuen Windows
+            //Initialisierung des ImageView mit WindowActivity-Icon des neuen Windows
             ImageView imageView = new ImageView(this);
             imageView.setBackgroundColor(Color.WHITE);
             imageView.setImageResource(R.drawable.ic_house);
@@ -255,8 +259,8 @@ public class Room extends FragmentActivity {
         session.setLogin(false);
         HashMap<String, String> user = db.getUserDetails();
         db.logOutUser(user.get("user_id"));
-        // Zur LogIn Activity zurück springen
-        Intent intent = new Intent(Room.this, LogIn.class);
+        // Zur LogInActivity Activity zurück springen
+        Intent intent = new Intent(Room.this, LogInActivity.class);
         startActivity(intent);
     }
 }

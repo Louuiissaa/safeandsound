@@ -2,16 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.safeandsound.app.safeandsound">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission
+        android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission
+        android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
 
     <application
         android:name=".AppController"
+        android:minSdkVersion="8"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:logo="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LogIn"
+        <activity android:name=".view.LogInActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustPan">
@@ -22,11 +29,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AirQuality"
+            android:name=".view.AirQualityActivity"
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".Window"
+            android:name=".view.WindowActivity"
             android:label="@string/app_name">
         </activity>
         <activity
@@ -34,15 +41,15 @@
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".Settings"
+            android:name=".view.SettingsActivity"
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:label="@string/app_name">
         </activity>
         <activity
-        android:name=".SignUp"
+        android:name=".view.SignUpActivity"
         android:label="@string/app_name">
         </activity>
         <activity
@@ -50,9 +57,24 @@
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".LiveStream"
+            android:name=".view.LiveStreamActivity"
             android:label="@string/app_name">
         </activity>
+        <service
+            android:name=".controller.firebase.MyFirebaseInstanceService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".controller.firebase.MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

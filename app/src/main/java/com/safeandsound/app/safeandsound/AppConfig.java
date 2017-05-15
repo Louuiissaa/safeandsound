@@ -36,13 +36,16 @@ public class AppConfig {
         }*/
 
         // Server user login url
-        public static String URL_LOGIN = "http://192.168.2.103/db_login.php";
+        public static String URL_LOGIN = "http://192.168.10.53/db_login.php";
 
         // Server user register url
         public static String URL_SIGNUP = "http://192.168.2.103/db_register.php";
 
         //Server add room url
         public static String URL_ADD_ROOM = "http://192.168.2.103/db_add_room.php";
+
+        //Server add room url
+        public static String URL_GET_ROOMS = "http://192.168.2.103/db_get_room.php";
 
         // Server user temperature url
         public static String URL_TEMP = "http://192.168.2.103/temp";

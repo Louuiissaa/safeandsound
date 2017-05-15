@@ -19,7 +19,7 @@
     <!-- Rooms -->
 
 
-    <!-- Settings -->
+    <!-- SettingsActivity -->
     <string name="logout">Log out</string>
     <string name="user">User</string>
     <string name="raspberrypi">Raspberry Pi</string>
@@ -32,7 +32,7 @@
     <string name="intervall">Intervall</string>
     <string name="range">Range</string>
 
-    <!-- LogIn -->
+    <!-- LogInActivity -->
     <string name="login">LogIn</string>
     <string name="welcomeText">Welcome to\nSafe &amp; Sound</string>
     <string name="submit">Submit</string>

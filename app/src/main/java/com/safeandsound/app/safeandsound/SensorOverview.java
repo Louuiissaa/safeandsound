@@ -11,6 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
+import com.safeandsound.app.safeandsound.view.LogInActivity;
+
 import java.util.HashMap;
 
 /**
@@ -188,8 +191,8 @@ public class SensorOverview extends Activity {
         session.setLogin(false);
         HashMap<String, String> user = db.getUserDetails();
         db.logOutUser(user.get("user_id"));
-        // Zur LogIn Activity zurück springen
-        Intent intent = new Intent(SensorOverview.this, LogIn.class);
+        // Zur LogInActivity Activity zurück springen
+        Intent intent = new Intent(SensorOverview.this, LogInActivity.class);
         startActivity(intent);
     }
 }
