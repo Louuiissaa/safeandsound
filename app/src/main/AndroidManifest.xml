@@ -60,6 +60,7 @@
             android:name=".view.LiveStreamActivity"
             android:label="@string/app_name">
         </activity>
+
         <service
             android:name=".controller.firebase.MyFirebaseInstanceService">
             <intent-filter>
