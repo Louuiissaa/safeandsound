@@ -60,6 +60,14 @@
             android:name=".view.LiveStreamActivity"
             android:label="@string/app_name">
         </activity>
+        <activity
+            android:name=".view.LibraryActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".view.MotionPictureActivity"
+            android:label="@string/app_name">
+        </activity>
 
         <service
             android:name=".controller.firebase.MyFirebaseInstanceService">

@@ -63,15 +63,17 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:layout_margin="2dp">
+
                 <ImageButton
                     android:id="@+id/libraryButton"
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
                     android:layout_weight="2.5"
-                    android:src="@drawable/ic_library"
                     android:background="@color/white"
+                    android:onClick="openLibraryActivity"
                     android:paddingTop="30dp"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_library" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dip"

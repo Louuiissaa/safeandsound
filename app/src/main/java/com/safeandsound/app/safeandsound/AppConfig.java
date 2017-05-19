@@ -60,6 +60,7 @@ public class AppConfig {
 
         // Server user motion url
         public static String URL_MOTION = ip + ":1880/motion";
+        public static String URL_MOTION_PICTURE = ip + ":1880/getPic?id=";
 
         // Server user Current MQ-135 data url
         public static String URL_MQGas = ip + ":1880/mqgas";

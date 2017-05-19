@@ -43,4 +43,9 @@
     <!-- Signup -->
     <string name="bigSignupText">SignUp for\nSafe &amp; Sound</string>
     <string name="alreadyRegistered">Already registered?</string>
+
+
+    <!-- Library -->
+    <string name="libraryHeading">Wann wurde Bewegung erkannt?</string>
+    <string name="libraryDesc">Klicken, um Bild anzuzeigen...</string>
 </resources>

@@ -62,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, LiveStreamActivity.class);
         startActivity(i);
     }
+
+    public void openLibraryActivity(View view) {
+        Intent i = new Intent(MainActivity.this, LibraryActivity.class);
+        startActivity(i);
+    }
+
     //Meldet den aktuellen Nutzer ab
     private void logout() {
         session.setLogin(false);
