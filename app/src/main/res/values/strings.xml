@@ -13,7 +13,7 @@
     <string name="luftfeutigkeit">Humidity</string>
     <string name="temperatur">Temperature</string>
     <string name="kohlenstoffdioxid">Carbondioxid</string>
-    <string name="sauerstoff">Oxygen</string>
+    <string name="sauerstoff">Amomonium</string>
     <string name="kohlenstoffmonoxid">Carbonmonoxid</string>
 
     <!-- Rooms -->
@@ -46,6 +46,16 @@
 
 
     <!-- Library -->
-    <string name="libraryHeading">Wann wurde Bewegung erkannt?</string>
-    <string name="libraryDesc">Klicken, um Bild anzuzeigen...</string>
+    <string name="libraryHeading">Motion Detection</string>
+    <string name="libraryDesc">Click, to show picture...</string>
+
+    <!--Diagramm-->
+    <string name="tempDiagramm">Temperature profile</string>
+    <string name="humDiagramm">Humidity profile</string>
+    <string name="coDiagramm">Carbonmonoxide profile</string>
+    <string name="co2Diagramm">Carbondioxide profile</string>
+    <string name="nhDiagramm">Ammonium profile</string>
+    <string name="verlauf">Show data</string>
+    <string name="startDate">Start date</string>
+    <string name="endDate">End date</string>
 </resources>
