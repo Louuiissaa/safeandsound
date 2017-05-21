@@ -14,12 +14,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/air_quality.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/air_quality.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityDiagrammActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityDiagrammActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/air_quality_diagramm.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/air_quality_diagramm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="SafeAndSound.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,10 +66,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AirQualityActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AirQualityActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
+            <state relative-caret-position="283">
               <caret line="182" column="20" selection-start-line="182" selection-start-column="20" selection-end-line="182" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -128,25 +130,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AirQualityDiagrammActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AirQualityDiagrammActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityDiagrammActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+            <state relative-caret-position="524">
+              <caret line="245" column="13" selection-start-line="245" selection-start-column="13" selection-end-line="245" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3502#4194#0" expanded="true" />
-                <element signature="e#4193#4194#0" expanded="true" />
-                <element signature="e#4230#4681#0" expanded="true" />
-                <element signature="e#4518#4562#0" expanded="true" />
-                <element signature="e#4680#4681#0" expanded="true" />
-                <element signature="e#4835#5525#0" expanded="true" />
-                <element signature="e#5524#5525#0" expanded="true" />
-                <element signature="e#5559#6001#0" expanded="true" />
-                <element signature="e#5843#5885#0" expanded="true" />
-                <element signature="e#6000#6001#0" expanded="true" />
-                <element signature="e#6155#7089#0" expanded="true" />
-                <element signature="e#7088#7089#0" expanded="true" />
+                <element signature="e#4513#5205#0" expanded="true" />
+                <element signature="e#5204#5205#0" expanded="true" />
+                <element signature="e#5241#5692#0" expanded="true" />
+                <element signature="e#5529#5573#0" expanded="true" />
+                <element signature="e#5691#5692#0" expanded="true" />
+                <element signature="e#5846#6536#0" expanded="true" />
+                <element signature="e#6535#6536#0" expanded="true" />
+                <element signature="e#6570#7012#0" expanded="true" />
+                <element signature="e#6854#6896#0" expanded="true" />
+                <element signature="e#7011#7012#0" expanded="true" />
+                <element signature="e#7166#8100#0" expanded="true" />
+                <element signature="e#8099#8100#0" expanded="true" />
+                <element signature="e#8235#8242#0" expanded="true" />
+                <element signature="e#8519#8526#0" expanded="true" />
+                <element signature="e#8887#9079#0" expanded="true" />
+                <element signature="e#9554#9568#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -158,17 +164,17 @@
             <state />
           </provider>
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="80" column="39" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="39" />
+            <state relative-caret-position="210">
+              <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
               <folding>
                 <element signature="e#337#370#0" expanded="true" />
                 <element signature="e#391#426#0" expanded="true" />
                 <element signature="e#448#483#0" expanded="true" />
                 <element signature="e#503#536#0" expanded="true" />
-                <element signature="e#1110#1128#0" expanded="true" />
-                <element signature="e#2352#2371#0" expanded="true" />
-                <element signature="e#2971#2988#0" expanded="true" />
-                <element signature="e#3273#3290#0" expanded="true" />
+                <element signature="e#1149#1167#0" expanded="true" />
+                <element signature="e#2391#2410#0" expanded="true" />
+                <element signature="e#3010#3027#0" expanded="true" />
+                <element signature="e#3312#3329#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1728,7 +1734,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound" value="4485570812259" />
+        <entry key="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound" value="4485790053590" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2108,8 +2114,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/controler/firebase/MyFirebaseMessagingService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/controler/database/SQLiteHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/controller/database/SQLiteHandler.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/controller/ruleengine/Rule.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/Library.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/LiveStreamActivity.java" />
@@ -2124,10 +2128,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/MotionPictureActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/air_quality_diagram.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/air_quality_diagramm.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/air_quality.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/air_quality_diagramm.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityDiagrammActivity.java" />
       </list>
     </option>
@@ -2366,6 +2372,8 @@
     <property name="device.picker.selection" value="CVH7N15B11000557" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="SearchEverywhereHistoryKey" value="openWindow&#9;PSI&#9;JAVA://com.safeandsound.app.safeandsound.view.MainActivity#openWindowActivity" />
+    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.proportion" value="0.15" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -2752,14 +2760,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259053" sideWeight="0.46143958" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259053" sideWeight="0.4485861" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3718663" sideWeight="0.35989717" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3259053" sideWeight="0.5514139" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2768,11 +2776,11 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647815" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647815" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3718663" sideWeight="0.6401028" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3718663" sideWeight="0.6401028" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2848,20 +2856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -3128,26 +3122,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/air_quality_diagramm.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="80" column="39" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="39" />
-          <folding>
-            <element signature="e#337#370#0" expanded="true" />
-            <element signature="e#391#426#0" expanded="true" />
-            <element signature="e#448#483#0" expanded="true" />
-            <element signature="e#503#536#0" expanded="true" />
-            <element signature="e#1110#1128#0" expanded="true" />
-            <element signature="e#2352#2371#0" expanded="true" />
-            <element signature="e#2971#2988#0" expanded="true" />
-            <element signature="e#3273#3290#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -3173,23 +3147,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="182" column="20" selection-start-line="182" selection-start-column="20" selection-end-line="182" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5036#5533#0" expanded="true" />
-            <element signature="e#5260#5307#0" expanded="true" />
-            <element signature="e#5532#5533#0" expanded="true" />
-            <element signature="e#6191#6237#0" expanded="true" />
-            <element signature="e#6480#6526#0" expanded="true" />
-            <element signature="e#6769#6814#0" expanded="true" />
-            <element signature="e#7059#7104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-172">
@@ -3200,24 +3157,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/air_quality_diagramm.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="93" column="30" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
+          <folding>
+            <element signature="e#337#370#0" expanded="true" />
+            <element signature="e#391#426#0" expanded="true" />
+            <element signature="e#448#483#0" expanded="true" />
+            <element signature="e#503#536#0" expanded="true" />
+            <element signature="e#1149#1167#0" expanded="true" />
+            <element signature="e#2391#2410#0" expanded="true" />
+            <element signature="e#3010#3027#0" expanded="true" />
+            <element signature="e#3312#3329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityDiagrammActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+        <state relative-caret-position="524">
+          <caret line="245" column="13" selection-start-line="245" selection-start-column="13" selection-end-line="245" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3502#4194#0" expanded="true" />
-            <element signature="e#4193#4194#0" expanded="true" />
-            <element signature="e#4230#4681#0" expanded="true" />
-            <element signature="e#4518#4562#0" expanded="true" />
-            <element signature="e#4680#4681#0" expanded="true" />
-            <element signature="e#4835#5525#0" expanded="true" />
-            <element signature="e#5524#5525#0" expanded="true" />
-            <element signature="e#5559#6001#0" expanded="true" />
-            <element signature="e#5843#5885#0" expanded="true" />
-            <element signature="e#6000#6001#0" expanded="true" />
-            <element signature="e#6155#7089#0" expanded="true" />
-            <element signature="e#7088#7089#0" expanded="true" />
+            <element signature="e#4513#5205#0" expanded="true" />
+            <element signature="e#5204#5205#0" expanded="true" />
+            <element signature="e#5241#5692#0" expanded="true" />
+            <element signature="e#5529#5573#0" expanded="true" />
+            <element signature="e#5691#5692#0" expanded="true" />
+            <element signature="e#5846#6536#0" expanded="true" />
+            <element signature="e#6535#6536#0" expanded="true" />
+            <element signature="e#6570#7012#0" expanded="true" />
+            <element signature="e#6854#6896#0" expanded="true" />
+            <element signature="e#7011#7012#0" expanded="true" />
+            <element signature="e#7166#8100#0" expanded="true" />
+            <element signature="e#8099#8100#0" expanded="true" />
+            <element signature="e#8235#8242#0" expanded="true" />
+            <element signature="e#8519#8526#0" expanded="true" />
+            <element signature="e#8887#9079#0" expanded="true" />
+            <element signature="e#9554#9568#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/safeandsound/app/safeandsound/view/AirQualityActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="182" column="20" selection-start-line="182" selection-start-column="20" selection-end-line="182" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5036#5533#0" expanded="true" />
+            <element signature="e#5260#5307#0" expanded="true" />
+            <element signature="e#5532#5533#0" expanded="true" />
+            <element signature="e#6191#6237#0" expanded="true" />
+            <element signature="e#6480#6526#0" expanded="true" />
+            <element signature="e#6769#6814#0" expanded="true" />
+            <element signature="e#7059#7104#0" expanded="true" />
           </folding>
         </state>
       </provider>

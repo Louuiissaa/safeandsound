@@ -15,7 +15,8 @@ tools:context="com.safeandsound.app.safeandsound.view.AirQualityDiagrammActivity
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
 
         <TextView
             android:id="@+id/diagramTextView"
@@ -85,7 +86,15 @@ tools:context="com.safeandsound.app.safeandsound.view.AirQualityDiagrammActivity
             android:textAllCaps="false" />
 
 
+
+
     </LinearLayout>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout" />
 
 
 

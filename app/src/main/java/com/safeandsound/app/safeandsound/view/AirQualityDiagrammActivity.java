@@ -14,11 +14,30 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.safeandsound.app.safeandsound.R;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static com.safeandsound.app.safeandsound.R.string.tempDiagramm;
 
@@ -50,6 +69,9 @@ public class AirQualityDiagrammActivity extends Activity{
     private DatePickerDialog.OnDateSetListener mDateSetListenerStart;
     private DatePickerDialog.OnDateSetListener mDateSetListenerEnd;
     //_________________________________
+
+
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -194,6 +216,101 @@ public class AirQualityDiagrammActivity extends Activity{
         });
 
 
+        //Line chart
+
+        LineChart chart = (LineChart) findViewById(R.id.chart);
+
+        List<Entry> entries = new ArrayList<Entry>();
+        entries.add(new Entry(0f,1));
+        entries.add(new Entry(1f,2));
+        entries.add(new Entry(2f,3));
+        entries.add(new Entry(3f,4));
+        entries.add(new Entry(4f,5));
+        entries.add(new Entry(5f,6));
+
+        List<Entry> entries1 = new ArrayList<Entry>();
+        entries1.add(new Entry(0f,5));
+        entries1.add(new Entry(1f,8));
+        entries1.add(new Entry(2f,12));
+        entries1.add(new Entry(3f,25));
+        entries1.add(new Entry(4f,10));
+        entries1.add(new Entry(5f,2));
+
+
+        final String[] testArr = new String[] {"DO","2","T","OO","55","WW"};
+
+        IAxisValueFormatter formatter = new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return testArr[(int) value];
+            }
+        };
+
+        LineDataSet dataSet = new LineDataSet(entries, "Dominic");
+        dataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
+        dataSet.setValueTextSize(8);
+        dataSet.setColor(Color.BLUE);
+        dataSet.setCircleColor(Color.MAGENTA);
+
+        LineDataSet dataSet1 = new LineDataSet(entries1, "2.Set");
+        dataSet1.setAxisDependency(YAxis.AxisDependency.LEFT);
+        dataSet1.setValueTextSize(8);
+
+        List<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+        dataSets.add(dataSet);
+        dataSets.add(dataSet1);
+
+
+        LineData data = new LineData(dataSets);
+        chart.setData(data);
+        chart.invalidate();
+
+        chart.setTouchEnabled(true);
+        //chart.setPinchZoom(false);
+        chart.setDoubleTapToZoomEnabled(true);
+        chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        chart.getAxisRight().setEnabled(false);
+        //chart.setVisibleXRangeMinimum(3);
+        chart.setBackgroundColor(Color.WHITE);
+        Description desc = new Description();
+        desc.setText("");
+        chart.setDescription(desc);
+        chart.setVisibleXRangeMaximum(3);
+
+        //Legend
+        Legend legend = chart.getLegend();
+        legend.setTextColor(Color.BLACK);
+        legend.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
+
+
+
+        //Styling of the chart
+        YAxis leftAxis = chart.getAxisLeft();
+        leftAxis.setDrawAxisLine(true);
+        leftAxis.setDrawGridLines(false);
+        leftAxis.setDrawZeroLine(true);
+        leftAxis.setGranularityEnabled(true);
+
+
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setDrawAxisLine(true);
+        xAxis.setDrawGridLines(false);
+        xAxis.setGranularityEnabled(true);
+        //xAxis.setGranularity(1f);
+        xAxis.setValueFormatter(formatter);
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
 
 }
