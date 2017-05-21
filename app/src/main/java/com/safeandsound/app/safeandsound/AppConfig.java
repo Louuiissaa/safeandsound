@@ -51,6 +51,8 @@ public class AppConfig {
 
         // Server user temperature url
         public static String URL_TEMP = ip + ":1880/temp";
+        //id + ":1880/tempInt?from=23.04.2017&to=24.04.2017
+        public static String URL_TEMPINT = ip + ":1880/tempInt?from=";
 
         // Server user window url
         public static String URL_WINDOW = ip + ":1880/window";
@@ -64,4 +66,6 @@ public class AppConfig {
 
         // Server user Current MQ-135 data url
         public static String URL_MQGas = ip + ":1880/mqgas";
+        // id + ":1880/gasInt?from=17.05.2017&to=18.05.2017"
+        public static String URL_MQGasInt = ip + ":1880/gasInt?from=";
 }

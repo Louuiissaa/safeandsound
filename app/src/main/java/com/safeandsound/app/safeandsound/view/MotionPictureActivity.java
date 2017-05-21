@@ -31,22 +31,16 @@ public class MotionPictureActivity extends Activity{
         webView.getSettings().setUseWideViewPort(true);
         //Motion muss auf dem Raspberry laufen, damit der Livestream angesehen werden kann.
 
-        //get the URL of the Livestream
+        //get the URL of the motion Picture, show saved Picture when motion was detected
         String url = AppConfig.URL_MOTION_PICTURE;
         url = url + id;
-        //access livestream and show it in a webView
+        //access motionPicture and show it in a webView
         webView.loadUrl(url);
-
-
     }
-
 
     //'Zurück' Navigation schließt die Verbindung und den View
     public void onPause(){
         super.onPause();
         webView.destroy();
     }
-
-
-
 }

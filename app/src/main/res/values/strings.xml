@@ -50,11 +50,10 @@
     <string name="libraryDesc">Click, to show picture...</string>
 
     <!--Diagramm-->
-    <string name="tempDiagramm">Temperature profile</string>
-    <string name="humDiagramm">Humidity profile</string>
-    <string name="coDiagramm">Carbonmonoxide profile</string>
-    <string name="co2Diagramm">Carbondioxide profile</string>
-    <string name="nhDiagramm">Ammonium profile</string>
+
+    <string name="dataProfile">Data profile</string>
+    <string name="gasProfile">Gas profile</string>
+    <string name="tempHumProfile">Temp &amp; Humidity profile</string>
     <string name="verlauf">Show data</string>
     <string name="startDate">Start date</string>
     <string name="endDate">End date</string>

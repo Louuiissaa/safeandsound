@@ -104,6 +104,7 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:onClick="onClickNavDiagramm"
                     android:background="@color/white"
                     android:clickable="true"
                     android:src="@drawable/ic_next_page" />
@@ -152,7 +153,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:onClick="showDiagramm"
+                    android:onClick="onClickNavDiagramm"
                     android:src="@drawable/ic_next_page" />
             </LinearLayout>
         </LinearLayout>
@@ -202,7 +203,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:onClick="showDiagramm"
+                    android:onClick="onClickNavDiagramm"
                     android:src="@drawable/ic_next_page" />
             </LinearLayout>
         </LinearLayout>
@@ -251,7 +252,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:onClick="showDiagramm"
+                    android:onClick="onClickNavDiagramm"
                     android:src="@drawable/ic_next_page" />
             </LinearLayout>
         </LinearLayout>
@@ -304,7 +305,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/white"
-                    android:onClick="showDiagramm"
+                    android:onClick="onClickNavDiagramm"
                     android:src="@drawable/ic_next_page" />
             </LinearLayout>
         </LinearLayout>

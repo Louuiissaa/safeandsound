@@ -147,22 +147,6 @@ public class AirQualityActivity extends FragmentActivity {
         TextView text_nh = (TextView)findViewById(R.id.oxygenOutputText);
         text_nh.setText(fd_nh4 + " ppm");
 
-        //setze Click Listener für jeden Image Button
-        ImageButton tempBtn = (ImageButton)findViewById(R.id.tempBtn);
-        //Set the OnclickListen on the button itself
-        tempBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(AirQualityActivity.this, AirQualityDiagrammActivity.class);
-                String help = getResources().getString(R.string.tempDiagramm);
-                i.putExtra("ID", help);
-                //id für Temperatur verlauf = 0
-                int shipper = 0;
-                i.putExtra("ship1", shipper);
-                startActivity(i);
-            }
-        });
-
 
     }
 
@@ -177,38 +161,35 @@ public class AirQualityActivity extends FragmentActivity {
     }
 
     //button
-    public void showDiagramm(View view){
+    public void onClickNavDiagramm(View view){
         Intent i = new Intent(AirQualityActivity.this, AirQualityDiagrammActivity.class);
-        String help;
-        int shipper;
+        //helpURL wird benutz, um zu untersheiden welcher Service (GAS, oder Luftfeuchte&Temp) geladen werden soll
+        int helpURL;
         switch (view.getId()){
+            case R.id.tempBtn:
+                //id für Temperatur verlauf = 0
+                helpURL = 0;
+                i.putExtra("ID", helpURL);
+                break;
             case R.id.humBtn:
-                help = getResources().getString(R.string.humDiagramm);
                 //id für Luftfeuchtigkeit verlauf = 1
-                shipper = 1;
-                i.putExtra("ship1", shipper);
-                i.putExtra("ID", help);
+                helpURL = 0;
+                i.putExtra("ID", helpURL);
             break;
             case R.id.co2Btn:
-                help = getResources().getString(R.string.co2Diagramm);
                 //id für Kohlenstoffdioxid verlauf = 2
-                shipper = 2;
-                i.putExtra("ship1", shipper);
-                i.putExtra("ID", help);
+                helpURL = 1;
+                i.putExtra("ID", helpURL);
             break;
             case R.id.coBtn:
-                help = getResources().getString(R.string.coDiagramm);
                 //id für Kohlenstoffmonoxid verlauf = 3
-                shipper = 3;
-                i.putExtra("ship1", shipper);
-                i.putExtra("ID", help);
+                helpURL = 1;
+                i.putExtra("ID", helpURL);
             break;
             case R.id.nh4Btn:
-                help = getResources().getString(R.string.nhDiagramm);
                 //id für nh4 verlauf = 4
-                shipper = 4;
-                i.putExtra("ship1", shipper);
-                i.putExtra("ID", help);
+                helpURL = 1;
+                i.putExtra("ID", helpURL);
             break;
         }
         startActivity(i);

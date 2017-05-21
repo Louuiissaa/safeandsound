@@ -1,34 +1,24 @@
 package com.safeandsound.app.safeandsound.view;
 
 import android.content.Intent;
-import android.net.ParseException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.widget.ListViewAutoScrollHelper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import com.safeandsound.app.safeandsound.AppConfig;
 import com.safeandsound.app.safeandsound.ConnectionFeed;
 import com.safeandsound.app.safeandsound.R;
-import com.safeandsound.app.safeandsound.SessionManager;
-import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -40,6 +30,7 @@ public class LibraryActivity extends FragmentActivity{
 
     private int countMotionItems = 0;
     private int[] helperArr;
+    List<Map<String,String>> motionList = new ArrayList<Map<String, String>>();
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +38,7 @@ public class LibraryActivity extends FragmentActivity{
 
         String result = "[]";
 
+        //Get Request, um alle Zeitpunkte zu erhalten, in denen Bewegung erkannt wurde
         try {
             URL urlObj = new URL(AppConfig.URL_MOTION);
             result = new ConnectionFeed().execute(urlObj.toString()).get();
@@ -58,15 +50,18 @@ public class LibraryActivity extends FragmentActivity{
             e.printStackTrace();
         }
 
+        /*
+            Wertet den erhaltenen String vom Backend aus
 
+         */
         initList(result);
 
         final ListView listView = (ListView)findViewById(R.id.listViewLibrary);
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, motionList, android.R.layout.simple_expandable_list_item_1, new String[] {"id"}, new int[] {android.R.id.text1} );
 
-
-
-
+        /*
+        *   ClickListener: Navigiert zur MotionPictureActivity, die das zum einem Zeitpunkt gespeicherte Bild anzeigt
+        * */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -76,13 +71,8 @@ public class LibraryActivity extends FragmentActivity{
             }
         });
         listView.setAdapter(simpleAdapter);
-
-
-
     }
 
-
-    List<Map<String,String>> motionList = new ArrayList<Map<String, String>>();
     private void initList(String re){
 
         try{
@@ -93,7 +83,7 @@ public class LibraryActivity extends FragmentActivity{
                 String id = jsonChildNode.optString("ID");
                 countMotionItems = i +1;
                 String timestamp = jsonChildNode.optString("time_stamp");
-                String outPut = id+ "\t\t\t Zeitpunkt:\t" + timestamp;
+                String outPut = id+ "\t\t\t Time:\t" + timestamp;
                 motionList.add(createMotionItems("id", outPut));
             }
         } catch (JSONException e){

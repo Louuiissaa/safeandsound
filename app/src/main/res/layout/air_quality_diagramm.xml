@@ -54,6 +54,7 @@ tools:context="com.safeandsound.app.safeandsound.view.AirQualityDiagrammActivity
 
                 <Button
                     android:id="@+id/btnStart"
+                    style="@android:style/Widget.DeviceDefault.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/startDate"
@@ -69,6 +70,7 @@ tools:context="com.safeandsound.app.safeandsound.view.AirQualityDiagrammActivity
 
                 <Button
                     android:id="@+id/btnEnd"
+                    style="@android:style/Widget.DeviceDefault.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -80,6 +82,7 @@ tools:context="com.safeandsound.app.safeandsound.view.AirQualityDiagrammActivity
 
         <Button
             android:id="@+id/getDataDia"
+            style="@android:style/Widget.DeviceDefault.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/verlauf"
