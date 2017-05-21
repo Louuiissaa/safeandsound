@@ -269,7 +269,7 @@ public class AirQualityDiagrammActivity extends Activity{
         *   in arrList all Timestamps to a each value of the resoponse are stored
          *   timestamps are show below the x-axis as a label
         * */
-        arrList = getTimeStamp(result);
+        //arrList = getTimeStamp(result);
         IAxisValueFormatter formatter = new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
