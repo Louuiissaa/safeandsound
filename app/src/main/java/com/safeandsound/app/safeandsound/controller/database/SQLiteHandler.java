@@ -15,71 +15,99 @@ import java.util.HashMap;
 
 public class SQLiteHandler extends SQLiteOpenHelper {
 
-        private static final String TAG = SQLiteHandler.class.getSimpleName();
+    private static final String TAG = SQLiteHandler.class.getSimpleName();
 
-        // Datenbank Version
-        private static final int DATABASE_VERSION = 1;
+    // Datenbank Version
+    private static final int DATABASE_VERSION = 1;
 
-        // Datenbank Name
-        private static final String DATABASE_NAME = "android_api";
+    // Datenbank Name
+    private static final String DATABASE_NAME = "SAFEANDSOUND";
 
-        // Datenbank Tabelle zum LogInActivity
-        private static final String TABLE_USER = "USER";
+    // Datenbank Tabellen
+    private static final String TABLE_USER = "USER";
+    private static final String TABLE_IFSTATEMENT = "IFSTATEMENT";
+    private static final String TABLE_THENSTATEMENT = "THENSTATEMENT";
 
-        // Spalten der USER Tabelle
-        private static final String KEY_ID = "User_ID";
-        private static final String KEY_NAME = "Name";
-        private static final String KEY_PASSWORD = "Password";
-        private static final String KEY_EMAIL = "Email";
-        private static final String KEY_IPADDRESSRP = "IPAddressRP";
-        private static final String KEY_ISLOGGEDIN = "isLoggedIn";
+    //Allgemeine Spalten
+    private static final String KEY_ID = "ID";
+    private static final String KEY_RULE = "RULE";
 
-        public SQLiteHandler(Context context) {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        }
+    // Spalten der USER Tabelle
+    private static final String KEY_NAME = "Name";
+    private static final String KEY_PASSWORD = "Password";
+    private static final String KEY_EMAIL = "Email";
+    private static final String KEY_IPADDRESSRP = "IPAddressRP";
+    private static final String KEY_ISLOGGEDIN = "isLoggedIn";
 
-        // Tabelle USER wird erstellt
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            String CREATE_LOGIN_TABLES = "CREATE TABLE " + TABLE_USER + "("
-                    + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_NAME + " TEXT NOT NULL,"
-                    + KEY_PASSWORD + " TEXT," + KEY_EMAIL + " TEXT NOT NULL UNIQUE,"
-                    + KEY_IPADDRESSRP + " TEXT," + KEY_ISLOGGEDIN + " INTEGER)";
-            db.execSQL(CREATE_LOGIN_TABLES);
+    // Spalten der IFSTATEMENT Tabelle
+    private static final String KEY_DATATYPE = "DataType";
+    private static final String KEY_COMPARISON_TYPE = "ComparisonType";
+    private static final String KEY_COMPARISON_DATA = "ComparisonData";
 
-            Log.d(TAG, "Database tables created: " + CREATE_LOGIN_TABLES);
-        }
+    // Spalten der THENSTATEMENT Tabelle
+    private static final String KEY_THENTEXT = "ThenText";
+    private static final String KEY_THENTYPE = "ThenType";
 
-        // Alte Tabelle wird gelöscht und neue erstellt
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            // Drop older table if existed
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+    //Create Tables Strings
+    String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
+            + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_NAME + " TEXT NOT NULL,"
+            + KEY_PASSWORD + " TEXT," + KEY_EMAIL + " TEXT NOT NULL UNIQUE,"
+            + KEY_IPADDRESSRP + " TEXT," + KEY_ISLOGGEDIN + " INTEGER)";
 
-            // Create tables again
-            onCreate(db);
-        }
+    String CREATE_IFSTATEMENT_TABLE = "CREATE TABLE " + TABLE_IFSTATEMENT + "("
+            + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_DATATYPE + " TEXT NOT NULL,"
+            + KEY_COMPARISON_TYPE + " TEXT NOT NULL," + KEY_COMPARISON_DATA + " TEXT NOT NULL,"
+            + KEY_RULE + " INTEGER NOT NULL)";
 
-        /**
-         * User Informationen werden in DB gespeichert
-         * */
-        public void addUser(int userID, String name, String password, String email, String ipAddressRP, int isLoogedIn) {
-            SQLiteDatabase db = this.getWritableDatabase();
+    String CREATE_THENSTATEMENT_TABLE = "CREATE TABLE " + TABLE_THENSTATEMENT + "("
+            + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_THENTEXT + " TEXT NOT NULL,"
+            + KEY_THENTYPE + " TEXT NOT NULL," + KEY_RULE + " INTEGER NOT NULL)";
 
-            ContentValues values = new ContentValues();
-            values.put(KEY_ID, userID);
-            values.put(KEY_NAME, name); // Name
-            values.put(KEY_PASSWORD, password); // Password
-            values.put(KEY_EMAIL, email); // Email
-            values.put(KEY_IPADDRESSRP, ipAddressRP); // IP Address RP
-            values.put(KEY_ISLOGGEDIN, isLoogedIn); // true if User is currently logged in
+    public SQLiteHandler(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
 
-            // Werte werden hinzugefügt
-            long id = db.insert(TABLE_USER, null, values);
-            db.close();
+    // Tabellen werden erstellt
+    @Override
+    public void onCreate(SQLiteDatabase db) {
 
-            Log.d(TAG, "New user inserted into sqlite: " + id);
-        }
+        db.execSQL(CREATE_USER_TABLE);
+        db.execSQL(CREATE_IFSTATEMENT_TABLE);
+        db.execSQL(CREATE_THENSTATEMENT_TABLE);
+    }
+
+    // Alte Tabelle wird gelöscht und neue erstellt
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_IFSTATEMENT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_THENSTATEMENT);
+
+        // Create tables again
+        onCreate(db);
+    }
+
+    /**
+    * User Informationen werden in DB gespeichert
+    * */
+    public void addUser(int userID, String name, String password, String email, String ipAddressRP, int isLoogedIn) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ID, userID);
+        values.put(KEY_NAME, name); // Name
+        values.put(KEY_PASSWORD, password); // Password
+        values.put(KEY_EMAIL, email); // Email
+        values.put(KEY_IPADDRESSRP, ipAddressRP); // IP Address RP
+        values.put(KEY_ISLOGGEDIN, isLoogedIn); // true if User is currently logged in
+
+        // Werte werden hinzugefügt
+        long id = db.insert(TABLE_USER, null, values);
+        db.close();
+
+        Log.d(TAG, "New user inserted into sqlite: " + id);
+    }
 
     /**
      * Eingeloggter User wird zurückgegeben
@@ -180,7 +208,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
         /**
-         * Datenbank wird gelöscht und wieder neu erstellt
+         * User wird in Datenbank als ausgeloggt markiert
          * */
         public void logOutUser(String currentUserID) {
             SQLiteDatabase db = this.getWritableDatabase();
@@ -202,5 +230,42 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
             Log.d(TAG, "Logged current user in");
         }
+
+    /**
+     * IF-Statement wird in DB gespeichert
+     * */
+    public void addIfStatement(int id, String dataType, String comparisonType, String comparisonData) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ID, id);
+        values.put(KEY_DATATYPE, dataType); //DataType
+        values.put(KEY_COMPARISON_TYPE, comparisonType); // ComparisonType
+        values.put(KEY_COMPARISON_DATA, comparisonData); // ComparisonData
+
+        // Werte werden hinzugefügt
+        db.insert(TABLE_IFSTATEMENT, null, values);
+        db.close();
+
+        Log.d(TAG, "New if statement inserted into sqlite.");
+    }
+
+    /**
+     * THEN-Statement wird in DB gespeichert
+     * */
+    public void addThenStatement(int id, String thenText, String thenType) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ID, id);
+        values.put(KEY_THENTEXT, thenText); // ThenText
+        values.put(KEY_THENTYPE, thenType); // ComparisonType
+
+        // Werte werden hinzugefügt
+        db.insert(TABLE_THENSTATEMENT, null, values);
+        db.close();
+
+        Log.d(TAG, "New then statement inserted into sqlite.");
+    }
 
 }

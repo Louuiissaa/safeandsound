@@ -9,6 +9,7 @@ import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.Room;
 import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
+import com.safeandsound.app.safeandsound.controller.ruleengine.Rule;
 
 import java.util.HashMap;
 
@@ -53,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void openRoomActivity(View view) {
-        Intent i = new Intent(MainActivity.this, Room.class);
+    public void openRuleActivity(View view) {
+        Intent i = new Intent(MainActivity.this, RuleActivity.class);
         startActivity(i);
     }
     
