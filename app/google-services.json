@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "320038761081",
+    "firebase_url": "https://safeandsound-cfd1a.firebaseio.com",
+    "project_id": "safeandsound-cfd1a",
+    "storage_bucket": "safeandsound-cfd1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320038761081:android:3c1f3fa6a3702c07",
+        "android_client_info": {
+          "package_name": "com.safeandsound.app.safeandsound"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320038761081-mgpub8kpe0fgrdmghmas6mov1qmvl1pi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsz2TcLLWtOiEyd9ca_rx32JYlrHOgNKA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

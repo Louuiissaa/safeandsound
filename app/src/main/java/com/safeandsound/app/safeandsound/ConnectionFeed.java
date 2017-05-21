@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by louisapabst on 16.04.17.
+ * Created by louisapabst, Dominic on 16.04.17.
  */
 
 public class ConnectionFeed extends AsyncTask<String, Void, String> {

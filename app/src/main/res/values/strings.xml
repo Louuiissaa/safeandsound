@@ -13,13 +13,13 @@
     <string name="luftfeutigkeit">Humidity</string>
     <string name="temperatur">Temperature</string>
     <string name="kohlenstoffdioxid">Carbondioxid</string>
-    <string name="sauerstoff">Oxygen</string>
+    <string name="sauerstoff">Amomonium</string>
     <string name="kohlenstoffmonoxid">Carbonmonoxid</string>
 
     <!-- Rooms -->
 
 
-    <!-- Settings -->
+    <!-- SettingsActivity -->
     <string name="logout">Log out</string>
     <string name="user">User</string>
     <string name="raspberrypi">Raspberry Pi</string>
@@ -32,7 +32,7 @@
     <string name="intervall">Intervall</string>
     <string name="range">Range</string>
 
-    <!-- LogIn -->
+    <!-- LogInActivity -->
     <string name="login">LogIn</string>
     <string name="welcomeText">Welcome to\nSafe &amp; Sound</string>
     <string name="submit">Submit</string>
@@ -43,4 +43,18 @@
     <!-- Signup -->
     <string name="bigSignupText">SignUp for\nSafe &amp; Sound</string>
     <string name="alreadyRegistered">Already registered?</string>
+
+
+    <!-- Library -->
+    <string name="libraryHeading">Motion Detection</string>
+    <string name="libraryDesc">Click, to show picture...</string>
+
+    <!--Diagramm-->
+
+    <string name="dataProfile">Data profile</string>
+    <string name="gasProfile">Gas profile</string>
+    <string name="tempHumProfile">Temp &amp; Humidity profile</string>
+    <string name="verlauf">Show data</string>
+    <string name="startDate">Start date</string>
+    <string name="endDate">End date</string>
 </resources>

@@ -10,13 +10,15 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/background_grey"
-    tools:context="com.safeandsound.app.safeandsound.LiveStream">
+    tools:context="com.safeandsound.app.safeandsound.view.LiveStreamActivity">
 
 
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/webView2"/>
 </RelativeLayout>
+
+
+
+
