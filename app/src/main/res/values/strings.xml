@@ -63,4 +63,11 @@
     <string name="verlauf">Show data</string>
     <string name="startDate">Start date</string>
     <string name="endDate">End date</string>
+
+    <!--Window -->
+    <string name="window">Window</string>
+    <string name="windowOpen">open</string>
+    <string name="windowClosed">closed</string>
+    <string name="lastChange">Last status change:</string>
+
 </resources>

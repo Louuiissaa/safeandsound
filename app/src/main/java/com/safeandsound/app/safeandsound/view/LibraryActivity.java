@@ -100,5 +100,11 @@ public class LibraryActivity extends FragmentActivity{
         return motionNr;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
+
 
 }

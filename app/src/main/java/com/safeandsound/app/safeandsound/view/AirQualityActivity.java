@@ -146,6 +146,12 @@ public class AirQualityActivity extends FragmentActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
+
     //Meldet den aktuellen Nutzer ab
     private void logout() {
         session.setLogin(false);

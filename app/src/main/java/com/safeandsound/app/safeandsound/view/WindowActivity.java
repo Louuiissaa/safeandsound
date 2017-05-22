@@ -3,6 +3,8 @@ package com.safeandsound.app.safeandsound.view;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
@@ -12,15 +14,27 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.safeandsound.app.safeandsound.AppConfig;
+import com.safeandsound.app.safeandsound.ConnectionFeed;
 import com.safeandsound.app.safeandsound.ExceptionHandler;
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -31,6 +45,10 @@ public class WindowActivity extends FragmentActivity {
 
     private SQLiteHandler db;
     private SessionManager session;
+    private String result;
+    private int value;
+    private String room;
+    private long timestamp;
 
     /** Called when the activity is first created. */
     @Override
@@ -49,7 +67,75 @@ public class WindowActivity extends FragmentActivity {
             logout();
         }
 
+        showWindowData();
+
+
+
     }
+
+    public void onResume(){
+        super.onResume();
+        showWindowData();
+    }
+
+    public void showWindowData(){
+
+
+        try {
+            URL urlObj = new URL(AppConfig.URL_WINDOW);
+            result = new ConnectionFeed().execute(urlObj.toString()).get();
+        }catch (MalformedURLException e){
+            e.printStackTrace();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }catch (ExecutionException e){
+            e.printStackTrace();
+        }
+
+        try{
+            //JSONObject jsonResponse = new JSONObject(re);
+            JSONArray jsonMainNode = new JSONArray(result);
+            for(int i = 0; i < jsonMainNode.length(); i++){
+                JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
+                value = jsonChildNode.optInt("value");
+                room = jsonChildNode.optString("room");
+                timestamp = jsonChildNode.optLong("timestamp");
+            }
+        } catch (JSONException e){
+            Toast.makeText(getApplicationContext(), "Error" + e.toString(), Toast.LENGTH_SHORT).show();
+        }
+        TextView roomStatus = (TextView)findViewById(R.id.windowStatusOutput);
+        TextView roomName = (TextView)findViewById(R.id.windowText);
+        roomName.setText(room);
+        if(value == 1){
+            roomStatus.setText(R.string.windowClosed);
+            roomStatus.setTextColor(Color.RED);
+        }else if(value == 0){
+            roomStatus.setText(R.string.windowOpen);
+            roomStatus.setTextColor(Color.GREEN);
+        }else{
+            roomStatus.setText("");
+        }
+
+
+        DateFormat sdf = new SimpleDateFormat("dd.MM.yy HH:mm:ss");
+        Date netDate = (new Date(timestamp));
+        String dateFormatted = sdf.format(netDate).toString();
+
+        TextView lastStatusChange = (TextView)findViewById(R.id.lastChangeOutput);
+        lastStatusChange.setText(dateFormatted.toString());
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
+
+
+
+    /*
 
     public void addWindow(View view){
 
@@ -136,7 +222,7 @@ public class WindowActivity extends FragmentActivity {
         prefs.edit().putStringSet("saved_imageViews", imageViewSet).commit();
         prefs.edit().putStringSet("saved_textViews", textViewSet).commit();
         prefs.edit().putStringSet("saved_layouts", layoutSet).commit();
-    }
+    }*/
 
     //Meldet den aktuellen Nutzer ab
     private void logout() {
