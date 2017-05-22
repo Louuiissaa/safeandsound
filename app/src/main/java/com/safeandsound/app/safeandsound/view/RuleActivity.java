@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.safeandsound.app.safeandsound.R;
+import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.controller.ruleengine.IfStatement;
 import com.safeandsound.app.safeandsound.controller.ruleengine.Rule;
 import com.safeandsound.app.safeandsound.controller.ruleengine.ThenStatement;
@@ -25,11 +26,15 @@ import com.safeandsound.app.safeandsound.controller.ruleengine.ThenStatement;
 public class RuleActivity extends FragmentActivity {
 
     private Button btnAddRule;
+    private SQLiteHandler db;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rules);
+
+        // Android interne SQLite Datenbank wird instanziiert
+        db = new SQLiteHandler(getApplicationContext());
 
         //Get Add Sensor button
         btnAddRule = (Button) findViewById(R.id.btn_addRule);
@@ -92,6 +97,8 @@ public class RuleActivity extends FragmentActivity {
                         String actionText = ed_actionText.getText().toString();
                         ThenStatement newThenStatement = new ThenStatement(actionText, null);
                         Rule newRule = new Rule(newIfStatement, newThenStatement);
+                        //TODO: PHP File für Datenbank Speicherung auf RP
+                        db.addIfStatement(1, dataType, comparisonType, comparisonData);
                     }
                 })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
