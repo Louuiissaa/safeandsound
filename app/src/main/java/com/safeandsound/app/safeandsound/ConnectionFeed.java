@@ -33,6 +33,7 @@ public class ConnectionFeed extends AsyncTask<String, Void, String> {
                 System.out.println("Status: " + status);
             }catch(Exception e){
                 Log.e("log_tag", "Error in http connection"+e.toString());
+                return null;
             }
 
             //convert response to string

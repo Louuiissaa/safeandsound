@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.safeandsound.app.safeandsound.ExceptionHandler;
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
@@ -35,6 +36,7 @@ public class WindowActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this));
         setContentView(R.layout.window);
 
         // session manager
