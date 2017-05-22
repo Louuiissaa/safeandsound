@@ -2,11 +2,6 @@
 <items version="2" >
 
     <item
-<<<<<<< HEAD
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
-        jumboMode="true"
-=======
         is-multidex="false"
         jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="false"
@@ -19,7 +14,6 @@
         is-multidex="false"
         jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
         jumboMode="false"
->>>>>>> 8bfbd43f40a649625bd204c78762b9bfe1b26ece
         optimize="true"
         revision="23.0.2"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
@@ -35,11 +29,6 @@
         <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-iid-10.0.1_d0e583a4d6378b8928cf096495c9c816739e2555.jar" />
     </item>
     <item
-<<<<<<< HEAD
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-=======
         is-multidex="false"
         jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
         jumboMode="false"
@@ -52,7 +41,6 @@
         is-multidex="false"
         jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
         jumboMode="false"
->>>>>>> 8bfbd43f40a649625bd204c78762b9bfe1b26ece
         optimize="true"
         revision="23.0.2"
         sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
@@ -86,24 +74,6 @@
         <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-10.0.1_53c0e88f2c7043f330979f1fc69d38d437997f2e.jar" />
     </item>
     <item
-<<<<<<< HEAD
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_0a031b1ff8fb364041426500734a209522b65ca7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.gradle/caches/modules-2/files-2.1/org.easyrules/easyrules-core/2.4.0/655f20cc4f7973182d19ff6f72f49b2c5a7cc93f/easyrules-core-2.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="655f20cc4f7973182d19ff6f72f49b2c5a7cc93f">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/easyrules-core-2.4.0_b36b035e0c33ccfdc2127e603f4eaddd2989e098/classes.dex" />
-=======
         is-multidex="false"
         jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="false"
@@ -120,7 +90,6 @@
         revision="23.0.2"
         sha1="4b17463c814bdc562fb0392fa3494063623a0904">
         <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-messaging-10.0.1_428e9a4333b9822e56c4a5a1365af2770753180e.jar" />
->>>>>>> 8bfbd43f40a649625bd204c78762b9bfe1b26ece
     </item>
     <item
         is-multidex="false"
@@ -137,154 +106,6 @@
         jumboMode="false"
         optimize="true"
         revision="23.0.2"
-<<<<<<< HEAD
-        sha1="20721ca358781b86ecf16b07ac0f6a51e445f32e">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f8521ace45ac66fb4413bc5894d29c8fc5ea45ed/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_03261a883baf4e311d20bd14f82103ffc982c55f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.0.1_447798877da5529226ed2ac0a75ca1bda9290c61/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_46130bb2c6551bef92df41302a6fb3b689d8bd79/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_a261956059d85a09584535e4d080e68a88fa946c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_e517e239c6f5a4f1f30ecfdb71ac070c335bbbcf/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.0.1_490ec771a5ad90a2d3e7810b0018add809d0d826/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_fb83c3b21d5870176cda912dd4a5ddfac7bd93c9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-10.0.1_5ccf8caa7b2d725c6c4cd4b2fb9361f97ad063eb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_b329e4e2da54dfc62c6fd96ae9c438752e185586/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="024824f9a6bb9120e050374ff39d9fb1368ce1a6">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ec83dd377678a2a8c135055ddc4ad5ef35af567b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_dfbbd4b7875512f2787ad5d2e2d7a20c697e9bcc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_d564988911c4de671e10deab6226f87d50317bed/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_294eb370d85987937ff2b913b83dd2574c852326/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.0.1_293d88b673b2529b46569b6db7762b776e37c057/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_c60d5838d4d312a5c416d96cbc0277012ab04c87/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_5687bfd69f96be5a0d551fd83b72965385f8f2d0/classes.dex" />
-=======
         sha1="867dad63c33388ff8c7644b236579355036d075f">
         <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_550c938b61ff9448d6a40219c80a4f911754a810.jar" />
     </item>
@@ -380,6 +201,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_61889850eec2014c1ff5f5cfef4d08384b54e31c.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -395,16 +225,6 @@
         revision="23.0.2"
         sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
         <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-10.0.1_fb89f5a0f7fca203e9708c89634c0835cd8f155c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_61889850eec2014c1ff5f5cfef4d08384b54e31c.jar" />
->>>>>>> 8bfbd43f40a649625bd204c78762b9bfe1b26ece
     </item>
 
 </items>
