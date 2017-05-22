@@ -61,11 +61,10 @@
             android:label="@string/app_name">
         </activity>
         <activity
-<<<<<<< HEAD
             android:name=".view.RuleActivity"
             android:label="@string/app_name">
         </activity>
-=======
+        <activity
             android:name=".view.LibraryActivity"
             android:label="@string/app_name">
         </activity>
@@ -77,8 +76,6 @@
             android:name=".view.AirQualityDiagrammActivity"
             android:label="@string/app_name">
         </activity>
-
->>>>>>> 8bfbd43f40a649625bd204c78762b9bfe1b26ece
         <service
             android:name=".controller.firebase.MyFirebaseInstanceService">
             <intent-filter>
