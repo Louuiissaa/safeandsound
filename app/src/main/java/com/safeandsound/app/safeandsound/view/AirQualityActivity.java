@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.safeandsound.app.safeandsound.AppConfig;
 import com.safeandsound.app.safeandsound.ConnectionFeed;
+import com.safeandsound.app.safeandsound.ExceptionHandler;
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
@@ -40,6 +41,7 @@ public class AirQualityActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this));
         setContentView(R.layout.air_quality);
 
         // session manager
@@ -61,7 +63,9 @@ public class AirQualityActivity extends FragmentActivity {
             URL urlObj = new URL(AppConfig.URL_TEMP);
             result = new ConnectionFeed().execute(urlObj.toString()).get();
         }catch (MalformedURLException e){
+
             e.printStackTrace();
+
         }catch (InterruptedException e){
             e.printStackTrace();
         }catch (ExecutionException e){
@@ -137,9 +141,15 @@ public class AirQualityActivity extends FragmentActivity {
 
         //print NH4 carbonmonoxidOutputText
         TextView text_nh = (TextView)findViewById(R.id.oxygenOutputText);
-        text_nh.setText(String.format("0.2f", fd_nh4) + " ppm");
+        text_nh.setText(String.format("%.2f", fd_nh4) + " ppm");
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 
     //Meldet den aktuellen Nutzer ab

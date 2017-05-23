@@ -335,8 +335,8 @@ public class AirQualityDiagrammActivity extends Activity{
                 long test = Long.parseLong(timestamp);
                 DateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm");
                 Date netDate = (new Date(test));
-                String test20 = sdf.format(netDate).toString();
-                timeArr.add(test20);
+                String dateFormatted = sdf.format(netDate).toString();
+                timeArr.add(dateFormatted);
             }
         } catch (JSONException e){
             Toast.makeText(getApplicationContext(), "Error" + e.toString(), Toast.LENGTH_SHORT).show();
@@ -428,8 +428,8 @@ public class AirQualityDiagrammActivity extends Activity{
         LineDataSet dataSetNh = new LineDataSet(co2List, "NH4 (ppm)");
         dataSetNh.setAxisDependency(YAxis.AxisDependency.LEFT);
         dataSetNh.setValueTextSize(8);
-        dataSetNh.setColor(Color.BLUE);
-        dataSetNh.setCircleColor(Color.BLUE);
+        dataSetNh.setColor(Color.GREEN);
+        dataSetNh.setCircleColor(Color.GREEN);
 
         List<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
         dataSets.add(dataSetCo2);

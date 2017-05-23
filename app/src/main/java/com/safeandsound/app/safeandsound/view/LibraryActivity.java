@@ -10,6 +10,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import com.safeandsound.app.safeandsound.AppConfig;
 import com.safeandsound.app.safeandsound.ConnectionFeed;
+import com.safeandsound.app.safeandsound.ExceptionHandler;
 import com.safeandsound.app.safeandsound.R;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +35,7 @@ public class LibraryActivity extends FragmentActivity{
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this));
         setContentView(R.layout.library);
 
         String result = "[]";
@@ -96,6 +98,12 @@ public class LibraryActivity extends FragmentActivity{
         HashMap<String, String> motionNr = new HashMap<String, String>();
         motionNr.put(name, number);
         return motionNr;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 
 
