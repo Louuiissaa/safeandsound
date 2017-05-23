@@ -7,7 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.safeandsound.app.safeandsound.controller.ruleengine.IfStatement;
+import com.safeandsound.app.safeandsound.controller.ruleengine.Rule;
+import com.safeandsound.app.safeandsound.controller.ruleengine.ThenStatement;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by louisapabst on 25.04.17.
@@ -25,8 +31,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     // Datenbank Tabellen
     private static final String TABLE_USER = "USER";
+    private static final String TABLE_RULE = "RULE";
     private static final String TABLE_IFSTATEMENT = "IFSTATEMENT";
     private static final String TABLE_THENSTATEMENT = "THENSTATEMENT";
+    private static final String TABLE_RULE_IF_THEN = "RULE_IF_THEN";
 
     //Allgemeine Spalten
     private static final String KEY_ID = "ID";
@@ -39,6 +47,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_IPADDRESSRP = "IPAddressRP";
     private static final String KEY_ISLOGGEDIN = "isLoggedIn";
 
+    // Spalten der RULE Tabelle
+    private static final String KEY_USERID = "User_ID";
+
     // Spalten der IFSTATEMENT Tabelle
     private static final String KEY_DATATYPE = "DataType";
     private static final String KEY_COMPARISON_TYPE = "ComparisonType";
@@ -48,11 +59,21 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_THENTEXT = "ThenText";
     private static final String KEY_THENTYPE = "ThenType";
 
+
+    //Spalten der RULE_IF_THEN Tabelle
+    private static final String KEY_IDRULE = "IDRule";
+    private static final String KEY_IDIFSTATEMENT = "IDIfStatement";
+    private static final String KEY_IDTHENSTATEMENT = "IDThenStatement";
+
     //Create Tables Strings
     String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_NAME + " TEXT NOT NULL,"
             + KEY_PASSWORD + " TEXT," + KEY_EMAIL + " TEXT NOT NULL UNIQUE,"
             + KEY_IPADDRESSRP + " TEXT," + KEY_ISLOGGEDIN + " INTEGER)";
+
+    String CREATE_RULE_TABLE = "CREATE TABLE " + TABLE_RULE + "(" + KEY_ID +
+            " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_USERID + " INTEGER NOT NULL," +
+            "FOREIGN KEY (" + KEY_USERID + ") REFERENCES " + TABLE_USER + " ("+ KEY_ID + "))";
 
     String CREATE_IFSTATEMENT_TABLE = "CREATE TABLE " + TABLE_IFSTATEMENT + "("
             + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_DATATYPE + " TEXT NOT NULL,"
@@ -63,6 +84,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_THENTEXT + " TEXT NOT NULL,"
             + KEY_THENTYPE + " TEXT NOT NULL," + KEY_RULE + " INTEGER NOT NULL)";
 
+    String CREATE_RULE_IF_THEN_TABLE = "CREATE TABLE " + TABLE_RULE + "(" + KEY_IDRULE +
+            " INTEGER NOT NULL," + KEY_IDIFSTATEMENT + " INTEGER NOT NULL,"
+            + KEY_IDTHENSTATEMENT + " INTEGER NOT NULL," +
+            "FOREIGN KEY (" + KEY_IDRULE + ") REFERENCES " + TABLE_RULE + " ("+ KEY_ID + "), " +
+            "FOREIGN KEY (" + KEY_IDIFSTATEMENT + ") REFERENCES " + TABLE_IFSTATEMENT + " ("+ KEY_ID + "), " +
+            "FOREIGN KEY (" + KEY_IDTHENSTATEMENT + ") REFERENCES " + TABLE_THENSTATEMENT + " ("+ KEY_ID + "))";
+
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -72,18 +100,21 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(CREATE_USER_TABLE);
+        db.execSQL(CREATE_RULE_TABLE);
         db.execSQL(CREATE_IFSTATEMENT_TABLE);
         db.execSQL(CREATE_THENSTATEMENT_TABLE);
+        db.execSQL(CREATE_RULE_IF_THEN_TABLE);
     }
 
     // Alte Tabelle wird gelöscht und neue erstellt
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_IFSTATEMENT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RULE_IF_THEN);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_THENSTATEMENT);
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_IFSTATEMENT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RULE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         // Create tables again
         onCreate(db);
     }
@@ -266,6 +297,62 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close();
 
         Log.d(TAG, "New then statement inserted into sqlite.");
+    }
+
+    /**
+     * THEN-Statement wird in DB gespeichert
+     * */
+    public void addRule(int id, int userid, int idIfStatement, int idThenStatement) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ID, id);
+        values.put(KEY_USERID, userid);
+        values.put(KEY_IDIFSTATEMENT, idIfStatement); // ID IfStatement
+        values.put(KEY_IDTHENSTATEMENT, idThenStatement); // ID ThenStatement
+
+        // Werte werden hinzugefügt
+        db.insert(TABLE_RULE, null, values);
+        db.close();
+
+        Log.d(TAG, "New then statement inserted into sqlite.");
+    }
+
+    /**
+     * Eingeloggter User wird zurückgegeben
+     */
+    public List<Rule> getRules(String userid) {
+        List<Rule> result = new ArrayList<Rule>();
+        HashMap<String, String> rules = new HashMap<String, String>();
+        String selectRuleQuery = "SELECT  * FROM " + TABLE_RULE + " WHERE " + KEY_USERID + " = " + userid;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectRuleQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            IfStatement ifStatement = null;
+            String selectIfQuery = "SELECT  * FROM " + TABLE_IFSTATEMENT + " WHERE " + KEY_ID + " = " + cursor.getString(2);
+            Cursor cursorIf = db.rawQuery(selectIfQuery, null);
+            if(cursorIf.getCount() > 0){
+                ifStatement = new IfStatement(cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            }
+            ThenStatement thenStatement = null;
+            String selectThenQuery = "SELECT  * FROM " + TABLE_THENSTATEMENT + " WHERE " + KEY_ID + " = " + cursor.getString(3);
+            Cursor cursorThen = db.rawQuery(selectThenQuery, null);
+            if(cursorThen.getCount() > 0){
+                thenStatement = new ThenStatement(cursor.getString(1), cursor.getString(2));
+            }
+            cursorIf.close();
+            cursorThen.close();
+            result.add(new Rule(ifStatement, thenStatement));
+        }
+        cursor.close();
+        db.close();
+        // return user
+        Log.d(TAG, "Fetching user from Sqlite: " + rules.toString());
+
+        return result;
     }
 
 }

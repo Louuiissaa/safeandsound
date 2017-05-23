@@ -18,6 +18,12 @@ import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.controller.ruleengine.IfStatement;
 import com.safeandsound.app.safeandsound.controller.ruleengine.Rule;
 import com.safeandsound.app.safeandsound.controller.ruleengine.ThenStatement;
+import com.safeandsound.app.safeandsound.model.User;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by louisapabst on 16.05.17.
@@ -27,6 +33,8 @@ public class RuleActivity extends FragmentActivity {
 
     private Button btnAddRule;
     private SQLiteHandler db;
+    private int countID = 0;
+    private String userid;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +43,10 @@ public class RuleActivity extends FragmentActivity {
 
         // Android interne SQLite Datenbank wird instanziiert
         db = new SQLiteHandler(getApplicationContext());
+
+        HashMap<String, String> user = db.getUserDetails();
+        userid = user.get("user_id");
+        getUserRules(userid);
 
         //Get Add Sensor button
         btnAddRule = (Button) findViewById(R.id.btn_addRule);
@@ -94,11 +106,13 @@ public class RuleActivity extends FragmentActivity {
                         IfStatement newIfStatement = new IfStatement(dataType, comparisonType, comparisonData);
 
                         EditText ed_actionText = (EditText) ll2.findViewById(R.id.actionText);
-                        String actionText = ed_actionText.getText().toString();
-                        ThenStatement newThenStatement = new ThenStatement(actionText, null);
+                        String thenText = ed_actionText.getText().toString();
+                        ThenStatement newThenStatement = new ThenStatement(thenText, null);
                         Rule newRule = new Rule(newIfStatement, newThenStatement);
                         //TODO: PHP File für Datenbank Speicherung auf RP
-                        db.addIfStatement(1, dataType, comparisonType, comparisonData);
+                        db.addIfStatement(countID, dataType, comparisonType, comparisonData);
+                        db.addThenStatement(countID, thenText, null);
+                        countID++;
                     }
                 })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -109,5 +123,9 @@ public class RuleActivity extends FragmentActivity {
             }
         });
         }
+
+    private void getUserRules(String userID){
+        List<Rule> rules = db.getRules(userID);
+    }
     }
 
