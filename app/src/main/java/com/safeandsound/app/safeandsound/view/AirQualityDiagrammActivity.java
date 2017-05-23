@@ -428,8 +428,8 @@ public class AirQualityDiagrammActivity extends Activity{
         LineDataSet dataSetNh = new LineDataSet(co2List, "NH4 (ppm)");
         dataSetNh.setAxisDependency(YAxis.AxisDependency.LEFT);
         dataSetNh.setValueTextSize(8);
-        dataSetNh.setColor(Color.BLUE);
-        dataSetNh.setCircleColor(Color.BLUE);
+        dataSetNh.setColor(Color.GREEN);
+        dataSetNh.setCircleColor(Color.GREEN);
 
         List<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
         dataSets.add(dataSetCo2);
