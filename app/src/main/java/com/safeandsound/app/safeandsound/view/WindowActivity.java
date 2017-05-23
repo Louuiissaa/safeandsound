@@ -38,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 
 
 /**
- * Created by louisapabst on 16.04.17.
+ * Created by louisapabst, Dominic on 16.04.17.
  */
 
 public class WindowActivity extends FragmentActivity {
@@ -49,6 +49,9 @@ public class WindowActivity extends FragmentActivity {
     private int value;
     private String room;
     private long timestamp;
+    private static int oldValue = 10;
+    private static String oldDate;
+
 
     /** Called when the activity is first created. */
     @Override
@@ -67,15 +70,11 @@ public class WindowActivity extends FragmentActivity {
             logout();
         }
 
+
         showWindowData();
 
 
 
-    }
-
-    public void onResume(){
-        super.onResume();
-        showWindowData();
     }
 
     public void showWindowData(){
@@ -118,14 +117,29 @@ public class WindowActivity extends FragmentActivity {
         }
 
 
+        if(oldValue != value){
+            showLastStatusChanged(timestamp);
+            oldValue = value;
+        }
+
+        TextView lastStatusChange = (TextView)findViewById(R.id.lastChangeOutput);
+        lastStatusChange.setText(oldDate);
+
+
+
+
+    }
+
+    public void showLastStatusChanged(Long timestamp){
         DateFormat sdf = new SimpleDateFormat("dd.MM.yy HH:mm:ss");
         Date netDate = (new Date(timestamp));
         String dateFormatted = sdf.format(netDate).toString();
+        oldDate = dateFormatted.toString();
 
-        TextView lastStatusChange = (TextView)findViewById(R.id.lastChangeOutput);
-        lastStatusChange.setText(dateFormatted.toString());
 
     }
+
+
 
     @Override
     public void onBackPressed() {
