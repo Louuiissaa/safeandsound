@@ -1,4 +1,4 @@
-package com.safeandsound.app.safeandsound.controller.ruleengine;
+package com.safeandsound.app.safeandsound.model.ruleengine;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,21 +12,21 @@ public class Rule {
     String: declares which sensor input
     Integer: declares by what the sensor is followed in the statement (0 = statement is finished, 1 = AND, 2 = OR)
      */
-    //HashMap<IfStatement, Integer> ifStatements;
-    IfStatement ifStatements;
+    List<IfStatement> ifStatements;
+    //IfStatement ifStatements;
     //List<ThenStatement> thenStatements;
     ThenStatement thenStatements;
 
-    public Rule(IfStatement ifStatements, ThenStatement thenStatements){
+    public Rule(List<IfStatement> ifStatements, ThenStatement thenStatements){
         this.ifStatements = ifStatements;
         this.thenStatements = thenStatements;
     }
 
-    /*public void setIfParameters(HashMap<IfStatement, Integer> ifStatements) {
+    public void setIfParameters(List<IfStatement> ifStatements) {
         this.ifStatements = ifStatements;
-    }*/
+    }
 
-    public String combineIfStatement(HashMap<IfStatement, Integer> map){
+    /*public String combineIfStatement(List<IfStatement> map){
         String ifStatement = "";
         String endOfIf = "";
         for (HashMap.Entry<IfStatement, Integer> entry : map.entrySet())
@@ -41,9 +41,26 @@ public class Rule {
             }
         }
         return ifStatement;
-    }
+    }*/
 
     public void combineThenStatement(){
 
+    }
+
+    //Getter & Setter
+    public List<IfStatement> getIfStatements() {
+        return ifStatements;
+    }
+
+    public void setIfStatements(List<IfStatement> ifStatements) {
+        this.ifStatements = ifStatements;
+    }
+
+    public ThenStatement getThenStatements() {
+        return thenStatements;
+    }
+
+    public void setThenStatements(ThenStatement thenStatements) {
+        this.thenStatements = thenStatements;
     }
 }

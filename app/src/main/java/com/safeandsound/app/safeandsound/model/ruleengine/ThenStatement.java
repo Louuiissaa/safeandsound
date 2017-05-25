@@ -1,4 +1,4 @@
-package com.safeandsound.app.safeandsound.controller.ruleengine;
+package com.safeandsound.app.safeandsound.model.ruleengine;
 
 /**
  * Created by louisapabst on 16.05.17.
@@ -6,20 +6,20 @@ package com.safeandsound.app.safeandsound.controller.ruleengine;
 
 public class ThenStatement {
     int ID;
-    String text;
+    String thenText;
     String thenType;
 
     public ThenStatement(){
     }
 
-    public ThenStatement(String text, String thenType){
-        this.text = text;
+    public ThenStatement(String thenText, String thenType){
+        this.thenText = thenText;
         this.thenType = thenType;
     }
 
-    public ThenStatement(int ID, String text, String thenType){
+    public ThenStatement(int ID, String thenText, String thenType){
         this.ID = ID;
-        this.text = text;
+        this.thenText = thenText;
         this.thenType = thenType;
     }
 
@@ -33,12 +33,12 @@ public class ThenStatement {
         this.ID = ID;
     }
 
-    public String getText() {
-        return text;
+    public String getThenText() {
+        return thenText;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setThenText(String thenText) {
+        this.thenText = thenText;
     }
 
     public String getThenType() {

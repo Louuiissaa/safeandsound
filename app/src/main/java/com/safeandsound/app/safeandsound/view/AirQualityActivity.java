@@ -140,7 +140,7 @@ public class AirQualityActivity extends FragmentActivity {
         text_co.setText(String.format("%.2f", fd_co) + " ppm");
 
         //print NH4 carbonmonoxidOutputText
-        TextView text_nh = (TextView)findViewById(R.id.oxygenOutputText);
+        TextView text_nh = (TextView)findViewById(R.id.ammoniumOutputText);
         text_nh.setText(String.format("%.2f", fd_nh4) + " ppm");
 
 

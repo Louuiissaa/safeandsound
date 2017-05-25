@@ -15,9 +15,13 @@
         android:id="@+id/ruleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:isScrollContainer="true"
-        android:background="@color/background_grey">
+        android:orientation="vertical"
+        android:isScrollContainer="true">
+        <com.safeandsound.app.safeandsound.UbuntuTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rule"
+            android:textSize="30dp"/>
     </LinearLayout>
     <Button
         android:id="@+id/btn_addRule"

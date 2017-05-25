@@ -1,4 +1,4 @@
-package com.safeandsound.app.safeandsound.controller.ruleengine;
+package com.safeandsound.app.safeandsound.model.ruleengine;
 
 /**
  * Created by louisapabst on 16.05.17.
@@ -9,28 +9,31 @@ public class IfStatement {
     String dataType;
     String comparisonType;
     String comparisonData;
+    String conjunction;
 
     public IfStatement(){
     }
 
-    public IfStatement(String dataType, String comparisonType, String comparisonData){
+    public IfStatement(String dataType, String comparisonType, String comparisonData, String conjunction){
         this.dataType = dataType;
         this.comparisonType = comparisonType;
         this.comparisonData = comparisonData;
+        this.conjunction = conjunction;
     }
 
-    public IfStatement(int ID, String dataType, String comparisonType, String comparisonData){
+    public IfStatement(int ID, String dataType, String comparisonType, String comparisonData, String conjunction){
         this.ID = ID;
         this.dataType = dataType;
         this.comparisonType = comparisonType;
         this.comparisonData = comparisonData;
+        this.conjunction = conjunction;
     }
+
+    //Getter & Setter
 
     public String getDataType() {
         return dataType;
     }
-
-    //Getter & Setter
 
     public int getID() {
         return ID;
@@ -58,5 +61,13 @@ public class IfStatement {
 
     public void setComparisonData(String comparisonData) {
         this.comparisonData = comparisonData;
+    }
+
+    public String getConjunction() {
+        return conjunction;
+    }
+
+    public void setConjunction(String conjunction) {
+        this.conjunction = conjunction;
     }
 }

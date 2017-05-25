@@ -4,6 +4,8 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.safeandsound.app.safeandsound.controller.RuleEngine;
+import com.safeandsound.app.safeandsound.model.ruleengine.Rule;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,6 +25,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         try{
             JSONObject jObj = new JSONObject(remoteMessage.getData());
             String humidity = jObj.getString("humidity");
+            String temperature = jObj.getString("temperature");
+            String co2 = jObj.getString("co2");
+            String co = jObj.getString("co");
+            RuleEngine ruleEngine = new RuleEngine();
+            //TODO: ruleEngine.checkRules(humidity, temperature, co2, co);
             Log.d(TAG, "HUMIDITY" + humidity);
         }catch(JSONException e){
             Log.d(TAG, e.toString());
