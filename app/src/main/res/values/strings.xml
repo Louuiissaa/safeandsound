@@ -7,7 +7,8 @@
     <string name="rooms">Rooms</string>
     <string name="settings">Settings</string>
     <string name="livestream">Livestream</string>
-    <string name="library">Library</string>
+    <string name="movement">Movements</string>
+    <string name="rule">Rules</string>
 
     <!-- Air Quality -->
     <string name="luftfeutigkeit">Humidity</string>
@@ -16,7 +17,12 @@
     <string name="sauerstoff">Amomonium</string>
     <string name="kohlenstoffmonoxid">Carbonmonoxid</string>
 
-    <!-- Rooms -->
+    <!-- Rules -->
+    <string name="addRule">Add Rule</string>
+    <string name="ifText">If</string>
+    <string name="thenText">Then</string>
+    <string name="addIfStatement">Add If-Statement</string>
+    <string name="actionText">Given suggestion</string>
 
 
     <!-- SettingsActivity -->
@@ -57,4 +63,11 @@
     <string name="verlauf">Show data</string>
     <string name="startDate">Start date</string>
     <string name="endDate">End date</string>
+
+    <!--Window -->
+    <string name="window">Window</string>
+    <string name="windowOpen">open</string>
+    <string name="windowClosed">closed</string>
+    <string name="lastChange">Last status change:</string>
+
 </resources>

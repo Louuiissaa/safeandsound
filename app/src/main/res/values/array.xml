@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dataType">
+        <item>Temperature</item>
+        <item>Humidity</item>
+        <item>Door/Window</item>
+        <item>Movement</item>
+        <item>Lightness</item>
+        <item>CO2</item>
+        <item>CO</item>
+        <item>NH4</item>
+    </string-array>
+    <string-array name="comparisonType">
+        <item>is equal</item>
+        <item>is greater</item>
+        <item>is smaller</item>
+        <item>is between</item>
+    </string-array>
+    <string-array name="ifConcatenation">
+        <item>AND</item>
+        <item>OR</item>
+    </string-array>
+</resources>

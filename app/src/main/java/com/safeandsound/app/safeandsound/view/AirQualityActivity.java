@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.safeandsound.app.safeandsound.AppConfig;
 import com.safeandsound.app.safeandsound.ConnectionFeed;
+import com.safeandsound.app.safeandsound.ExceptionHandler;
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
@@ -40,6 +41,7 @@ public class AirQualityActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this));
         setContentView(R.layout.air_quality);
 
         // session manager
@@ -61,7 +63,9 @@ public class AirQualityActivity extends FragmentActivity {
             URL urlObj = new URL(AppConfig.URL_TEMP);
             result = new ConnectionFeed().execute(urlObj.toString()).get();
         }catch (MalformedURLException e){
+
             e.printStackTrace();
+
         }catch (InterruptedException e){
             e.printStackTrace();
         }catch (ExecutionException e){
@@ -72,9 +76,9 @@ public class AirQualityActivity extends FragmentActivity {
         //paring data
         String fd_temp = "";
         String fd_humidity = "";
-        String fd_co2 = "";
-        String fd_co = "";
-        String fd_nh4 = "";
+        Double fd_co2 = 0.0;
+        Double fd_co = 0.0;
+        Double fd_nh4 = 0.0;
         try{
             result = result.replace('"','\'');
             JSONObject json_data= new JSONObject(result);
@@ -94,7 +98,6 @@ public class AirQualityActivity extends FragmentActivity {
         *    Get-Request um die aktuellen daten des Mq-135 sensors auszulesen ********
         *
         */
-
         try {
             URL urlObj = new URL(AppConfig.URL_MQGas);
             result = new ConnectionFeed().execute(urlObj.toString()).get();
@@ -106,26 +109,19 @@ public class AirQualityActivity extends FragmentActivity {
             e.printStackTrace();
         }
 
-
+        //Auslesen von Gas sensor werten
         try{
-            result = result.replace('"','\'');
-            JSONArray resultArray = new JSONArray( result);
+            //result = result.replace('"','\'');
+            JSONArray resultArray = new JSONArray(result);
             JSONObject json_data= (JSONObject)resultArray.getJSONObject(0);
-            fd_co2 = json_data.getString("CO2");
-            fd_co = json_data.getString("CO");
-            fd_nh4 = json_data.getString("NH4");
+            fd_co2 =json_data.getDouble("CO2");
+            fd_co = json_data.getDouble("CO");
+            fd_nh4 = json_data.getDouble("NH4");
         }catch(JSONException e1){
-            Toast.makeText(getBaseContext(), "No Data Found", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "No Data Found" + e1.toString(), Toast.LENGTH_LONG).show();
         }catch (ParseException e1){
             e1.printStackTrace();
         }
-
-
-        //CO2, CO, NH4 Werte runden
-        fd_co2 = String.format(Locale.GERMAN, "%.3f", Double.parseDouble(fd_co2));
-        fd_co = String.format(Locale.GERMAN, "%.3f", Double.parseDouble(fd_co));
-        fd_nh4 = String.format(Locale.GERMAN, "%.3f", Double.parseDouble(fd_nh4));
-
 
         //print temperature
         TextView text_temperature = (TextView)findViewById(R.id.temperatureOutputText);
@@ -137,17 +133,23 @@ public class AirQualityActivity extends FragmentActivity {
 
         //print CO2
         TextView text_co2 = (TextView)findViewById(R.id.carbondioxidOutputText);
-        text_co2.setText(fd_co2 + " ppm");
+        text_co2.setText(String.format("%.2f", fd_co2) + " ppm");
 
         //print CO
         TextView text_co = (TextView)findViewById(R.id.carbonmonoxidOutputText);
-        text_co.setText(fd_co + " ppm");
+        text_co.setText(String.format("%.2f", fd_co) + " ppm");
 
         //print NH4 carbonmonoxidOutputText
         TextView text_nh = (TextView)findViewById(R.id.oxygenOutputText);
-        text_nh.setText(fd_nh4 + " ppm");
+        text_nh.setText(String.format("%.2f", fd_nh4) + " ppm");
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 
     //Meldet den aktuellen Nutzer ab

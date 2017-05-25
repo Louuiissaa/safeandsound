@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.Room;
 import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
+import com.safeandsound.app.safeandsound.controller.ruleengine.Rule;
 
 import java.util.HashMap;
 
@@ -20,6 +22,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //handle no service available
+        Bundle bundle = getIntent().getExtras();
+        String getShipper = "";
+
+        if(bundle != null){
+            getShipper = bundle.getString("error");
+            Toast.makeText(getApplicationContext(), getShipper, Toast.LENGTH_SHORT);
+        }
+
         setContentView(R.layout.activity_main);
 
         //Android interne Datenbank
@@ -53,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void openRoomActivity(View view) {
-        Intent i = new Intent(MainActivity.this, Room.class);
+    public void openRuleActivity(View view) {
+        Intent i = new Intent(MainActivity.this, RuleActivity.class);
         startActivity(i);
     }
     
@@ -76,6 +88,19 @@ public class MainActivity extends AppCompatActivity {
         // Zur LogInActivity Activity zurück springen
         Intent intent = new Intent(MainActivity.this, LogInActivity.class);
         startActivity(intent);
+    }
+
+
+    public void onResume(){
+        super.onResume();
+        Bundle bundle = getIntent().getExtras();
+        String getShipper = "";
+
+        if(bundle != null){
+            getShipper = bundle.getString("error");
+            Toast.makeText(getApplicationContext(), "Service not available - Check if Raspberry is running...", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 

@@ -65,24 +65,24 @@
                 android:layout_margin="2dp">
 
                 <ImageButton
-                    android:id="@+id/libraryButton"
+                    android:id="@+id/movementButton"
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
                     android:layout_weight="2.5"
+                    android:src="@drawable/ic_movement"
                     android:background="@color/white"
                     android:onClick="openLibraryActivity"
                     android:paddingTop="30dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_library" />
+                    android:scaleType="fitCenter" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
                     android:layout_weight="1"
-                    android:id="@+id/libraryText"
+                    android:id="@+id/movementText"
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="top|center_horizontal"
-                    android:text="@string/library"
+                    android:text="@string/movement"
                     android:textAlignment="gravity" />
             </LinearLayout>
         </LinearLayout>
@@ -166,11 +166,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
                     android:layout_weight="2.5"
-                    android:src="@drawable/ic_house"
+                    android:src="@drawable/ic_rule"
                     android:background="@color/white"
                     android:paddingTop="30dp"
                     android:scaleType="fitCenter"
-                    android:onClick="openRoomActivity"/>
+                    android:onClick="openRuleActivity"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
@@ -179,9 +179,9 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="top|center_horizontal"
-                    android:text="@string/rooms"
+                    android:text="@string/rule"
                     android:textAlignment="gravity"
-                    android:onClick="openRoomActivity"/>
+                    android:onClick="openRuleActivity"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dip"

@@ -201,6 +201,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_61889850eec2014c1ff5f5cfef4d08384b54e31c.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -216,15 +225,6 @@
         revision="23.0.2"
         sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
         <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-10.0.1_fb89f5a0f7fca203e9708c89634c0835cd8f155c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_61889850eec2014c1ff5f5cfef4d08384b54e31c.jar" />
     </item>
 
 </items>

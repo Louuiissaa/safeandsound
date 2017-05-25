@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:entries="@array/ifConcatenation">
+
+    </Spinner>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/dataTypeSpinner"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:entries="@array/dataType">
+        </Spinner>
+        <Spinner
+            android:id="@+id/comparisonTypeSpinner"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:entries="@array/comparisonType">
+        </Spinner>
+    </LinearLayout>
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="10dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="data value"
+            android:layout_gravity="bottom"
+
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/editSecondInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="data value"
+            android:inputType="number"
+            android:layout_gravity="bottom"
+            android:animateLayoutChanges="true"/>
+    </LinearLayout>
+</LinearLayout>
