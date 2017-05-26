@@ -116,6 +116,7 @@ public class RuleActivity extends FragmentActivity {
                         //db.addThenStatement(thenText, null);
                         db.addRule(userid, ifStatements, newThenStatement);
                         //countID++;
+                        finish();
                         startActivity(getIntent());
                     }
                 })
