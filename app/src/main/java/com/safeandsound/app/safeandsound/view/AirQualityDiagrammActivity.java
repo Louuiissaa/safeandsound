@@ -409,7 +409,7 @@ public class AirQualityDiagrammActivity extends Activity{
                 Float co = BigDecimal.valueOf(jsonChildNode.getDouble("CO")).floatValue();
                 coList.add(new Entry((float)i, co));
                 Float nh = BigDecimal.valueOf(jsonChildNode.getDouble("NH4")).floatValue();
-                coList.add(new Entry((float)i, nh));
+                nhList.add(new Entry((float)i, nh));
             }
         } catch (JSONException e){
             Toast.makeText(getApplicationContext(), "Error" + e.toString(), Toast.LENGTH_SHORT).show();
@@ -425,7 +425,7 @@ public class AirQualityDiagrammActivity extends Activity{
         dataSetCo.setAxisDependency(YAxis.AxisDependency.LEFT);
         dataSetCo.setValueTextSize(8);
 
-        LineDataSet dataSetNh = new LineDataSet(co2List, "NH4 (ppm)");
+        LineDataSet dataSetNh = new LineDataSet(nhList, "NH4 (ppm)");
         dataSetNh.setAxisDependency(YAxis.AxisDependency.LEFT);
         dataSetNh.setValueTextSize(8);
         dataSetNh.setColor(Color.GREEN);

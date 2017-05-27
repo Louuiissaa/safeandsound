@@ -6,18 +6,22 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
-import com.safeandsound.app.safeandsound.controller.ruleengine.IfStatement;
-import com.safeandsound.app.safeandsound.controller.ruleengine.Rule;
-import com.safeandsound.app.safeandsound.controller.ruleengine.ThenStatement;
+import com.safeandsound.app.safeandsound.model.ruleengine.IfStatement;
+import com.safeandsound.app.safeandsound.model.ruleengine.Rule;
+import com.safeandsound.app.safeandsound.model.ruleengine.ThenStatement;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by louisapabst on 16.05.17.
@@ -27,6 +31,8 @@ public class RuleActivity extends FragmentActivity {
 
     private Button btnAddRule;
     private SQLiteHandler db;
+    //private int countID = 0;
+    private String userid;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,8 +42,14 @@ public class RuleActivity extends FragmentActivity {
         // Android interne SQLite Datenbank wird instanziiert
         db = new SQLiteHandler(getApplicationContext());
 
+        HashMap<String, String> user = db.getUserDetails();
+        userid = user.get("user_id");
+        List<Rule> rules = getUserRules(userid);
+
         //Get Add Sensor button
         btnAddRule = (Button) findViewById(R.id.btn_addRule);
+
+        showAllRules(rules);
 
         btnAddRule.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +89,8 @@ public class RuleActivity extends FragmentActivity {
                 dialog.setView(ll);
                 dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
+                        List<IfStatement> ifStatements = new ArrayList<IfStatement>();
+                        List<ThenStatement> thenStatements = new ArrayList<ThenStatement>();
                         Spinner spDataType = (Spinner) ll2.findViewById(R.id.dataTypeSpinner);
                         String dataType = spDataType.getSelectedItem().toString();
 
@@ -89,16 +103,23 @@ public class RuleActivity extends FragmentActivity {
                         if(comparisonType.equals("is between")){
                             EditText ed_secondComparisonData = (EditText) ll2.findViewById(R.id.secondComparisonData);
                             String secondComparisonData = ed_secondComparisonData.getText().toString();
-                            comparisonData = comparisonData + "," + secondComparisonData;
+                            comparisonData = comparisonData + ";" + secondComparisonData;
                         }
-                        IfStatement newIfStatement = new IfStatement(dataType, comparisonType, comparisonData);
+                        IfStatement newIfStatement = new IfStatement(dataType, comparisonType, comparisonData, null);
+                        ifStatements.add(newIfStatement);
 
                         EditText ed_actionText = (EditText) ll2.findViewById(R.id.actionText);
-                        String actionText = ed_actionText.getText().toString();
-                        ThenStatement newThenStatement = new ThenStatement(actionText, null);
-                        Rule newRule = new Rule(newIfStatement, newThenStatement);
+                        String thenText = ed_actionText.getText().toString();
+                        ThenStatement newThenStatement = new ThenStatement(thenText, null);
+                        thenStatements.add(newThenStatement);
+                        Rule newRule = new Rule(ifStatements, newThenStatement);
                         //TODO: PHP File für Datenbank Speicherung auf RP
-                        db.addIfStatement(1, dataType, comparisonType, comparisonData);
+                        //db.addIfStatement(dataType, comparisonType, comparisonData, null);
+                        //db.addThenStatement(thenText, null);
+                        db.addRule(userid, ifStatements, thenStatements);
+                        //countID++;
+                        finish();
+                        startActivity(getIntent());
                     }
                 })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -109,5 +130,34 @@ public class RuleActivity extends FragmentActivity {
             }
         });
         }
+
+    private List<Rule> getUserRules(String userID){
+        List<Rule> rules = db.getRules(userID);
+        return rules;
     }
+
+
+    public void showAllRules(List<Rule> rules){
+        LinearLayout ll = (LinearLayout) findViewById(R.id.ruleLayout);
+        for (int r = 0; r < rules.size(); r++){
+            Rule currentRule = rules.get(r);
+            String s_rule = "If ";
+            List<IfStatement> ifStatements = currentRule.getIfStatements();
+
+            for (int i = 0; i < ifStatements.size(); i++ ){
+                IfStatement currentIfStatement = ifStatements.get(i);
+                s_rule += currentIfStatement.getDataType() + " " + currentIfStatement.getComparisonType() + " " + currentIfStatement.getComparisonData() + " " + currentIfStatement.getConjunction() + " ";
+            }
+            ThenStatement thenStatement = currentRule.getThenStatements();
+            s_rule += "then " + thenStatement.getThenText();
+            s_rule = s_rule.replaceAll("null", "");
+            LayoutInflater lii = LayoutInflater.from(RuleActivity.this);
+            LinearLayout ll2 = (LinearLayout) lii.inflate(R.layout.singlerule, null);
+            TextView tv = (TextView) ll2.findViewById(R.id.ruleText);
+            tv.setText(s_rule);
+            ll.addView(ll2);
+        }
+
+    }
+}
 

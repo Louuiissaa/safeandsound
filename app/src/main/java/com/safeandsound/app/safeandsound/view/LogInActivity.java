@@ -77,10 +77,10 @@ public class LogInActivity extends FragmentActivity{
 
         // Kontrolle ob Email und Passwort eingegeben wurden
         if (!email.isEmpty() && !password.isEmpty()) {
-            ipAddressRP = db.getUsersIPAddressRP(email);
-                if(ipAddressRP == null){
+          /*  ipAddressRP = db.getUsersIPAddressRP(email);
+                if(ipAddressRP == null || ipAddressRP.equals("")){
                     getUsersIP(email);
-                }
+                }*/
                 checkLogin(email, password);
         } else {
             // Fordert den User auf Email UND Passwort einzugeben

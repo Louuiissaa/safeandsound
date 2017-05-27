@@ -194,7 +194,6 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="center_vertical|right"
-                    android:text="Library"
                     android:textAlignment="gravity" />
 
                 <ImageView
@@ -225,16 +224,18 @@
                     android:layout_weight="1"
                     android:background="@color/white"
                     android:src="@drawable/ic_carbonmonoxid"/>
+
                 <TextView
+                    android:id="@+id/carbonmonoxidText"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
-                    android:id="@+id/carbonmonoxidText"
                     android:background="@color/white"
-                    android:textSize="16dip"
                     android:gravity="center_vertical|left"
                     android:text="@string/kohlenstoffmonoxid"
-                    android:textAlignment="gravity" />
+                    android:textAlignment="gravity"
+                    android:textSize="16dip" />
+
                 <TextView
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -243,7 +244,6 @@
                     android:background="@color/white"
                     android:textSize="16dip"
                     android:gravity="center_vertical|right"
-                    android:text="Library"
                     android:textAlignment="gravity" />
 
                 <ImageView
@@ -278,7 +278,7 @@
                     android:src="@drawable/ic_air_quality" />
 
                 <TextView
-                    android:id="@+id/oxygenText"
+                    android:id="@+id/ammoniumText"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -289,13 +289,12 @@
                     android:textSize="16dip" />
 
                 <TextView
-                    android:id="@+id/oxygenOutputText"
+                    android:id="@+id/ammoniumOutputText"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:background="@color/white"
                     android:gravity="center_vertical|right"
-                    android:text="Library"
                     android:textAlignment="gravity"
                     android:textSize="16dip" />
 

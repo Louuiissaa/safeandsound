@@ -197,7 +197,7 @@ public class WindowActivity extends FragmentActivity {
         TextView textView_WindowName = new TextView(this);
         textView_WindowName.setBackgroundColor(Color.WHITE);
         textView_WindowName.setTextSize(16);
-        textView_WindowName.setText("Elternschlafzimmer");
+        textView_WindowName.setThenText("Elternschlafzimmer");
         textView_WindowName.setGravity(Gravity.CENTER | Gravity.LEFT);
         LinearLayout.LayoutParams TVParams = new LinearLayout.LayoutParams(0,LinearLayout.LayoutParams.MATCH_PARENT, 3f);
         textView_WindowName.setLayoutParams(TVParams);
@@ -208,7 +208,7 @@ public class WindowActivity extends FragmentActivity {
         TextView textView_WindowStatus = new TextView(this);
         textView_WindowStatus.setBackgroundColor(Color.WHITE);
         textView_WindowStatus.setTextSize(16);
-        textView_WindowStatus.setText("open");
+        textView_WindowStatus.setThenText("open");
         textView_WindowStatus.setGravity(Gravity.CENTER | Gravity.RIGHT);
         textView_WindowStatus.setLayoutParams(TVParams);
         textViewSet.add("TextView_SensorStatus");

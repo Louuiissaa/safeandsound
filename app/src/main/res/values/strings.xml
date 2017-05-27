@@ -56,7 +56,6 @@
     <string name="libraryDesc">Click, to show picture...</string>
 
     <!--Diagramm-->
-
     <string name="dataProfile">Data profile</string>
     <string name="gasProfile">Gas profile</string>
     <string name="tempHumProfile">Temp &amp; Humidity profile</string>

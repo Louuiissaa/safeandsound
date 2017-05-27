@@ -41,14 +41,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="data value"
-            android:inputType="number"/>
+            android:inputType="numberDecimal"/>
         <EditText
             android:id="@+id/secondComparisonData"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="data value"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:animateLayoutChanges="true"/>
     </LinearLayout>
     <ImageButton
