@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/louisapabst/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.7.3/1499b854ae9f370409792db5af1b552dc7d9682f/jackson-core-2.7.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1499b854ae9f370409792db5af1b552dc7d9682f">
+        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.7.3_fb557477cf350efd3565adbceb90c122a824fcd8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/louisapabst/.android/build-cache/3c2e96e70c003da4894fc2f7cf1c42407aa7c71f/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -174,6 +183,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/louisapabst/.android/build-cache/23fc1640fb36b568ce209eb0ce64487639af596c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f7ec1f5205e6a4b0059ab34aafdd2de8f193385e">
+        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8c0727631aa83e88b18ff2bef27a24a29036ac79/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/louisapabst/.android/build-cache/3c2e96e70c003da4894fc2f7cf1c42407aa7c71f/output/jars/libs/internal_impl-25.0.0.jar"
         jumboMode="true"
         optimize="true"
@@ -192,21 +210,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/louisapabst/.gradle/caches/modules-2/files-2.1/org.easyrules/easyrules-core/2.4.0/655f20cc4f7973182d19ff6f72f49b2c5a7cc93f/easyrules-core-2.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="655f20cc4f7973182d19ff6f72f49b2c5a7cc93f">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/easyrules-core-2.4.0_b36b035e0c33ccfdc2127e603f4eaddd2989e098/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/louisapabst/.android/build-cache/66099ae8bd983dabe84c9a9a038deec449e24c76/output/jars/libs/internal_impl-25.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
         <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_2bef78c5cd89bd5255720d2f9aa447fe106d0c2e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/louisapabst/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.7.3/f12e6cd05cbaecd74d16e685d45b627732939e42/jackson-databind-2.7.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f12e6cd05cbaecd74d16e685d45b627732939e42">
+        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.7.3_ac55fe5b1e7aa460a7dee35347ad07460b0bf4f5/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -225,6 +243,15 @@
         revision="25.0.0"
         sha1="26674000177e45447a0326a6ad84612761199a13">
         <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a2d1087f4ee0ff499384c0d3376e01a0e8084f1f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/louisapabst/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.7.0/19f42c154ffc689f40a77613bc32caeb17d744e3/jackson-annotations-2.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="19f42c154ffc689f40a77613bc32caeb17d744e3">
+        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.7.0_479045cd52b9b1c148930d826c5754fdf3c7fb64/classes.dex" />
     </item>
     <item
         is-multidex="true"

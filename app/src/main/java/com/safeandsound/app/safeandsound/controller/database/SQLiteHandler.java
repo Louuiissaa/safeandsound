@@ -79,6 +79,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     String CREATE_RULE_TABLE = "CREATE TABLE " + TABLE_RULE + "(" + KEY_ID +
             " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_USERID + " INTEGER NOT NULL," +
+            KEY_RULE + " TEXT NOT NULL," +
             "FOREIGN KEY (" + KEY_USERID + ") REFERENCES " + TABLE_USER + " ("+ KEY_ID + "))";
 
     String CREATE_IFSTATEMENT_TABLE = "CREATE TABLE " + TABLE_IFSTATEMENT + "("
@@ -230,23 +231,23 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      */
     public String getloggedInUser() {
         HashMap<String, String> user = new HashMap<String, String>();
-        String ipAddressRP = "";
-        String selectQuery = "SELECT ipAddressRP FROM " + TABLE_USER + " WHERE " + KEY_ISLOGGEDIN + " = 1";
+        String userID = "";
+        String selectQuery = "SELECT " + KEY_ID + " FROM " + TABLE_USER + " WHERE " + KEY_ISLOGGEDIN + " = 1";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         // Move to first row
         if(cursor != null) {
             cursor.moveToFirst();
             if (cursor.getCount() > 0) {
-                ipAddressRP = cursor.getString(0);
+                userID = cursor.getString(0);
             }
             cursor.close();
             db.close();
         }
         // return user
-        Log.d(TAG, "Fetching IP Address from Sqlite: " + ipAddressRP);
+        Log.d(TAG, "Fetching IP Address from Sqlite: " + userID);
 
-        return ipAddressRP;
+        return userID;
     }
 
         /**
@@ -293,6 +294,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         return id;
     }
 
+
     /**
      * THEN-Statement wird in DB gespeichert
      * */
@@ -328,6 +330,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "New then statement inserted into sqlite.");
     }
 
+
+
     /**
      * RULE-THEN-Verknüpfung wird in DB gespeichert
      * */
@@ -348,11 +352,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * THEN-Statement wird in DB gespeichert
      * */
-    public void addRule(String userid, List<IfStatement> ifStatements, ThenStatement thenStatement) {
+    public void addRule(String userid, List<IfStatement> ifStatements, List<ThenStatement> thenStatements) {
         SQLiteDatabase db = this.getWritableDatabase();
 
+        String s_rule = getRuleString(ifStatements, thenStatements);
         ContentValues valuesRule = new ContentValues();
         valuesRule.put(KEY_USERID, userid);
+        valuesRule.put(KEY_RULE, s_rule);
 
         // Werte werden hinzugefügt
         long idRule = db.insert(TABLE_RULE, null, valuesRule);
@@ -361,16 +367,96 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             long idIf = addIfStatement(ifStatement.getDataType(), ifStatement.getComparisonType(), ifStatement.getComparisonData(), ifStatement.getConjunction());
             addRuleIf(idRule, idIf);
         }
-        long idThen = addThenStatement(thenStatement.getThenText(), thenStatement.getThenType());
-        addRuleThen(idRule, idThen);
-
+        for(int t = 0; t < thenStatements.size(); t++) {
+            ThenStatement thenStatement = thenStatements.get(t);
+            long idThen = addThenStatement(thenStatement.getThenText(), thenStatement.getThenType());
+            addRuleThen(idRule, idThen);
+        }
         db.close();
 
         Log.d(TAG, "New then statement inserted into sqlite.");
     }
 
+    public String getRuleString(List<IfStatement> ifStatements, List<ThenStatement> thenStatements){
+        String s_if = getIfString(ifStatements);
+        String s_then = getThenString(thenStatements);
+        String s_rule = "if (" + s_if + ") { return '" + s_then + "'; }";
+        return s_rule;
+    }
+
+    public String getIfString(List<IfStatement> ifStatements){
+        String s_if = "";
+        for(int i = 0; i < ifStatements.size(); i++){
+            IfStatement ifStatement = ifStatements.get(i);
+            String datatype = ifStatement.getDataType();
+            String comparisontype = ifStatement.getComparisonType();
+            String comparisondata = ifStatement.getComparisonData();
+            String conjunction = ifStatement.getConjunction();
+            if(comparisondata.contains(";")){
+                String[] comparisontypes = comparisontype.split(";");
+                String[] comparisondatas = comparisondata.split(";");
+                s_if += when(datatype, comparisontypes[0], comparisontypes[1], comparisondatas[0], comparisondatas[1], conjunction);
+            }else{
+                s_if += when(datatype, comparisontype, comparisondata, conjunction);
+            }
+        }
+        return s_if;
+    }
+
+    public String when(String datatype, String comparisontype, String comparisondata, String conjunction){
+        String template = "({datatype} {comparisontype} {comparisondata}) {conjunction}";
+        template.replace("{datatype}", datatype).replace("{comparisontype}", comparisontype)
+                .replace("{comparisondata}", comparisondata).replace("{conjunction}", conjunction);
+        return template;
+    }
+
+    public String when(String datatype, String first_comparisontype, String second_comparisontype, String first_comparisondata, String second_comparisondata, String conjunction){
+        String template = "({datatype} {first_comparisontype} {first_comparisondata} && {datatype} {second_comparisontype} {second_comparisondata}) {conjunction}";
+        template.replace("{datatype}", datatype).replace("{first_comparisontype}", first_comparisontype)
+                .replace("{second_comparisontype}", second_comparisontype).replace("{first_comparisondata}", first_comparisondata)
+                .replace("{second_comparisondata}", second_comparisondata).replace("{conjunction}", conjunction);
+        return template;
+    }
+
+    public String getThenString(List<ThenStatement> thenStatements){
+        String s_then = "";
+        for(int i = 0; i < thenStatements.size(); i++){
+            ThenStatement thenStatement = thenStatements.get(i);
+            String thentext = thenStatement.getThenText();
+            s_then += thentext;
+        }
+        return s_then;
+    }
+
+
     /**
-     * Eingeloggter User wird zurückgegeben
+     *
+     * @param userid
+     * @return
+     */
+    public List<String> getRuleStrings(String userid) {
+        List<String> result = new ArrayList<String>();
+        //HashMap<String, String> rules = new HashMap<String, String>();
+        String selectRuleQuery = "SELECT " + KEY_RULE + " FROM " + TABLE_RULE + " WHERE " + KEY_USERID + " = " + userid;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectRuleQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if(cursor.getCount() > 0) {
+            for (int i = 0; i < cursor.getCount(); i++) {
+                result.add(cursor.getString(i));
+                cursor.moveToNext();
+            }
+
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @param userid
+     * @return
      */
     public List<Rule> getRules(String userid) {
         List<Rule> result = new ArrayList<Rule>();

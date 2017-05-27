@@ -13,6 +13,7 @@ public class Rule {
     Integer: declares by what the sensor is followed in the statement (0 = statement is finished, 1 = AND, 2 = OR)
      */
     List<IfStatement> ifStatements;
+    String ifStatement;
     //IfStatement ifStatements;
     //List<ThenStatement> thenStatements;
     ThenStatement thenStatements;
@@ -22,30 +23,15 @@ public class Rule {
         this.thenStatements = thenStatements;
     }
 
+    public Rule(String ifStatement, ThenStatement thenStatements){
+        this.ifStatement = ifStatement;
+        this.thenStatements = thenStatements;
+    }
+
     public void setIfParameters(List<IfStatement> ifStatements) {
         this.ifStatements = ifStatements;
     }
 
-    /*public String combineIfStatement(List<IfStatement> map){
-        String ifStatement = "";
-        String endOfIf = "";
-        for (HashMap.Entry<IfStatement, Integer> entry : map.entrySet())
-        {
-            if(entry.getValue() == 0){
-                ifStatement = ifStatement + entry.getKey();
-                return ifStatement;
-            }else if(entry.getValue() == 1){
-                ifStatement = ifStatement + entry.getKey() + " AND ";
-            }else if(entry.getValue() == 2){
-                ifStatement = ifStatement + entry.getKey() + " OR ";
-            }
-        }
-        return ifStatement;
-    }*/
-
-    public void combineThenStatement(){
-
-    }
 
     //Getter & Setter
     public List<IfStatement> getIfStatements() {
@@ -62,5 +48,13 @@ public class Rule {
 
     public void setThenStatements(ThenStatement thenStatements) {
         this.thenStatements = thenStatements;
+    }
+
+    public String getIfStatement() {
+        return ifStatement;
+    }
+
+    public void setIfStatement(String ifStatement) {
+        this.ifStatement = ifStatement;
     }
 }

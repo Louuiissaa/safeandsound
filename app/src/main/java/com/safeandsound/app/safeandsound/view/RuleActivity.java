@@ -90,6 +90,7 @@ public class RuleActivity extends FragmentActivity {
                 dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         List<IfStatement> ifStatements = new ArrayList<IfStatement>();
+                        List<ThenStatement> thenStatements = new ArrayList<ThenStatement>();
                         Spinner spDataType = (Spinner) ll2.findViewById(R.id.dataTypeSpinner);
                         String dataType = spDataType.getSelectedItem().toString();
 
@@ -110,12 +111,14 @@ public class RuleActivity extends FragmentActivity {
                         EditText ed_actionText = (EditText) ll2.findViewById(R.id.actionText);
                         String thenText = ed_actionText.getText().toString();
                         ThenStatement newThenStatement = new ThenStatement(thenText, null);
+                        thenStatements.add(newThenStatement);
                         Rule newRule = new Rule(ifStatements, newThenStatement);
                         //TODO: PHP File für Datenbank Speicherung auf RP
                         //db.addIfStatement(dataType, comparisonType, comparisonData, null);
                         //db.addThenStatement(thenText, null);
-                        db.addRule(userid, ifStatements, newThenStatement);
+                        db.addRule(userid, ifStatements, thenStatements);
                         //countID++;
+                        finish();
                         startActivity(getIntent());
                     }
                 })
