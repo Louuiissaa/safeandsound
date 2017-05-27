@@ -2,15 +2,16 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/e3d33c3e2d5ef39322c8acb8dc44a59695ba0b64/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\d5ca19c3815dcecedff42a77f276c1d39ed14a7e\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4efa3a01825b404f94927147c85e3b6d0f098807/classes.dex" />
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_ee8e83f7df21f2eedd755887c8d0a01f3716666b.jar" />
     </item>
     <item
+<<<<<<< HEAD
         is-multidex="true"
         jar="/Users/louisapabst/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.7.3/1499b854ae9f370409792db5af1b552dc7d9682f/jackson-core-2.7.3.jar"
         jumboMode="true"
@@ -23,165 +24,171 @@
         is-multidex="true"
         jar="/Users/louisapabst/.android/build-cache/3c2e96e70c003da4894fc2f7cf1c42407aa7c71f/output/jars/classes.jar"
         jumboMode="true"
+=======
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\84616008eeef30b1d2e113e887d7a56bebabe9cd\output\jars\classes.jar"
+        jumboMode="false"
+>>>>>>> 07d906a1329e293671f743459cd6359071af9333
         optimize="true"
         revision="25.0.0"
-        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_106d497eb4ac0cd4519216dc6ddee7795539715a/classes.dex" />
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_8274725e1443c10f92c18d24317123a4962dc54d.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/8ae81709702418fccf6f399bc4c4d5da27eb86f9/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Dominic\.gradle\caches\modules-2\files-2.1\org.easyrules\easyrules-core\2.4.0\655f20cc4f7973182d19ff6f72f49b2c5a7cc93f\easyrules-core-2.4.0.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_af180d624fded4c39b14e5ff4abadf6eeca870b8/classes.dex" />
+        sha1="655f20cc4f7973182d19ff6f72f49b2c5a7cc93f">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\easyrules-core-2.4.0_d9a89264c2c30780598338d0ff6477dfc32a7969.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/41721592248e122f11d52759347a28a7db2a078f/output/jars/libs/internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_35cb82d772869cd13b7b30898c3ce722949549ad/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/41721592248e122f11d52759347a28a7db2a078f/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_de201a561339102bc695d1f5dad850ba84ed1617/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/Library/Android/sdk/build-tools/25.0.0/renderscript/lib/renderscript-v8.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Dominic\AppData\Local\Android\sdk\build-tools\25.0.0\renderscript\lib\renderscript-v8.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="05668b8cd6c7b07f152b6a5b4c6cff620817ba0f">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/renderscript-v8_e36b653688ad0e8b456322bf27f6fa6af291b485/classes.dex" />
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\renderscript-v8_875e2cc04684012c61e125a40eb50dc42f4be061.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/8c1bcb2d405bde02fe760177909c552095d4c1ab/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_600bacd34ff06365aa1f9ee451111476acb256cb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/695257f143efc987d211eccab545f9010090aec8/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4483f66b15bbd1cb913ca695134fa5906f7ce446/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/dca5c0ff21c76656a243584dac9d6b09e4a37e0c/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e3f4ced030fe9640a0db6ca8dc6f4eeb2feee8e3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v3.0.2/5d4eb08a326bdbd7fbbddc769666898c9936b282/MPAndroidChart-v3.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5d4eb08a326bdbd7fbbddc769666898c9936b282">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/MPAndroidChart-v3.0.2_39d93879a44fa0f187b8e19f951611905269208c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/b58598f60683d6b9b670b9f531348c33ecf71889/output/jars/libs/internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_2250cb41664ded90295a447e4547487bf74674f7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/7605ab759705cd32ea667244b28fe525793a7b39/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_131bc8cbf487bb66e9613153874de3189516ccbb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ec83dd377678a2a8c135055ddc4ad5ef35af567b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.0/support-annotations-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.0_560edf1eb4f604ecc4e4d9246943bd18aed22eac/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/36a6ff18836a81fb13cd8c0502717689f6ce474f/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3f55ed6753b75d5ad7d6da4a4794735d781beff5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/dca5c0ff21c76656a243584dac9d6b09e4a37e0c/output/jars/libs/internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_188b38c37ef3c911d03d853bf63fe5a867aaadb3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/5ebd2bf209f459cf48b6c486dcae47d44c798aac/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d6ec650d7258786e87c70422d2e2708ac218a51f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/313111a62a0bb5e1e3953d2fed70ec1d13888017/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_42fd2f455680595212a6db46d21e259a02dfe54b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/322913ae9ee1eb50b888939423dc38ff5e8bacf8/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\a67cd372e26df86b9168976aaa46066c1491ddc0\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_07dce47a847699e43af942f4133ceb08a89d3805/classes.dex" />
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_c4ee37ced200b59a95ceca30ed0b6a717b5e069b.jar" />
     </item>
     <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\a0d0a30424f5a60d5af31af8868160b2f37ed639\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_f7aea9c5662153c79c028c008b2d75a49c1cf02e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.gradle\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v3.0.2\5d4eb08a326bdbd7fbbddc769666898c9936b282\MPAndroidChart-v3.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5d4eb08a326bdbd7fbbddc769666898c9936b282">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\MPAndroidChart-v3.0.2_dcee3dc0fba1a05d1d29ee57e61aed11decec1aa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\8997b21d648a7f97dfbc88bdb58ffeedd32d8e3e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_102232142d6116f0485679a99cf9787000eb3a48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\c68e4099adf4ae5906e73e391ed1b5866d2dc674\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_baab3486eaef7ba7a2914a31b117e21c28f52dc4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\31f6d41ee4e4a9980bd03423cc675ee5ce7fceaf\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_61ca0e3e7523e469dfb381ec760ce6055326aa99.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_efd98ba911fd220b01405f08f4dabd7626d6740f\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\31f6d41ee4e4a9980bd03423cc675ee5ce7fceaf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_4574b0efca8e09e64f880cfbbca7230ee1b6e1b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\530e29178b6e99b6729a7978252cc122d0e2fa5e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_a116efa50a0ee7ccb1089221316a0669eea5f93f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\30f88667ca11627d6425dcf7d8b4ee90164e0cfd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_c032d131808d863d1b441dee40487394c56c996c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\845a9bfeda578702d3c69074f339081bda9c03d3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_27e2d9b48e0a9cc070ad11c7c21c609d93ad76be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\530e29178b6e99b6729a7978252cc122d0e2fa5e\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_d097c0e74795219796882dc12569ce4935a8b350.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b309d83930931313b1d408c357922a78b32c30f9">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_cd4f80827cebe6ceebe75b40b530233092484a90\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\5707d9808201f833e995f6f5db67f646b2d13256\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_4ffdd107aa1a650529a45e7aeb6133eff8abcb7f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\84616008eeef30b1d2e113e887d7a56bebabe9cd\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_fc83d5e54a3e2ec51a2e6ff672252187f7a0e451.jar" />
+    </item>
+    <item
+<<<<<<< HEAD
         is-multidex="true"
         jar="/Users/louisapabst/.android/build-cache/23fc1640fb36b568ce209eb0ce64487639af596c/output/jars/classes.jar"
         jumboMode="true"
@@ -194,21 +201,27 @@
         is-multidex="true"
         jar="/Users/louisapabst/.android/build-cache/3c2e96e70c003da4894fc2f7cf1c42407aa7c71f/output/jars/libs/internal_impl-25.0.0.jar"
         jumboMode="true"
+=======
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\5707d9808201f833e995f6f5db67f646b2d13256\output\jars\classes.jar"
+        jumboMode="false"
+>>>>>>> 07d906a1329e293671f743459cd6359071af9333
         optimize="true"
         revision="25.0.0"
-        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_9422a00b90008f64d58226e5d142a0c0fa7881be/classes.dex" />
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_6e12211a0ec0a453287c61ab38658e52a4a5705e.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/45fb1d57a3fb4a55725658c29204c2a98a9560b5/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Dominic\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_84be5d1235669f6efcf13dd6da6e35dbc6499d37/classes.dex" />
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\support-annotations-25.0.0_53445d3548daf9b4b6d68492b6fa46c5513603e7.jar" />
     </item>
     <item
+<<<<<<< HEAD
         is-multidex="true"
         jar="/Users/louisapabst/.android/build-cache/66099ae8bd983dabe84c9a9a038deec449e24c76/output/jars/libs/internal_impl-25.0.0.jar"
         jumboMode="true"
@@ -225,26 +238,45 @@
         revision="25.0.0"
         sha1="f12e6cd05cbaecd74d16e685d45b627732939e42">
         <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.7.3_ac55fe5b1e7aa460a7dee35347ad07460b0bf4f5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
+=======
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\8621854acb28739558a2e7cc483b6546b2fbb969\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="d21204c2a2d002773587833aefd500466f82680e">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f8521ace45ac66fb4413bc5894d29c8fc5ea45ed/classes.dex" />
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_a4cc13e666d59604a783bed1a72eaf6752bc6c01.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/66099ae8bd983dabe84c9a9a038deec449e24c76/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\6fe976e343075a0fd4a34299aff19b8a218fe180\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="26674000177e45447a0326a6ad84612761199a13">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a2d1087f4ee0ff499384c0d3376e01a0e8084f1f/classes.dex" />
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_742972c0aa1c3225ca17416318c7bbf072827c0b.jar" />
+>>>>>>> 07d906a1329e293671f743459cd6359071af9333
     </item>
     <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\fd14e2643365ffa849760a98c0a36b9d1a083923\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_c27c9d798729188da2de20cc864d7b4c5b6172f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\37fbca6dd72dc307559123f25c884659616c30a3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_9f4fc843c45c76729e3bff9c46b21dd31284f37b.jar" />
+    </item>
+    <item
+<<<<<<< HEAD
         is-multidex="true"
         jar="/Users/louisapabst/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.7.0/19f42c154ffc689f40a77613bc32caeb17d744e3/jackson-annotations-2.7.0.jar"
         jumboMode="true"
@@ -257,28 +289,33 @@
         is-multidex="true"
         jar="/Users/louisapabst/.android/build-cache/3384e84facc4b1c1615946c90611d6cb429c9856/output/jars/classes.jar"
         jumboMode="true"
+=======
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\9179c756c3d9bf52c63017f162aee152b7023cb6\output\jars\classes.jar"
+        jumboMode="false"
+>>>>>>> 07d906a1329e293671f743459cd6359071af9333
+        optimize="true"
+        revision="25.0.0"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_c8d7e82519723ab2a34d2d7771393513c31235f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\fd14e2643365ffa849760a98c0a36b9d1a083923\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_f18f63af7d872ed94a9d39a3a3b247b9bd433e50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Dominic\.android\build-cache\3dcd1ada3cd0257e651c30300b4c31cb34329738\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_26385468fb427997f223cd48cd3ef8891c957e48/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/b58598f60683d6b9b670b9f531348c33ecf71889/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ee2cb262ae9338278f94a23593ddd9ec3a3cab7e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/louisapabst/.android/build-cache/596055bb3db2b75b64d65824ec219a266218dc66/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
-        <dex dex="/Users/louisapabst/AndroidStudioProjects/SafeAndSound/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_222a974657bd45703080f14a8485b0fbc7de67d2/classes.dex" />
+        <dex dex="C:\Users\Dominic\Documents\DHBW_Mannheim\Studienarbeit\safeandsound\app\build\intermediates\pre-dexed\debug\classes_d6eca5bff6f674679fb8f6252361ad2c11e3b69c.jar" />
     </item>
 
 </items>
