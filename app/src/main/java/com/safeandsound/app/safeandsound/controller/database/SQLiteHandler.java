@@ -470,22 +470,26 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         if (cursor.getCount() > 0) {
             for (int i = 0; i < cursor.getCount(); i++) {
                 List<IfStatement> ifStatements = new ArrayList<IfStatement>();
-                IfStatement ifStatement = null;
+                List<ThenStatement> thenStatements = new ArrayList<ThenStatement>();
+                Rule rule = null;
                 ThenStatement thenStatement = null;
                 // Alle If Statements zur Regel erhalten
                 String selectRuleIfQuery = "SELECT * FROM " + TABLE_RULE_IF + " WHERE " + KEY_IDRULE + " = " + cursor.getString(0);
                 Cursor cursorRuleIf = db.rawQuery(selectRuleIfQuery, null);
                 cursorRuleIf.moveToFirst();
                 if (cursorRuleIf.getCount() > 0) {
-
-                    String selectIfQuery = "SELECT  * FROM " + TABLE_IFSTATEMENT + " WHERE " + KEY_ID + " = " + cursorRuleIf.getString(1);
-                    Cursor cursorIf = db.rawQuery(selectIfQuery, null);
-                    cursorIf.moveToFirst();
-                    if (cursorIf.getCount() > 0) {
-                        ifStatement = new IfStatement(cursorIf.getString(1), cursorIf.getString(2), cursorIf.getString(3), cursorIf.getString(4));
-                        ifStatements.add(ifStatement);
+                    for (int ri = 0; ri < cursorRuleIf.getCount(); ri++) {
+                        String selectIfQuery = "SELECT  * FROM " + TABLE_IFSTATEMENT + " WHERE " + KEY_ID + " = " + cursorRuleIf.getString(1);
+                        Cursor cursorIf = db.rawQuery(selectIfQuery, null);
+                        cursorIf.moveToFirst();
+                        if (cursorIf.getCount() > 0) {
+                            IfStatement ifStatement = null;
+                            ifStatement = new IfStatement(cursorIf.getString(1), cursorIf.getString(2), cursorIf.getString(3), cursorIf.getString(4));
+                            ifStatements.add(ifStatement);
+                        }
+                        cursorIf.close();
+                        cursorRuleIf.moveToNext();
                     }
-                    cursorIf.close();
                 }
                 // Alle Then Statements zur Regel erhalten
                 String selectRuleThenQuery = "SELECT * FROM " + TABLE_RULE_THEN + " WHERE " + KEY_IDRULE + " = " + cursor.getString(0);
@@ -496,12 +500,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                     Cursor cursorThen = db.rawQuery(selectThenQuery, null);
                     cursorThen.moveToFirst();
                     if (cursorThen.getCount() > 0) {
-                        thenStatement = new ThenStatement(cursorThen.getString(1), cursorThen.getString(2));
+                        thenStatement = new ThenStatement(cursorThen.getString(1), cursorThen.getString(2), cursorThen.getString(3));
+                        thenStatements.add(thenStatement);
                     }
                     cursorThen.close();
                 }
-                if (ifStatements.size() != 0 && thenStatement != null) {
-                    result.add(new Rule(ifStatements, thenStatement));
+                if (ifStatements.size() != 0 && thenStatements.size()!= 0) {
+                    rule = new Rule(ifStatements, thenStatements);
+                    result.add(rule);
                 }
                 cursor.moveToNext();
             }

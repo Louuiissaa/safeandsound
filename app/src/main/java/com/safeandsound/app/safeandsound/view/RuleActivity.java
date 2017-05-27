@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,7 +22,9 @@ import com.safeandsound.app.safeandsound.model.ruleengine.ThenStatement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by louisapabst on 16.05.17.
@@ -31,8 +34,11 @@ public class RuleActivity extends FragmentActivity {
 
     private Button btnAddRule;
     private SQLiteHandler db;
+    int count = 0;
     //private int countID = 0;
     private String userid;
+    private HashMap<String, String> map_comparisonTypes;
+    private HashMap<String, String> map_conjunctionTypes;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,11 +55,17 @@ public class RuleActivity extends FragmentActivity {
         //Get Add Sensor button
         btnAddRule = (Button) findViewById(R.id.btn_addRule);
 
+        setComparisonHashMap();
+        setConjunctionHashMap();
+
         showAllRules(rules);
 
         btnAddRule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                count = 0;
+                final HashMap<Integer, LinearLayout > map_layout = new HashMap<Integer, LinearLayout>();
+
                 // Set components for view to get user input
                 final LinearLayout ll = new LinearLayout(RuleActivity.this);
                 ll.setOrientation(LinearLayout.VERTICAL);
@@ -61,6 +73,11 @@ public class RuleActivity extends FragmentActivity {
 
                 LayoutInflater lii = LayoutInflater.from(RuleActivity.this);
                 final LinearLayout ll2 = (LinearLayout) lii.inflate(R.layout.addrule, null);
+                final ImageButton button_addIf = (ImageButton) ll2.findViewById(R.id.button_addif);
+                final LinearLayout ll_addIf = (LinearLayout) ll2.findViewById(R.id.llifs);
+                button_addIf.setVisibility(View.VISIBLE);
+                map_layout.put(count, ll_addIf);
+                count++;
                 ll.addView(ll2);
 
                 final Spinner spinner = (Spinner) ll2.findViewById(R.id.comparisonTypeSpinner);
@@ -84,6 +101,21 @@ public class RuleActivity extends FragmentActivity {
                     }
                 });
 
+                button_addIf.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        LayoutInflater li = LayoutInflater.from(RuleActivity.this);
+                        LinearLayout ll = (LinearLayout) ll2.findViewById(R.id.llifs);
+                        LinearLayout ll_addif = (LinearLayout) li.inflate(R.layout.addif, null);
+                        map_layout.put(count, ll_addif);
+                        ll.addView(ll_addif);
+                        count++;
+                        if (count == 3){
+                            button_addIf.setVisibility(View.INVISIBLE);
+                        }
+                    }
+                });
+
                 AlertDialog.Builder dialog = new AlertDialog.Builder(RuleActivity.this);
                 dialog.setTitle("Add a new rule");
                 dialog.setView(ll);
@@ -91,31 +123,38 @@ public class RuleActivity extends FragmentActivity {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         List<IfStatement> ifStatements = new ArrayList<IfStatement>();
                         List<ThenStatement> thenStatements = new ArrayList<ThenStatement>();
-                        Spinner spDataType = (Spinner) ll2.findViewById(R.id.dataTypeSpinner);
-                        String dataType = spDataType.getSelectedItem().toString();
+                        String conjunction = "";
+                        for(int i = 0; i < count; i++) {
+                            LinearLayout linearLayout = map_layout.get(i);
+                            Spinner spDataType = (Spinner) linearLayout.findViewById(R.id.dataTypeSpinner);
+                            String dataType = spDataType.getSelectedItem().toString().toLowerCase();
 
-                        Spinner spComparisonType = (Spinner) ll2.findViewById(R.id.comparisonTypeSpinner);
-                        String comparisonType = spComparisonType.getSelectedItem().toString();
+                            Spinner spComparisonType = (Spinner) linearLayout.findViewById(R.id.comparisonTypeSpinner);
+                            String comparisonType = spComparisonType.getSelectedItem().toString();
 
-                        EditText ed_firstComparisonData = (EditText) ll2.findViewById(R.id.firstComparisonData);
-                        String comparisonData = ed_firstComparisonData.getText().toString();
+                            EditText ed_firstComparisonData = (EditText) linearLayout.findViewById(R.id.firstComparisonData);
+                            String comparisonData = ed_firstComparisonData.getText().toString();
 
-                        if(comparisonType.equals("is between")){
-                            EditText ed_secondComparisonData = (EditText) ll2.findViewById(R.id.secondComparisonData);
-                            String secondComparisonData = ed_secondComparisonData.getText().toString();
-                            comparisonData = comparisonData + ";" + secondComparisonData;
+                            if (comparisonType.equals("is between")) {
+                                EditText ed_secondComparisonData = (EditText) linearLayout.findViewById(R.id.secondComparisonData);
+                                String secondComparisonData = ed_secondComparisonData.getText().toString();
+                                comparisonData = comparisonData + ";" + secondComparisonData;
+                            }
+                            if(i > 0){
+                                Spinner spConjunction = (Spinner) linearLayout.findViewById(R.id.conjunctionSpinner);
+                                conjunction = spConjunction.getSelectedItem().toString();
+                                conjunction = map_conjunctionTypes.get(conjunction);
+                            }
+                            comparisonType = map_comparisonTypes.get(comparisonType);
+                            IfStatement newIfStatement = new IfStatement(dataType, comparisonType, comparisonData, conjunction);
+                            ifStatements.add(newIfStatement);
                         }
-                        IfStatement newIfStatement = new IfStatement(dataType, comparisonType, comparisonData, null);
-                        ifStatements.add(newIfStatement);
-
                         EditText ed_actionText = (EditText) ll2.findViewById(R.id.actionText);
                         String thenText = ed_actionText.getText().toString();
-                        ThenStatement newThenStatement = new ThenStatement(thenText, null);
+                        ThenStatement newThenStatement = new ThenStatement(thenText, null, null);
                         thenStatements.add(newThenStatement);
-                        Rule newRule = new Rule(ifStatements, newThenStatement);
+                        Rule newRule = new Rule(ifStatements, thenStatements);
                         //TODO: PHP File für Datenbank Speicherung auf RP
-                        //db.addIfStatement(dataType, comparisonType, comparisonData, null);
-                        //db.addThenStatement(thenText, null);
                         db.addRule(userid, ifStatements, thenStatements);
                         //countID++;
                         finish();
@@ -146,11 +185,38 @@ public class RuleActivity extends FragmentActivity {
 
             for (int i = 0; i < ifStatements.size(); i++ ){
                 IfStatement currentIfStatement = ifStatements.get(i);
-                s_rule += currentIfStatement.getDataType() + " " + currentIfStatement.getComparisonType() + " " + currentIfStatement.getComparisonData() + " " + currentIfStatement.getConjunction() + " ";
+                String conjunction = currentIfStatement.getConjunction();
+                String comparisiontype = currentIfStatement.getComparisonType();
+                String comparisondata = currentIfStatement.getComparisonData();
+                Iterator itConjunction = map_conjunctionTypes.entrySet().iterator();
+                while (itConjunction.hasNext()) {
+                    Map.Entry entry = (Map.Entry) itConjunction.next();
+                    if(entry.getValue().equals(conjunction)){
+                        conjunction = entry.getKey().toString();
+                    }
+
+                }
+                Iterator itComparison = map_comparisonTypes.entrySet().iterator();
+                while (itComparison.hasNext()) {
+                    Map.Entry entry = (Map.Entry) itComparison.next();
+                    if(entry.getValue().equals(comparisiontype)){
+                        comparisiontype = entry.getKey().toString();
+                    }
+
+                }
+                if(comparisondata.contains(";")){
+                    String[] c = comparisondata.split(";");
+                    comparisondata = c[0] + " and " + c[1];
+                }
+                s_rule += conjunction + " " + currentIfStatement.getDataType() + " " + comparisiontype + " " + comparisondata + " \r\n";
             }
-            ThenStatement thenStatement = currentRule.getThenStatements();
-            s_rule += "then " + thenStatement.getThenText();
-            s_rule = s_rule.replaceAll("null", "");
+            s_rule += "then ";
+            List<ThenStatement> thenStatements = currentRule.getThenStatements();
+            for (int i = 0; i < thenStatements.size(); i++ ){
+                ThenStatement currentThenStatement = thenStatements.get(i);
+                s_rule += currentThenStatement.getThenType() + " " + currentThenStatement.getThenText() + " " + currentThenStatement.getConjunction() + " \r\n";
+            }
+            s_rule = s_rule.replace("null", "");
             LayoutInflater lii = LayoutInflater.from(RuleActivity.this);
             LinearLayout ll2 = (LinearLayout) lii.inflate(R.layout.singlerule, null);
             TextView tv = (TextView) ll2.findViewById(R.id.ruleText);
@@ -158,6 +224,19 @@ public class RuleActivity extends FragmentActivity {
             ll.addView(ll2);
         }
 
+    }
+
+    public void setComparisonHashMap(){
+        map_comparisonTypes = new HashMap<String, String>();
+        map_comparisonTypes.put("is equal", "==");
+        map_comparisonTypes.put("is greater", ">");
+        map_comparisonTypes.put("is smaller", "<");
+        map_comparisonTypes.put("is between", "<;>");
+    }
+    public void setConjunctionHashMap(){
+        map_conjunctionTypes = new HashMap<String, String>();
+        map_conjunctionTypes.put("AND", "&&");
+        map_conjunctionTypes.put("OR", "||");
     }
 }
 
