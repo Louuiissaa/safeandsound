@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.safeandsound.app.safeandsound.R;
+import com.safeandsound.app.safeandsound.controller.PushMessage;
 import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.model.ruleengine.IfStatement;
 import com.safeandsound.app.safeandsound.model.ruleengine.Rule;
@@ -231,7 +232,7 @@ public class RuleActivity extends FragmentActivity {
         map_comparisonTypes.put("is equal", "==");
         map_comparisonTypes.put("is greater", ">");
         map_comparisonTypes.put("is smaller", "<");
-        map_comparisonTypes.put("is between", "<;>");
+        map_comparisonTypes.put("is between", ">;<");
     }
     public void setConjunctionHashMap(){
         map_conjunctionTypes = new HashMap<String, String>();

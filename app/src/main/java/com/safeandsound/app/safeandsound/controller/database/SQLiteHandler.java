@@ -380,7 +380,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public String getRuleString(List<IfStatement> ifStatements, List<ThenStatement> thenStatements){
         String s_if = getIfString(ifStatements);
         String s_then = getThenString(thenStatements);
-        String s_rule = "if (" + s_if + ") { return '" + s_then + "'; }";
+        String s_rule = "if (" + s_if + ") { '" + s_then + "'; }";
         return s_rule;
     }
 
@@ -405,14 +405,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     public String when(String datatype, String comparisontype, String comparisondata, String conjunction){
         String template = "({datatype} {comparisontype} {comparisondata}) {conjunction}";
-        template.replace("{datatype}", datatype).replace("{comparisontype}", comparisontype)
+        template = template.replace("{datatype}", datatype).replace("{comparisontype}", comparisontype)
                 .replace("{comparisondata}", comparisondata).replace("{conjunction}", conjunction);
         return template;
     }
 
     public String when(String datatype, String first_comparisontype, String second_comparisontype, String first_comparisondata, String second_comparisondata, String conjunction){
         String template = "({datatype} {first_comparisontype} {first_comparisondata} && {datatype} {second_comparisontype} {second_comparisondata}) {conjunction}";
-        template.replace("{datatype}", datatype).replace("{first_comparisontype}", first_comparisontype)
+        template = template.replace("{datatype}", datatype).replace("{first_comparisontype}", first_comparisontype)
                 .replace("{second_comparisontype}", second_comparisontype).replace("{first_comparisondata}", first_comparisondata)
                 .replace("{second_comparisondata}", second_comparisondata).replace("{conjunction}", conjunction);
         return template;
@@ -445,7 +445,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         cursor.moveToFirst();
         if(cursor.getCount() > 0) {
             for (int i = 0; i < cursor.getCount(); i++) {
-                result.add(cursor.getString(i));
+                result.add(cursor.getString(0));
                 cursor.moveToNext();
             }
 
