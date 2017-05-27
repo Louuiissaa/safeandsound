@@ -47,7 +47,9 @@ public class RuleEngine {
                 }
                 String notificationText = runtime.executeStringScript(variables + rule);
                 runtime.release();
-                push.sendNotification(notificationText);
+                if(!notificationText.isEmpty()) {
+                    push.sendNotification(notificationText);
+                }
             }
         }catch (IllegalStateException e ){
             Log.d(TAG, "RuleEngine Exception: " + e);

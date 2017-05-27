@@ -18,6 +18,7 @@ public class PushMessage {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context).setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Safe & Sound")
                 .setContentText(message);
+        mBuilder.setTicker(message);
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         mNotificationManager.notify(666, mBuilder.build());
