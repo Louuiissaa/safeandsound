@@ -1,6 +1,5 @@
 package com.safeandsound.app.safeandsound.model.ruleengine;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -13,18 +12,18 @@ public class Rule {
     Integer: declares by what the sensor is followed in the statement (0 = statement is finished, 1 = AND, 2 = OR)
      */
     List<IfStatement> ifStatements;
-    String ifStatement;
+    String ruleScript;
     //IfStatement ifStatements;
     //List<ThenStatement> thenStatements;
-    ThenStatement thenStatements;
+    List<ThenStatement> thenStatements;
 
-    public Rule(List<IfStatement> ifStatements, ThenStatement thenStatements){
+    public Rule(List<IfStatement> ifStatements, List<ThenStatement> thenStatements){
         this.ifStatements = ifStatements;
         this.thenStatements = thenStatements;
     }
 
-    public Rule(String ifStatement, ThenStatement thenStatements){
-        this.ifStatement = ifStatement;
+    public Rule(String ruleScript, List<ThenStatement> thenStatements){
+        this.ruleScript = ruleScript;
         this.thenStatements = thenStatements;
     }
 
@@ -42,19 +41,19 @@ public class Rule {
         this.ifStatements = ifStatements;
     }
 
-    public ThenStatement getThenStatements() {
+    public List<ThenStatement> getThenStatements() {
         return thenStatements;
     }
 
-    public void setThenStatements(ThenStatement thenStatements) {
+    public void setThenStatements(List<ThenStatement> thenStatements) {
         this.thenStatements = thenStatements;
     }
 
-    public String getIfStatement() {
-        return ifStatement;
+    public String getRuleScript() {
+        return ruleScript;
     }
 
-    public void setIfStatement(String ifStatement) {
-        this.ifStatement = ifStatement;
+    public void setRuleScript(String ruleScript) {
+        this.ruleScript = ruleScript;
     }
 }

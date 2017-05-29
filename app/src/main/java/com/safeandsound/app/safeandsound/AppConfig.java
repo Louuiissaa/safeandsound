@@ -36,7 +36,7 @@ public class AppConfig {
         }*/
 
         // Server user login url
-        private static String ip = "http://192.168.2.116";
+        private static String ip = "http://192.168.10.53";
 
         public static String URL_LOGIN = ip + "/db_login.php";
 

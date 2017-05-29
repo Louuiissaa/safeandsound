@@ -32,6 +32,9 @@ public class RuleEngine {
 
     public void run(HashMap<String, String> values){
         try {
+            PushMessage push = new PushMessage();
+            push.sendNotification("test");
+            String variables = "";
             V8 runtime = V8.createV8Runtime();
             db = new SQLiteHandler(AppController.getInstance());
             List<String> rules = db.getRuleStrings(db.getloggedInUser());
@@ -40,10 +43,13 @@ public class RuleEngine {
                 Iterator it = values.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry entry = (Map.Entry) it.next();
-                    runtime.executeVoidScript("var " + entry.getKey().toString() + " = " + entry.getValue() + ";");
+                    variables += "var " + entry.getKey().toString() + " = " + entry.getValue() + ";";
                 }
-                runtime.executeVoidScript(rule);
+                String notificationText = runtime.executeStringScript(variables + rule);
                 runtime.release();
+                if(!notificationText.isEmpty()) {
+                    push.sendNotification(notificationText);
+                }
             }
         }catch (IllegalStateException e ){
             Log.d(TAG, "RuleEngine Exception: " + e);
