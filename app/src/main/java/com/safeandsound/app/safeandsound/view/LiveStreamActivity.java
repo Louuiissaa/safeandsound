@@ -31,16 +31,11 @@ public class LiveStreamActivity extends Activity {
 
         //access livestream and show it in a webView
         webView.loadUrl(urlLivestream);
-
-
     }
-
 
     //'Zurück' Navigation schließt die Verbindung und den View
     public void onPause(){
         super.onPause();
         webView.destroy();
     }
-
-
 }

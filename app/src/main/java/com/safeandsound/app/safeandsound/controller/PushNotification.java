@@ -11,8 +11,12 @@ import com.safeandsound.app.safeandsound.R;
  * Created by louisapabst on 27.05.17.
  */
 
-public class PushMessage {
+public class PushNotification {
 
+    /**
+     * Sendet eine PushUp Benachrichtigung mit den übergebenen String
+     * @param message
+     */
     public void sendNotification(String message) {
         Context context = AppController.getInstance();
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context).setSmallIcon(R.mipmap.ic_launcher)

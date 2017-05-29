@@ -18,7 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.safeandsound.app.safeandsound.AppConfig;
 import com.safeandsound.app.safeandsound.AppController;
 import com.safeandsound.app.safeandsound.R;
-import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
+import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
 import com.safeandsound.app.safeandsound.model.User;
 
@@ -41,7 +41,6 @@ public class LogInActivity extends FragmentActivity{
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
-    private User user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,7 +50,7 @@ public class LogInActivity extends FragmentActivity{
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
 
-        // Progress dialog
+        // Progress Dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
 
@@ -61,7 +60,9 @@ public class LogInActivity extends FragmentActivity{
         // Session manager
         session = new SessionManager(getApplicationContext());
 
-        // Überprüfung ob User eingeloggt ist
+        /**
+         * Überprüfung ob User bereits eingeloggt ist
+         */
         if (session.isLoggedIn()) {
             // User is already logged in. Take him to main activity
             Intent intent = new Intent(LogInActivity.this, MainActivity.class);
@@ -73,14 +74,13 @@ public class LogInActivity extends FragmentActivity{
     public void login(View view){
         String email = inputEmail.getText().toString().trim();
         String password = inputPassword.getText().toString().trim();
-        //String ipAddressRP;
 
         // Kontrolle ob Email und Passwort eingegeben wurden
         if (!email.isEmpty() && !password.isEmpty()) {
-          /*  ipAddressRP = db.getUsersIPAddressRP(email);
+            ipAddressRP = db.getUsersIPAddressRP(email);
                 if(ipAddressRP == null || ipAddressRP.equals("")){
-                    getUsersIP(email);
-                }*/
+                    getUsersIP();
+                }
                 checkLogin(email, password);
         } else {
             // Fordert den User auf Email UND Passwort einzugeben
@@ -90,13 +90,16 @@ public class LogInActivity extends FragmentActivity{
         }
     }
 
-    public void getUsersIP(String email){
+    /**
+     * Falls die IP Addresse vo User nicht gefunden wurde, wird dieser aufgefordert sie nochmal anzugeben
+     */
+     public void getUsersIP(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Please fill in the IP Address of your Raspberry Pi:");
         builder.setMessage("Message");
 
-// Set an EditText view to get user input
+        // Set an EditText view to get user input
         final EditText input = new EditText(this);
         builder.setView(input);
 
@@ -156,7 +159,7 @@ public class LogInActivity extends FragmentActivity{
                         String email = userJSON.getString("email");
                         String ipAddressRP = userJSON.getString("ipaddressrp");
 
-                        User.init(uid, name, null, email, ipAddressRP, getApplicationContext());
+                        User.init(uid, name, email, ipAddressRP);
 
                         // User wird in interne Android DB gespeichert
                         if(!db.checkUserExists(email)) {

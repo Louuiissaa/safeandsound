@@ -1,18 +1,11 @@
 package com.safeandsound.app.safeandsound.view;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,20 +13,17 @@ import com.safeandsound.app.safeandsound.AppConfig;
 import com.safeandsound.app.safeandsound.ConnectionFeed;
 import com.safeandsound.app.safeandsound.ExceptionHandler;
 import com.safeandsound.app.safeandsound.R;
-import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
+import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 

@@ -1,4 +1,4 @@
-package com.safeandsound.app.safeandsound.controller.database;
+package com.safeandsound.app.safeandsound.model.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -13,9 +13,7 @@ import com.safeandsound.app.safeandsound.model.ruleengine.ThenStatement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by louisapabst on 25.04.17.
@@ -173,14 +171,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             }
             cursor.close();
             db.close();
-            // return user
-            Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
 
             return user;
         }
 
     /**
-     * Eingeloggter User wird zurückgegeben
+     * Überprüft ob User in der DB existiert
      */
     public boolean checkUserExists(String email) {
         HashMap<String, String> user = new HashMap<String, String>();
@@ -195,14 +191,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         }
         cursor.close();
         db.close();
-        // return user
-        Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
 
         return false;
     }
 
     /**
-     * UserID des eingeloggten Users wird zurückgegeben
+     * IP Addresse des Raspberry Pi des eingeloggten Users wird zurückgegeben
      */
     public String getUsersIPAddressRP(String email) {
         HashMap<String, String> user = new HashMap<String, String>();
@@ -220,8 +214,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             cursor.close();
             db.close();
         }
-        // return user
-        Log.d(TAG, "Fetching ip Address from Sqlite: " + ipAddressRP);
 
         return ipAddressRP;
     }
@@ -244,8 +236,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             cursor.close();
             db.close();
         }
-        // return user
-        Log.d(TAG, "Fetching IP Address from Sqlite: " + userID);
 
         return userID;
     }
@@ -255,7 +245,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
          * */
         public void logOutUser(String currentUserID) {
             SQLiteDatabase db = this.getWritableDatabase();
-            // Delete All Rows
             String updateQuery = "UPDATE "+ TABLE_USER + " SET " + KEY_ISLOGGEDIN +" = 0 WHERE " + KEY_ID + " = " + currentUserID;
             db.execSQL(updateQuery);
 
@@ -263,11 +252,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         }
 
         /**
-        * Datenbank wird gelöscht und wieder neu erstellt
+        * User wird in Datenbank als eingeloggt markiert
         * */
         public void logInUser(String currentUserID) {
             SQLiteDatabase db = this.getWritableDatabase();
-            // Delete All Rows
             String updateQuery = "UPDATE "+ TABLE_USER + " SET " + KEY_ISLOGGEDIN +" = 1 WHERE " + KEY_ID + " = " + currentUserID;
             db.execSQL(updateQuery);
 
@@ -303,7 +291,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_THENTEXT, thenText); // ThenText
-        values.put(KEY_THENTYPE, thenType); // ComparisonType
+        values.put(KEY_THENTYPE, thenType); // ThenType
 
         // Werte werden hinzugefügt
         long id = db.insert(TABLE_THENSTATEMENT, null, values);
@@ -320,8 +308,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_IDRULE, idRule); // ThenText
-        values.put(KEY_IDIFSTATEMENT, idIf); // ComparisonType
+        values.put(KEY_IDRULE, idRule); // ID
+        values.put(KEY_IDIFSTATEMENT, idIf); // ID des If Statements
 
         // Werte werden hinzugefügt
         db.insert(TABLE_RULE_IF, null, values);
@@ -339,8 +327,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_IDRULE, idRule); // ThenText
-        values.put(KEY_IDTHENSTATEMENT, idThen); // ComparisonType
+        values.put(KEY_IDRULE, idRule); // ID
+        values.put(KEY_IDTHENSTATEMENT, idThen); // ID des Then Statements
 
         // Werte werden hinzugefügt
         db.insert(TABLE_RULE_THEN, null, values);
@@ -350,7 +338,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
     /**
-     * THEN-Statement wird in DB gespeichert
+     * RULE wird in DB gespeichert
      * */
     public void addRule(String userid, List<IfStatement> ifStatements, List<ThenStatement> thenStatements) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -377,6 +365,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "New then statement inserted into sqlite.");
     }
 
+    /**
+     * Setzt den JavScript Code der gesamten Regel zusammen
+     * @param ifStatements
+     * @param thenStatements
+     * @return
+     */
     public String getRuleString(List<IfStatement> ifStatements, List<ThenStatement> thenStatements){
         String s_if = getIfString(ifStatements);
         String s_then = getThenString(thenStatements);
@@ -403,6 +397,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         return s_if;
     }
 
+    /**
+     * Erstellung des JavaScriptes einer Regel mit einfachen binären Operator
+     * @param datatype
+     * @param comparisontype
+     * @param comparisondata
+     * @param conjunction
+     * @return
+     */
     public String when(String datatype, String comparisontype, String comparisondata, String conjunction){
         String template = "({datatype} {comparisontype} {comparisondata}) {conjunction}";
         template = template.replace("{datatype}", datatype).replace("{comparisontype}", comparisontype)
@@ -410,6 +412,16 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         return template;
     }
 
+    /**
+     * Erstellung des JavaScriptes einer Regel mit zusammengesetzten binären Operatoren
+     * @param datatype
+     * @param first_comparisontype
+     * @param second_comparisontype
+     * @param first_comparisondata
+     * @param second_comparisondata
+     * @param conjunction
+     * @return
+     */
     public String when(String datatype, String first_comparisontype, String second_comparisontype, String first_comparisondata, String second_comparisondata, String conjunction){
         String template = "({datatype} {first_comparisontype} {first_comparisondata} && {datatype} {second_comparisontype} {second_comparisondata}) {conjunction}";
         template = template.replace("{datatype}", datatype).replace("{first_comparisontype}", first_comparisontype)
@@ -418,6 +430,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         return template;
     }
 
+    /**
+     * Rückgabe der Anweisung aus dem Then Statement
+     * @param thenStatements
+     * @return
+     */
     public String getThenString(List<ThenStatement> thenStatements){
         String s_then = "";
         for(int i = 0; i < thenStatements.size(); i++){
@@ -430,13 +447,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
     /**
-     *
+     *  Gibt JavaScripte aller Regeln eines Users zurück
      * @param userid
      * @return
      */
     public List<String> getRuleStrings(String userid) {
         List<String> result = new ArrayList<String>();
-        //HashMap<String, String> rules = new HashMap<String, String>();
         String selectRuleQuery = "SELECT " + KEY_RULE + " FROM " + TABLE_RULE + " WHERE " + KEY_USERID + " = " + userid;
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -454,13 +470,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
     /**
-     *
+     *  Gibt alle Felder aller Regeln eines Users zurück
      * @param userid
      * @return
      */
     public List<Rule> getRules(String userid) {
         List<Rule> result = new ArrayList<Rule>();
-        //HashMap<String, String> rules = new HashMap<String, String>();
         String selectRuleQuery = "SELECT  * FROM " + TABLE_RULE + " WHERE " + KEY_USERID + " = " + userid;
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -514,8 +529,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         }
         cursor.close();
         db.close();
-        // return user
-        Log.d(TAG, "Fetching rules from Sqlite: " + result.toString());
 
         return result;
     }

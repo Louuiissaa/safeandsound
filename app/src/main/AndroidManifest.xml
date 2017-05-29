@@ -37,10 +37,6 @@
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".Room"
-            android:label="@string/app_name">
-        </activity>
-        <activity
             android:name=".view.SettingsActivity"
             android:label="@string/app_name">
         </activity>
@@ -51,10 +47,6 @@
         <activity
         android:name=".view.SignUpActivity"
         android:label="@string/app_name">
-        </activity>
-        <activity
-            android:name=".SensorOverview"
-            android:label="@string/app_name">
         </activity>
         <activity
             android:name=".view.LiveStreamActivity"

@@ -7,15 +7,9 @@ import java.util.List;
  */
 
 public class Rule {
-    /*
-    String: declares which sensor input
-    Integer: declares by what the sensor is followed in the statement (0 = statement is finished, 1 = AND, 2 = OR)
-     */
-    List<IfStatement> ifStatements;
-    String ruleScript;
-    //IfStatement ifStatements;
-    //List<ThenStatement> thenStatements;
-    List<ThenStatement> thenStatements;
+    private List<IfStatement> ifStatements;
+    private String ruleScript;
+    private List<ThenStatement> thenStatements;
 
     public Rule(List<IfStatement> ifStatements, List<ThenStatement> thenStatements){
         this.ifStatements = ifStatements;

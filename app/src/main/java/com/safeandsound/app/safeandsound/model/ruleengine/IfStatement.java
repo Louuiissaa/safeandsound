@@ -11,18 +11,7 @@ public class IfStatement {
     String comparisonData;
     String conjunction;
 
-    public IfStatement(){
-    }
-
     public IfStatement(String dataType, String comparisonType, String comparisonData, String conjunction){
-        this.dataType = dataType;
-        this.comparisonType = comparisonType;
-        this.comparisonData = comparisonData;
-        this.conjunction = conjunction;
-    }
-
-    public IfStatement(int ID, String dataType, String comparisonType, String comparisonData, String conjunction){
-        this.ID = ID;
         this.dataType = dataType;
         this.comparisonType = comparisonType;
         this.comparisonData = comparisonData;

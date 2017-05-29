@@ -1,23 +1,14 @@
 package com.safeandsound.app.safeandsound.controller;
 
-import android.renderscript.RenderScript;
-import android.renderscript.Script;
-
 import com.eclipsesource.v8.V8;
 import com.safeandsound.app.safeandsound.AppController;
-import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
-import com.safeandsound.app.safeandsound.model.ruleengine.IfStatement;
-import com.safeandsound.app.safeandsound.model.ruleengine.Rule;
+import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Condition;
 
-import android.renderscript.ScriptC;
 import android.util.Log;
 
 import static android.content.ContentValues.TAG;
@@ -30,21 +21,27 @@ import static android.content.ContentValues.TAG;
 public class RuleEngine {
     private SQLiteHandler db;
 
+    /**
+     * Setzt zu dem JavaScript der Regeln die Variablen hinzu und interpretiert dieses in einer V8 Umgebung (JavaScript Umgebung)
+     * @param values
+     */
     public void run(HashMap<String, String> values){
         try {
-            PushMessage push = new PushMessage();
-            push.sendNotification("test");
-            String variables = "";
+            PushNotification push = new PushNotification();
+            String variables = "var hour = new Date().getHours();";
+            variables += "var day = new Date().getDate();";
+            variables += "var month = new Date().getMonth()+1;";
+            variables += "var weekday = new Date().getDay();";
             V8 runtime = V8.createV8Runtime();
             db = new SQLiteHandler(AppController.getInstance());
             List<String> rules = db.getRuleStrings(db.getloggedInUser());
+            Iterator it = values.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry entry = (Map.Entry) it.next();
+                variables += "var " + entry.getKey().toString() + " = " + entry.getValue() + ";";
+            }
             for (int r = 0; r < rules.size(); r++) {
                 String rule = rules.get(r);
-                Iterator it = values.entrySet().iterator();
-                while (it.hasNext()) {
-                    Map.Entry entry = (Map.Entry) it.next();
-                    variables += "var " + entry.getKey().toString() + " = " + entry.getValue() + ";";
-                }
                 String notificationText = runtime.executeStringScript(variables + rule);
                 runtime.release();
                 if(!notificationText.isEmpty()) {
@@ -55,8 +52,4 @@ public class RuleEngine {
             Log.d(TAG, "RuleEngine Exception: " + e);
         }
     }
-
-    // if(5 < 8){
-    //      return "Open window";
-    // }
 }

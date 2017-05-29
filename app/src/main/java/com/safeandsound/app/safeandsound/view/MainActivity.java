@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.safeandsound.app.safeandsound.R;
-import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
+import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
 
 import java.util.HashMap;

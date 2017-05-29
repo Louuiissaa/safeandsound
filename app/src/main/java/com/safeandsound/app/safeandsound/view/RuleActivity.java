@@ -15,8 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.safeandsound.app.safeandsound.R;
-import com.safeandsound.app.safeandsound.controller.PushMessage;
-import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
+import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.model.ruleengine.IfStatement;
 import com.safeandsound.app.safeandsound.model.ruleengine.Rule;
 import com.safeandsound.app.safeandsound.model.ruleengine.ThenStatement;
@@ -176,7 +175,10 @@ public class RuleActivity extends FragmentActivity {
         return rules;
     }
 
-
+    /**
+     * Alle Regeln werden auf dem User Interface angezeigt
+     * @param rules
+     */
     public void showAllRules(List<Rule> rules){
         LinearLayout ll = (LinearLayout) findViewById(R.id.ruleLayout);
         for (int r = 0; r < rules.size(); r++){

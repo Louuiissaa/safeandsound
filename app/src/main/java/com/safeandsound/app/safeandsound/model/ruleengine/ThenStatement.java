@@ -10,17 +10,7 @@ public class ThenStatement {
     String thenType;
     String conjunction;
 
-    public ThenStatement(){
-    }
-
     public ThenStatement(String thenText, String thenType, String conjunction){
-        this.thenText = thenText;
-        this.thenType = thenType;
-        this.conjunction = conjunction;
-    }
-
-    public ThenStatement(int ID, String thenText, String thenType, String conjunction){
-        this.ID = ID;
         this.thenText = thenText;
         this.thenType = thenType;
         this.conjunction = conjunction;

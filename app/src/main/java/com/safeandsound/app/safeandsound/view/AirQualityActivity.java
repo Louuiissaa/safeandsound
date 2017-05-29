@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.net.ParseException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +12,7 @@ import com.safeandsound.app.safeandsound.AppConfig;
 import com.safeandsound.app.safeandsound.ConnectionFeed;
 import com.safeandsound.app.safeandsound.ExceptionHandler;
 import com.safeandsound.app.safeandsound.R;
-import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
+import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
 
 import org.json.JSONArray;
@@ -25,7 +23,6 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -96,7 +93,6 @@ public class AirQualityActivity extends FragmentActivity {
 
         /*
         *    Get-Request um die aktuellen daten des Mq-135 sensors auszulesen ********
-        *
         */
         try {
             URL urlObj = new URL(AppConfig.URL_MQGas);
@@ -109,7 +105,7 @@ public class AirQualityActivity extends FragmentActivity {
             e.printStackTrace();
         }
 
-        //Auslesen von Gas sensor werten
+        //Auslesen von Gassensor Werten
         try{
             //result = result.replace('"','\'');
             JSONArray resultArray = new JSONArray(result);
@@ -196,7 +192,4 @@ public class AirQualityActivity extends FragmentActivity {
         }
         startActivity(i);
     }
-
-
-
 }

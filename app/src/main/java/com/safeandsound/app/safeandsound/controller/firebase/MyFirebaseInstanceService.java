@@ -13,16 +13,8 @@ public class MyFirebaseInstanceService extends FirebaseInstanceIdService {
     private static final String TAG = MyFirebaseInstanceService.class.getSimpleName();
     @Override
     public void onTokenRefresh() {
-        // Get updated InstanceID token.
+        // Gibt den neuen InstanceID token zurück.
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         Log.d(TAG, "Refreshed token: " + refreshedToken);
-
-        // TODO: Implement this method to send any registration to your app's servers.
-        sendRegistrationToServer(refreshedToken);
-
-    }
-
-    private void sendRegistrationToServer(String token){
-
     }
 }

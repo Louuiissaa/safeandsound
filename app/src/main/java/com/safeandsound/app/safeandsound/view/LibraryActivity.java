@@ -30,7 +30,6 @@ import java.util.concurrent.ExecutionException;
 public class LibraryActivity extends FragmentActivity{
 
     private int countMotionItems = 0;
-    private int[] helperArr;
     List<Map<String,String>> motionList = new ArrayList<Map<String, String>>();
 
     public void onCreate(Bundle savedInstanceState) {
@@ -105,6 +104,4 @@ public class LibraryActivity extends FragmentActivity{
         super.onBackPressed();
         this.finish();
     }
-
-
 }

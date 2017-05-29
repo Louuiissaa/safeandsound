@@ -9,6 +9,10 @@
         <item>CO2</item>
         <item>CO</item>
         <item>NH4</item>
+        <item>Hour</item>
+        <item>Weekday</item>
+        <item>Month</item>
+        <item>Day</item>
     </string-array>
     <string-array name="comparisonType">
         <item>is equal</item>

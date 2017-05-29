@@ -12,8 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.safeandsound.app.safeandsound.R;
-import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
-import com.safeandsound.app.safeandsound.SensorOverview;
+import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 import com.safeandsound.app.safeandsound.SessionManager;
 import com.safeandsound.app.safeandsound.model.User;
 
@@ -100,8 +99,4 @@ public class SettingsActivity extends FragmentActivity {
         startActivity(intent);
     }
 
-    public void openSensorOverviewActivity(View view) {
-        Intent i = new Intent(SettingsActivity.this, SensorOverview.class);
-        startActivity(i);
-    }
 }

@@ -20,6 +20,12 @@ import java.util.Map;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = MyFirebaseInstanceService.class.getSimpleName();
+
+    /**
+     * Empfängt die Nachrichten die über Firebase an diese App geschickt werden
+     * Hauptsächlich die Sendordaten vom Raspberry Pi
+     * @param remoteMessage
+     */
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
             HashMap<String, String > values = new HashMap<String, String>();
@@ -35,7 +41,5 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             }
             RuleEngine ruleEngine = new RuleEngine();
             ruleEngine.run(values);
-
-        Log.d(TAG, "From: " + remoteMessage.getFrom());
     }
 }

@@ -12,7 +12,7 @@ import com.safeandsound.app.safeandsound.AppConfig;
 import com.safeandsound.app.safeandsound.ConnectionPOST;
 import com.safeandsound.app.safeandsound.PostParams;
 import com.safeandsound.app.safeandsound.R;
-import com.safeandsound.app.safeandsound.controller.database.SQLiteHandler;
+import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 
 import java.util.concurrent.ExecutionException;
 
