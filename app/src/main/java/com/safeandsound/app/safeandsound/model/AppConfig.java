@@ -1,4 +1,4 @@
-package com.safeandsound.app.safeandsound;
+package com.safeandsound.app.safeandsound.model;
 
 /**
  * Created by louisapabst on 22.04.17.
@@ -12,9 +12,6 @@ public class AppConfig {
         // Server user register url
         public static String URL_SIGNUP = "http://" + ipAddressRP + "/db_register.php";
 
-        //Server add room url
-        public static String URL_ADD_ROOM = "http://" + ipAddressRP + "/db_add_room.php";
-
         // Server user temperature url
         public static String URL_TEMP = "http://" + ipAddressRP + "/temp";
 
@@ -26,6 +23,20 @@ public class AppConfig {
 
         // Server user motion url
         public static String URL_MOTION = "http://" + ipAddressRP + "/motion";
+
+        // Server MQGas url
+        public static String URL_MQGas = "http://" + ipAddressRP + ":1880/mqgas";
+
+        //Server Temp Intervall url
+        public static String URL_TEMPINT = "http://" + ipAddressRP + ":1880/tempInt?from=";
+
+        //Server MQ Gas Intervall url
+        public static String URL_MQGasInt = "http://" + ipAddressRP + ":1880/gasInt?from=";
+
+        //Server Motion Picture url
+        public static String URL_MOTION_PICTURE = "http://" + ipAddressRP + ":1880/getPic?id=";
+
+
 
         public String getIpAddressRP() {
                 return ipAddressRP;

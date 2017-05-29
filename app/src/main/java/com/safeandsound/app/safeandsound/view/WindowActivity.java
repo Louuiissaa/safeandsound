@@ -9,12 +9,12 @@ import android.support.v4.app.FragmentActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.safeandsound.app.safeandsound.AppConfig;
-import com.safeandsound.app.safeandsound.ConnectionFeed;
-import com.safeandsound.app.safeandsound.ExceptionHandler;
+import com.safeandsound.app.safeandsound.model.AppConfig;
+import com.safeandsound.app.safeandsound.controller.ConnectionFeed;
+import com.safeandsound.app.safeandsound.controller.ExceptionHandler;
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
-import com.safeandsound.app.safeandsound.SessionManager;
+import com.safeandsound.app.safeandsound.controller.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;

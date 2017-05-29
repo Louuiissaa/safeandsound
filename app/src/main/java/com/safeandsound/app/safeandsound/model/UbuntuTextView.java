@@ -1,4 +1,4 @@
-package com.safeandsound.app.safeandsound;
+package com.safeandsound.app.safeandsound.model;
 
 import android.content.Context;
 import android.graphics.Typeface;

@@ -1,7 +1,6 @@
 package com.safeandsound.app.safeandsound.controller;
 
 import com.eclipsesource.v8.V8;
-import com.safeandsound.app.safeandsound.AppController;
 import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 
 import java.util.HashMap;

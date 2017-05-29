@@ -10,7 +10,7 @@
         android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
 
     <application
-        android:name=".AppController"
+        android:name=".controller.AppController"
         android:minSdkVersion="8"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
-import com.safeandsound.app.safeandsound.SessionManager;
+import com.safeandsound.app.safeandsound.controller.SessionManager;
 import com.safeandsound.app.safeandsound.model.User;
 
 import java.util.HashMap;

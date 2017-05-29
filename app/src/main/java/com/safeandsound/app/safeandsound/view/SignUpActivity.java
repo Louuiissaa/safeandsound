@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.safeandsound.app.safeandsound.AppConfig;
-import com.safeandsound.app.safeandsound.ConnectionPOST;
-import com.safeandsound.app.safeandsound.PostParams;
+import com.safeandsound.app.safeandsound.model.AppConfig;
+import com.safeandsound.app.safeandsound.controller.ConnectionPOST;
+import com.safeandsound.app.safeandsound.controller.PostParams;
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
 

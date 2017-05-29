@@ -15,11 +15,11 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.safeandsound.app.safeandsound.AppConfig;
-import com.safeandsound.app.safeandsound.AppController;
+import com.safeandsound.app.safeandsound.model.AppConfig;
+import com.safeandsound.app.safeandsound.controller.AppController;
 import com.safeandsound.app.safeandsound.R;
 import com.safeandsound.app.safeandsound.model.database.SQLiteHandler;
-import com.safeandsound.app.safeandsound.SessionManager;
+import com.safeandsound.app.safeandsound.controller.SessionManager;
 import com.safeandsound.app.safeandsound.model.User;
 
 import org.json.JSONException;

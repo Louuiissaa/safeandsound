@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-import com.safeandsound.app.safeandsound.AppConfig;
+import com.safeandsound.app.safeandsound.model.AppConfig;
 import com.safeandsound.app.safeandsound.R;
 
 /**

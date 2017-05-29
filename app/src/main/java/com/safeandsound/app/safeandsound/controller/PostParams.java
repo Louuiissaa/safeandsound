@@ -1,4 +1,4 @@
-package com.safeandsound.app.safeandsound;
+package com.safeandsound.app.safeandsound.controller;
 
 import java.net.URL;
 

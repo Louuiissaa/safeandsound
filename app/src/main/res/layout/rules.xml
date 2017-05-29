@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:isScrollContainer="true">
-        <com.safeandsound.app.safeandsound.UbuntuTextView
+        <com.safeandsound.app.safeandsound.model.UbuntuTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/rule"
